@@ -1,12 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<script src="website4.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="website4.js" defer></script>
+  <title>Home | gigaDrive</title>
+  <link rel="stylesheet" href="mobile.dev.css">
 </head>
-
 <body>
-<div id="fileList">
+  <h1 id="h1">gigaDrive</h1>
 
-	
+  <section id="searchArea">
+    <input type="text" placeholder="Search dev.gigadrive.ddns.net" id="searchInput">
+  </section>
+<div id="spacer"></div>
+  <section id="fileArea">
+    <h2>Projects</h2>
+    <div id="folderList">
+      <div id="fileLink">gigaChat</div>
+      <div id="fileLink">gigaChat AI</div>
+      <div id="fileLink">gigaDrive</div>
+      <div id="fileLink"><b><i>view all</i></b></div>
+    </div>
+  </section>
 
+  <div id="spacer"></div>
+  <section id="fileArea">
+    <h2>Recents</h2>
+    <div id="fileList">
+      <div id="fileLink">
+        <div id="fileName">index.html | gigaChat</div>
+        <div id="fileDownload"><img src="download.png"></div>
+        <div id="fileDelete"><img src="delete.svg"></div>
+      </div>
+      <div id="fileLink">animation.css | Cable Cam</div>
+      <div id="fileLink">main.cpp | Cable Cam</div>
+      <div id="fileLink"><b><i>view all</i></b></div>
+    </div>
+  </section>
+<!--pls make new file div with id"fileLink"-->
+  <section id="menuArea">
+  <a href="https://public.gigadrive.ddns.net" target="_blank"><div id="menuLink" class="active">Home</div></a>
+  <a href="https://dev.gigadrive.ddns.net" target="_blank"><div id="menuLink">Shared</div></a>
+  <div id="uploadLink" onclick="openUploadMenu()">Upload</div>
+  <div id="menuLink">Apps</div>
+  </section>
 
+<!--hidden-->
+<div id="uploadMenu">
+  <h2>Upload</h2>
+  <!--select Name, Access-->
+  <section id="chooseFile">
+    <input type="file" id="addFile">
+    <br>
+    <label for="fileName">Enter a Name:</label>
+    <input type="text" id="fileName">
+    <button>Publish to everyone</button>
+  </section>
 </div>
+
+<script>
+  // upload
+
+  let uploadMenu = document.getElementById('uploadMenu');
+  let h1 = document.getElementById('h1');
+  let searchBar = document.getElementById('searchInput');
+
+  function openUploadMenu() {
+    uploadMenu.style.display = 'block';
+    h1.style.filter = 'blur(1px)';
+    searchBar.style.filter = 'blur(1px)';
+  }
+</script>
+
 </body>
+</html>
