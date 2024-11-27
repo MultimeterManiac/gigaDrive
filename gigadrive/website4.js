@@ -10,23 +10,33 @@ function listFiles(){
 	for (i in files){
 		//container
 		let parpar = document.createElement("div");
+		parpar.setAttribute("id", "fileLink");
 		//filename
-		let el = document.createElement("div");
+		
+
+		let elficken = document.createElement("div");
+		elficken.setAttribute("id", "fileName");
+
 		let el2 = document.createTextNode(files[i]);
-		el.appendChild(el2);
+		elficken.appendChild(el2);
 		//download button
-		let el3 = document.createElement("button");
+		let el3 = document.createElement("div");
 		el3.setAttribute("onclick", "downloadFile('" + files[i] + "')");
-		let el4 = document.createTextNode("download");
-		el3.appendChild(el4);
+		el3.setAttribute("id", "fileDownload")
+		let el8 = document.createElement("img");
+		el8.setAttribute("src", "download.png");
+		el3.appendChild(el8);
 		//delete button
-		let el5 = document.createElement("button");
+		let el5 = document.createElement("div");
 		el5.setAttribute("onclick", "deleteFile('" + files[i] + "')");
-		let el6 = document.createTextNode("delete");
-		el5.appendChild(el6);
+		el5.setAttribute("id", "fileDelete");
+		let el9 = document.createElement("img");
+		el9.setAttribute("src", "delete.svg");
+		el5.appendChild(el9);
 
 		
-		parpar.appendChild(el);
+		parpar.appendChild(elficken);
+		//parpar.appendChild(el);
 		parpar.appendChild(el3);
 		parpar.appendChild(el5);
 		par.appendChild(parpar);
