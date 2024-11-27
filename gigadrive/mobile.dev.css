@@ -1,0 +1,141 @@
+:root {
+  --dark: rgb(31, 31, 31);
+  --accent: rgb(19, 19, 19);
+  --hover: brightness(1.1);
+  --focus: brightness(1.5);
+  --radius: 4px;
+  --margin: 2px;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  box-sizing: border-box;
+  color: white;
+}
+body {
+  background-color: var(--dark);
+}
+#spacer {
+  height: 1rem;
+}
+h1 {
+  font-size: 2rem;
+  text-align: center;
+  color: green;
+}
+h2 {
+  font-size: 1.25rem;
+  color: green;
+}
+a {
+  text-decoration: none;
+}
+/*search*/
+#searchArea {
+  display: flex;
+  justify-content: center;
+}
+#searchInput {
+  height: 2rem;
+  width: 66vw;
+  border-radius: 1rem;
+  border: 1px lightgrey solid;
+  padding-inline: 1rem;
+  color: white;
+  background-color: var(--dark);
+  text-align: center;
+  transition: all .25s ease;
+}
+#searchInput::placeholder {
+  text-align: center;
+  color: white;
+  font-size: .9rem;
+}
+#searchInput:focus {
+  animation: searchFocus .33s ease both;
+  outline: none;
+}
+
+/*file*/
+#fileList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#folderList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+#fileLink {
+  width: calc(50vw - 12px); /*3 times the margin variable*/
+  background-color: var(--accent);
+  border-radius: var(--radius);
+  margin: var(--margin);
+  padding: .75rem;
+  animation: startNow 1.5s ease both;
+  display: grid;
+  grid-template-columns: 4fr 1fr 1fr;
+}
+#fileDownload, #fileDelete {
+  height: 2rem;
+  width: 2rem;
+  padding: .5rem;
+  margin-right: 4px;
+  border-radius: 4px;
+  background-color: var(--dark);
+}
+#fileLink img {
+  height: 1rem;
+  width: 1rem;
+}
+
+/*menu*/
+#menuArea {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--accent);
+  min-height: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 12px;
+  animation: startJetzt .5s ease;
+}
+#menuArea div {
+  padding: .75rem;
+  border-radius: var(--radius);
+  color: white;
+  font-weight: bold;
+}
+.active {
+  border:  2px solid white;
+  background-color: var(--dark);
+}
+#uploadMenu {
+  display: none;
+  animation: fadeIn .15s ease both;
+  position: fixed;
+  left: 1rem;
+  right: 1rem;
+  top: 12vh;
+  bottom: 12vh;
+  background-color: var(--accent);
+  border-radius: var(--radius);
+  box-shadow: 0 0 2rem black;
+}
+
+@keyframes fadeIn {
+  0% {opacity: 0; transform: scale(.9);}
+}
+@keyframes startNow {
+  0% {translate: 0 1rem; opacity: 0; transform: scale(.5);}
+  50% {transform: scale(.5);}
+}
+@keyframes startJetzt {
+  0% {translate: 0 4rem;}
+}
+@keyframes searchFocus {
+  100% {width: 88vw; height: 3rem;}
+}
