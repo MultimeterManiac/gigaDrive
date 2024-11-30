@@ -108,7 +108,7 @@ h2 {
   padding-inline: 12px;
   animation: startJetzt 1s .5s ease;
 }
-#menuArea div {
+#menuArea * {
   padding: .75rem;
   padding-inline: 4rem;
   border-radius: var(--radius);

@@ -6,7 +6,24 @@
     <title>Login | gigaDrive</title>
     <script type="text/javascript" src="script.js"></script>
     <script type="text/javascript" src="login.js"></script>
-    <link rel="stylesheet" href="login.css">
+    <link id="stylesheet" rel="stylesheet" href="styles.css">
+<script>
+    function updateStylesheet() {
+        const stylesheet = document.getElementById("stylesheet");
+        if (window.innerWidth <= 768) {
+            stylesheet.href = "mobile.css";
+        } else {
+            stylesheet.href = "styles.css";
+        }
+    }
+
+    // Initial check
+    updateStylesheet();
+
+    // Update on window resize
+    window.addEventListener("resize", updateStylesheet);
+</script>
+
 </head>
 <body>
 <section id="loadingSection">

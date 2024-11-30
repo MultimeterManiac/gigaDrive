@@ -31,30 +31,10 @@ h2 {
 a {
   text-decoration: none;
 }
-/*search*/
-#searchArea {
-  display: flex;
-  justify-content: center;
-}
-#searchInput {
-  height: 2rem;
-  width: 66vw;
-  border-radius: 1rem;
-  border: 1px lightgrey solid;
-  padding-inline: 1rem;
-  color: white;
-  background-color: var(--dark);
-  text-align: center;
-  transition: all .25s ease;
-}
-#searchInput::placeholder {
-  text-align: center;
-  color: white;
+h5 {
+  color: grey;
   font-size: .9rem;
-}
-#searchInput:focus {
-  animation: searchFocus .33s ease both;
-  outline: none;
+  margin: 0;
 }
 
 /*file*/
@@ -62,9 +42,8 @@ a {
   display: grid;
   grid-template-columns: 1fr;
 }
-#folderList {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.listView {
+  display: block;
 }
 #fileLink {
   width: calc(100vw - 24px); /*3 times the margin variable*/
@@ -72,7 +51,7 @@ a {
   border-radius: var(--radius);
   margin: var(--margin);
   padding: .75rem;
-  animation: startNow 1.5s ease both;
+  animation: fileFade .75s ease both;
   display: grid;
   grid-template-columns: 4fr 1fr 1fr;
 }
@@ -101,7 +80,7 @@ a {
   justify-content: space-between;
   align-items: center;
   padding-inline: 12px;
-  animation: startJetzt .5s ease;
+  animation: menuAppear .5s .5s ease both;
 }
 #menuArea div {
   padding: .75rem;
@@ -124,33 +103,38 @@ a {
   border:  2px solid white;
   background-color: var(--dark);
 }
-#uploadMenu {
+/*upload*/
+#uploadPopupCon,
+#deletePopupCon {
   display: none;
-  animation: fadeIn .15s ease both;
+  justify-content: center;
+  align-items: center;
   position: fixed;
-  left: 1rem;
-  right: 1rem;
-  top: 12vh;
-  bottom: 12vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.popup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: popup .15s ease both;
+  width: 88vw;
+  height: 24vh;
   background-color: var(--accent);
   border-radius: var(--radius);
   box-shadow: 0 0 2rem black;
 }
-select {
-  background-color: var(--dark);
-  width: 20vw;
+/*keyframes*/
+@keyframes popup {
+  0% {opacity: 0; transform: scale(1.1); filter: blur(1px);}
 }
-
-@keyframes fadeIn {
-  0% {opacity: 0; transform: scale(.9);}
-}
-@keyframes startNow {
+@keyframes fileFade {
   0% {translate: 0 1rem; opacity: 0; transform: scale(.5);}
   50% {transform: scale(.5);}
 }
-@keyframes startJetzt {
-  0% {translate: 0 4rem;}
-}
-@keyframes searchFocus {
-  100% {width: 88vw; height: 3rem;}
+@keyframes menuAppear {
+  0% {translate: 0 12rem;}
 }
