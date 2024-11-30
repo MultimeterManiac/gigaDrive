@@ -23,11 +23,11 @@ body {
 h1 {
   font-size: 3rem;
   text-align: center;
-  color: green;
+  color: white;
 }
 h2 {
   font-size: 2rem;
-  color: green;
+  color: lightgray;
 }
 a {
   text-decoration: none;
@@ -111,6 +111,17 @@ a {
   margin-inline: .5rem;
   text-align: center;
 }
+#uploadNow {
+  padding: .75rem;
+  border: none;
+  border-radius: var(--radius);
+  color: white;
+  font-weight: bold;
+  margin-block: 1rem;
+  margin-inline: .5rem;
+  text-align: center;
+  cursor: crosshair;
+}
 .active {
   border:  2px solid white;
   background-color: var(--dark);
@@ -126,6 +137,11 @@ a {
   background-color: var(--accent);
   border-radius: var(--radius);
   box-shadow: 0 0 2rem black;
+}
+
+select {
+  background-color: var(--dark);
+  width: 20vw;
 }
 
 @keyframes fadeIn {
