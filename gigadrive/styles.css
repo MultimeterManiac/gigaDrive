@@ -137,15 +137,41 @@ h5 {
   align-items: center;
   animation: popup .15s ease both;
   width: 33vw;
-  height: 12rem;
+  height: 16rem;
   background-color: var(--accent);
   border-radius: var(--radius);
   box-shadow: 0 0 2rem black;
+  line-height: 2rem;
 }
 select {
   background-color: var(--dark);
   width: 20vw;
 }
+
+.primarySecondaryContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 2rem;
+}
+.primarySecondaryContainer * {
+  padding-inline: 1rem;
+  padding-block: .5rem;
+  border-radius: 1rem;
+  
+}
+.confirmDeleteBtn {
+  background-color: red;
+  border: none;
+  cursor: crosshair;
+}
+.cancelDeleteBtn {
+  border: solid 1px white;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+
 
 /*keyframes*/
 @keyframes popup {

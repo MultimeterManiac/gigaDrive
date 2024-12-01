@@ -32,9 +32,7 @@ a {
   text-decoration: none;
 }
 h5 {
-  color: grey;
-  font-size: .9rem;
-  margin: 0;
+display: none;
 }
 
 /*file*/
@@ -126,6 +124,29 @@ h5 {
   background-color: var(--accent);
   border-radius: var(--radius);
   box-shadow: 0 0 2rem black;
+  line-height: 2rem;
+}
+.primarySecondaryContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-block: 2rem;
+}
+.primarySecondaryContainer * {
+  padding-inline: 1rem;
+  padding-block: .5rem;
+  border-radius: 1rem;
+  
+}
+.confirmDeleteBtn {
+  background-color: red;
+  border: none;
+  cursor: crosshair;
+}
+.cancelDeleteBtn {
+  border: solid 1px white;
+  background-color: transparent;
+  cursor: pointer;
 }
 /*keyframes*/
 @keyframes popup {
