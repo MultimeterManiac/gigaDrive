@@ -41,9 +41,9 @@
 
 
   <section id="menuArea">
-  <a href="https://public.gigadrive.ddns.net" target="_blank"><div id="homeLink" class="active">Home</div></a>
-  <a href="https://dev.gigadrive.ddns.net" target="_blank"><div id="menuLink">Shared</div></a>
-  <div id="uploadLink" onclick="openUploadMenu()">Upload</div>
+  <div id="homeLink" class="active"><img src="home.svg"></div>
+  <div id="shareMenu" onclick="openShareMenu()"><img src="share.svg"></div>
+  <div id="uploadLink" onclick="openUploadMenu()"><img src="upload.png"></div>
   <div id="diskSpace"><span style="color: red;">xx</span>/<span style="color: green;">xx</span>GB</div>
   </section>
   </section>
@@ -56,9 +56,24 @@
   <section id="uploadSectionUpload">
     <input type="file" id="addFile">
     <button id="uploadNow" style="color: black;">Publish to everyone</button>
+    <button id="cancelDeleteBtn" class="cancelDeleteBtn" onclick="cancelFunction()">Cancel</button>
   </section>
 </div>
 </div>
+
+
+<!--hidden-->
+<div id="sharePopupCon">
+  <div id="sharePopup" class="popup">
+    <h2 id="headSectionUpload">Shared with me</h2>
+    <!--select Name, Access-->
+    <section id="uploadSectionUpload">
+      <p>Files shared with your account will be displayed here!</p>
+      <button id="uploadNow" style="color: black;" onclick="cancelFunction()">Coming soon .... close this window</button>
+    </section>
+  </div>
+  </div>
+
 
 <!--hidden-->
 <div id="deletePopupCon">
@@ -84,6 +99,8 @@
   let h1 = document.getElementById('h1');
   let uploadLink = document.getElementById('uploadLink');
   let homeLink = document.getElementById('homeLink');
+  let shareMenu = document.getElementById('sharePopupCon');
+  let shareLink = document.getElementById('');
 
   function openUploadMenu() {
     uploadMenu.style.display = 'flex';
@@ -91,6 +108,14 @@
     uploadLink.classList.add('active');
     homeLink.classList.remove('active');
     document.title = "Upload | gigaDrive";
+  }
+
+  function openShareMenu() {
+    shareMenu.style.display = 'flex';
+    h1.style.filter = 'blur(1px)';
+    shareLink.classList.add('active');
+    homeLink.classList.remove('active');
+    document.title = "Shared with me | gigaDrive";
   }
 
   //delete?
@@ -103,22 +128,15 @@
     document.title = "Delete permanently? | gigaDrive";
   }
 
-  //toggle view mode
-  let fileList = document.getElementById('fileList');
-
-  function toggleView() {
-    fileList.classList.toggle('listView');
-    console.log('debug');
-  }
-
-
   //close all windows when canceled
 let popup = document.getElementsByClassName('popup');
 
 function cancelFunction() {
     for (let i = 0; i < popup.length; i++) {
         popup[i].style.display = 'none';
-    }
+    };
+    document.title = "Home | gigaDrive";
+    h1.style.filter = 'none';
 }
 
 </script>

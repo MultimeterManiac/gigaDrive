@@ -80,6 +80,10 @@ display: none;
   padding-inline: 12px;
   animation: menuAppear .5s .5s ease both;
 }
+#menuArea img {
+  height: 1.5rem;
+  width: 1.5rem;
+}
 #menuArea div {
   padding: .75rem;
   border-radius: var(--radius);
