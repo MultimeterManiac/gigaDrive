@@ -25,7 +25,10 @@
   <h1 id="h1">gigaDrive</h1>
 
 
-
+  <div id="spacer"></div>
+  <section id="dropSection">
+    <h4>Drop your files here!</h4>
+  </section>
   <div id="spacer"></div>
   <section id="fileArea">
     <h2>Files</h2>
@@ -42,7 +45,7 @@
 
   <section id="menuArea">
   <div id="homeLink" class="active"><img src="home.svg"></div>
-  <div id="shareMenu" onclick="openShareMenu()"><img src="share.svg"></div>
+  <div id="shareLink" onclick="openShareMenu()"><img src="share.svg"></div>
   <div id="uploadLink" onclick="openUploadMenu()"><img src="upload.png"></div>
   <div id="diskSpace"><span style="color: red;">xx</span>/<span style="color: green;">xx</span>GB</div>
   </section>
@@ -100,7 +103,7 @@
   let uploadLink = document.getElementById('uploadLink');
   let homeLink = document.getElementById('homeLink');
   let shareMenu = document.getElementById('sharePopupCon');
-  let shareLink = document.getElementById('');
+  let shareLink = document.getElementById('shareLink');
 
   function openUploadMenu() {
     uploadMenu.style.display = 'flex';

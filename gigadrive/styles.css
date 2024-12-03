@@ -20,7 +20,7 @@ if options are available: alias
 }
 body {
   background-color: var(--dark);
-  padding-left: 8rem;
+  padding-left: 6vw;
 }
 #spacer {
   height: 1rem;
@@ -36,6 +36,18 @@ h2 {
 }
 a {
   text-decoration: none;
+}
+h4 {
+  font-size: 2rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1rem;
+  padding-top: 7vh;
+  color: grey;
+  border: 1px solid grey;
+  border-radius: 2rem;
+  height: 16vh;
+  animation: dropZone .75s 1s ease both;
 }
 h5 {
   color: grey;
@@ -53,12 +65,18 @@ h5 {
 #fileLink {
   width: calc(33vw - 88px); /*3 times the margin variable*/
   background-color: var(--accent);
+  border: 1px solid transparent;
   border-radius: var(--radius);
   margin: var(--margin);
   padding: .75rem;
   animation: fileFade .75s ease both;
   display: grid;
   grid-template-columns: 4fr 1fr 1fr;
+  cursor: pointer;
+  transition: all .15s ease;
+}
+#fileLink:hover {
+  box-shadow: 0 0 1rem white;
 }
 #fileDownload, #fileDelete {
   height: 2rem;
@@ -189,4 +207,7 @@ select {
 }
 @keyframes menuAppear {
   100% {width: 10vw;}
+}
+@keyframes dropZone {
+  0% {height: 40vh; padding-top: 19vh;}
 }
