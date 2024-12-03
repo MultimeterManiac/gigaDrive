@@ -97,13 +97,17 @@ display: none;
   text-align: center;
   cursor: crosshair;
 }
+#aboutLink {
+  display: none;
+}
 .active {
   border:  2px solid white;
   background-color: var(--dark);
 }
 /*upload*/
 #uploadPopupCon,
-#deletePopupCon {
+#deletePopupCon,
+#aboutPopupCon {
   display: none;
   justify-content: center;
   align-items: center;
