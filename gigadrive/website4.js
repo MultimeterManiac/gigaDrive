@@ -1,7 +1,5 @@
 files = ["file1", "file2", "file3", "file4"];
 
-
-
 function listFiles(){
 	//var files = get_files()
 	let par = document.getElementById("fileList");
@@ -56,6 +54,7 @@ async function downloadFile(filename){
 
 async function deleteFile(filename) {
 	console.log("deleting " + filename);
+	//implement
 }
 
 listFiles();
