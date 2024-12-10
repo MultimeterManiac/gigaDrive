@@ -23,8 +23,6 @@
 </head>
 <body>
   <h1 id="h1">gigaDrive</h1>
-
-
   <div id="spacer"></div>
   <section id="dropSection">
     <h4indevelopment>Drop your files here!</h4>
@@ -34,14 +32,9 @@
     <h2>Files</h2>
     <h5 id="viewToggle" onclick="toggleView()">view</h5>
     <div id="fileList">
-      <div id="fileLink">
-        <div id="fileName">loading ....</div>
-        <div id="fileDownload"><img src="download.png"></div>
-        <div id="fileDelete" onclick="openDeletePopup()"><img src="delete.svg"></div>
-      </div>
 
       <div id="fileLink">
-        <div id="fileName">loading ....</div>
+        <div id="fileName">file0</div>
         <div id="fileDownload"><img src="download.png"></div>
         <div id="fileDelete" onclick="openDeletePopup()"><img src="delete.svg"></div>
       </div>
@@ -50,13 +43,13 @@
   </section>
 
 
-  <section id="menuArea">
+  <nav id="menuArea">
   <div id="homeLink" class="active"><img src="home.svg"></div>
   <div id="shareLink" onclick="openShareMenu()"><img src="share.svg"></div>
   <div id="uploadLink" onclick="openUploadMenu()"><img src="upload.png"></div>
   <div id="settingsLink" onclick="openSettingsMenu()"><img src="settings.svg"></div>
-  <div id="diskSpace"><span style="color: orange;">xx</span>/<span style="color: green;">xx</span>GB</div>
-  </section>
+  <div id="diskSpace" onclick="openStatusMenu()"><span style="color: orange;">xx</span>/<span style="color: green;">xx</span>GB</div>
+  </nav>
 
 
 <!--hidden-->
@@ -68,9 +61,9 @@
   <!--select Name, Access-->
   <section id="uploadSectionUpload">
     <button class="cancelDeleteBtn">Select your files</button>
-    <input type="file" id="addFile">
-    <button id="uploadNow" style="color: black;">Upload Now</button>
+    <input type="file" id="addFile" style="opacity: 0;">
     <button id="cancelDeleteBtn" class="cancelDeleteBtn" onclick="cancelFunction()">Cancel</button>
+    <button id="uploadNow" style="color: black;">Upload Now</button>
   </section>
 </div>
 </div>
@@ -83,8 +76,8 @@
     <h2 id="headSectionUpload">Add a shared workspace</h2>
     <!--select Name, Access-->
     <section id="uploadSectionUpload">
-      <p style="text-align: center;">To share your files with others, you essentially create another user account called "workspace". From there, you can share everything with others, even if they don't have a gigaDrive account.</p>
-      <p style="font-size: .9rem; color: grey; text-align: center;">Use a password for private or secret data. For public access for anyone, leave the password field blank.</p>
+      <p style="text-align: center;">To share your files with others, you essentially create another user account called "workspace".<br>From there, you can share everything with others, even if they don't have a gigaDrive account.</p>
+      <p style="font-size: .9rem; color: grey; text-align: center;">Use a password for private or secret data.<wbr> For public access for anyone, leave the password field blank.</p>
       <section id="addWorkspace">
 
         <section id="addWorkspaceInput">
@@ -119,8 +112,8 @@
         <section id="addWorkspaceInput">
           <label for="workspaceName">Username:</label>
           <label for="workspacePasword">Password:</label>
-          <input type="text" id="workspaceName" class="addWorkspaceInputInput" placeholder="confirm">
-          <input type="text" id="workspacePasword" class="addWorkspaceInputInput" placeholder="confirm">
+          <input type="text" id="workspaceNameDel" class="addWorkspaceInputInput" placeholder="confirm">
+          <input type="text" id="workspacePaswordDel" class="addWorkspaceInputInput" placeholder="confirm">
         </section> <!--close {} input section-->
 <button onclick="cancelFunction" class="cancelDeleteBtn">Cancel and Close</button>
 <button onclick="addWorkspace()" class="confirmDeleteBtn">Delete this Account</button>
@@ -173,6 +166,8 @@
   let shareLink = document.getElementById('shareLink');
   let settingsLink = document.getElementById('settingsLink');
   let settingsMenu = document.getElementById('settingsPopupCon');
+  let statusMenu = document.getElementById('statusPopupCon');
+  let statusLink = document.getElementById('diskSpace');
 
   function openUploadMenu() {
     uploadMenu.style.display = 'flex';
@@ -188,6 +183,14 @@
     shareLink.classList.add('active');
     homeLink.classList.remove('active');
     document.title = "Workspaces | gigaDrive";
+  }
+
+  function openStatusMenu() {
+    statusMenu.style.display = 'flex';
+    h1.style.filter = 'blur(1px)';
+    statusLink.classList.add('active');
+    homeLink.classList.remove('active');
+    document.title = "Disk Space | gigaDrive";
   }
 
   function openSettingsMenu() {
