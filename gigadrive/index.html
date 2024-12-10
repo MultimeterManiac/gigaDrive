@@ -35,10 +35,17 @@
     <h5 id="viewToggle" onclick="toggleView()">view</h5>
     <div id="fileList">
       <div id="fileLink">
-        <div id="fileName">index.html | gigaChat</div>
+        <div id="fileName">loading ....</div>
         <div id="fileDownload"><img src="download.png"></div>
         <div id="fileDelete" onclick="openDeletePopup()"><img src="delete.svg"></div>
       </div>
+
+      <div id="fileLink">
+        <div id="fileName">loading ....</div>
+        <div id="fileDownload"><img src="download.png"></div>
+        <div id="fileDelete" onclick="openDeletePopup()"><img src="delete.svg"></div>
+      </div>
+
     </div>
   </section>
 
@@ -47,18 +54,22 @@
   <div id="homeLink" class="active"><img src="home.svg"></div>
   <div id="shareLink" onclick="openShareMenu()"><img src="share.svg"></div>
   <div id="uploadLink" onclick="openUploadMenu()"><img src="upload.png"></div>
+  <div id="settingsLink" onclick="openSettingsMenu()"><img src="settings.svg"></div>
   <div id="diskSpace"><span style="color: red;">xx</span>/<span style="color: green;">xx</span>GB</div>
   </section>
-  </section>
+
 
 <!--hidden-->
 <div id="uploadPopupCon">
 <div id="uploadPopup" class="popup">
   <h2 id="headSectionUpload">Upload</h2>
+  <p>Click to upload or just drag-and-drop.</p>
+  <p style="font-size: .9rem; color: grey; text-align: center;">Files will only visibile to devices you're logged in to.</p>
   <!--select Name, Access-->
   <section id="uploadSectionUpload">
+    <button class="cancelDeleteBtn">Select your files</button>
     <input type="file" id="addFile">
-    <button id="uploadNow" style="color: black;">Publish to everyone</button>
+    <button id="uploadNow" style="color: black;">Upload Now</button>
     <button id="cancelDeleteBtn" class="cancelDeleteBtn" onclick="cancelFunction()">Cancel</button>
   </section>
 </div>
@@ -68,12 +79,53 @@
 <!--hidden-->
 <div id="sharePopupCon">
   <div id="sharePopup" class="popup">
-    <h2 id="headSectionUpload">Shared with me</h2>
+    <img src="share.svg" class="popupIcon">
+    <h2 id="headSectionUpload">Add a shared workspace</h2>
     <!--select Name, Access-->
     <section id="uploadSectionUpload">
-      <p>Files shared with your account will be displayed here!</p>
-      <button id="uploadNow" style="color: black;" onclick="cancelFunction()">Coming soon .... close this window</button>
-    </section>
+      <p style="text-align: center;">To share your files with others, you essentially create another user account called "workspace". From there, you can share everything with others, even if they don't have a gigaDrive account.</p>
+      <p style="font-size: .9rem; color: grey; text-align: center;">Use a password for private or secret data. For public access for anyone, leave the password field blank.</p>
+      <section id="addWorkspace">
+
+        <section id="addWorkspaceInput">
+          <label for="workspaceName">Workspace Name:</label>
+          <label for="workspacePasword">Workspace Password:</label>
+          <input type="text" id="workspaceName" class="addWorkspaceInputInput" placeholder="required">
+          <input type="text" id="workspacePasword" class="addWorkspaceInputInput" placeholder="optional">
+        </section> <!--close {} input section-->
+<button onclick="cancelFunction" class="cancelDeleteBtn">Cancel</button>
+<button onclick="addWorkspace()" class="confirmDeleteBtn">Add Workspace</button>
+      </section> <!--close addworkspace section-->
+    </section> <!--close uploadsectionupload section-->
+  </div>
+  </div>
+
+
+  <!--hidden-->
+<div id="settingsPopupCon">
+  <div id="settingsPopup" class="popup">
+    <img src="settings.svg" class="popupIcon">
+    <h2 id="headSectionUpload">Settings & About</h2>
+    <!--select Name, Access-->
+    <section id="uploadSectionUpload">
+      <!--credits-->
+      <p style="text-align: center;">Credits</p>
+      <p style="font-size: .9rem; color: grey; text-align: center;">Backend: David Ott<br>Frontend: Jonathan Wallasch<br>Design: Felix Nowak<br><a href="https://icons8.com" target="_blank" style="font-size: .9rem; color: grey; text-decoration: underline;">Icons by Icons8</a></p>
+      <!--delete account-->
+      <p style="text-align: center;">Account deletion</p>
+      <p style="font-size: .9rem; text-align: center;">You have the option to delete your gigaDrive Account. This action is inreversible and will delete any files in your workspace immediately.</p>
+      <section id="addWorkspace">
+
+        <section id="addWorkspaceInput">
+          <label for="workspaceName">Username:</label>
+          <label for="workspacePasword">Password:</label>
+          <input type="text" id="workspaceName" class="addWorkspaceInputInput" placeholder="confirm">
+          <input type="text" id="workspacePasword" class="addWorkspaceInputInput" placeholder="confirm">
+        </section> <!--close {} input section-->
+<button onclick="cancelFunction" class="cancelDeleteBtn">Cancel and Close</button>
+<button onclick="addWorkspace()" class="confirmDeleteBtn">Delete this Account</button>
+      </section> <!--close addworkspace section-->
+    </section> <!--close uploadsectionupload section-->
   </div>
   </div>
 
@@ -84,7 +136,7 @@
   <h2>Delete?</h2>
   <div>You cannot undo this action.</div>
   <div>
-  <input type="checkbox" id="deletePermanently" style="accent-color: red;">
+  <input type="checkbox" id="deletePermanently" style="accent-color: red; transform: scale(2); margin-right: 1rem;">
   <label for="deletePermanently">I want to delete this item permanently.</label>
   <div class="primarySecondaryContainer">
     <button id="cancelDeleteBtn" class="cancelDeleteBtn" onclick="cancelFunction()">Cancel</button>
@@ -104,6 +156,8 @@
   let homeLink = document.getElementById('homeLink');
   let shareMenu = document.getElementById('sharePopupCon');
   let shareLink = document.getElementById('shareLink');
+  let settingsLink = document.getElementById('settingsLink');
+  let settingsMenu = document.getElementById('settingsPopupCon');
 
   function openUploadMenu() {
     uploadMenu.style.display = 'flex';
@@ -118,7 +172,15 @@
     h1.style.filter = 'blur(1px)';
     shareLink.classList.add('active');
     homeLink.classList.remove('active');
-    document.title = "Shared with me | gigaDrive";
+    document.title = "Workspaces | gigaDrive";
+  }
+
+  function openSettingsMenu() {
+    settingsMenu.style.display = 'flex';
+    h1.style.filter = 'blur(1px)';
+    settingsLink.classList.add('active');
+    homeLink.classList.remove('active');
+    document.title = "Settings | gigaDrive";
   }
 
   //delete?

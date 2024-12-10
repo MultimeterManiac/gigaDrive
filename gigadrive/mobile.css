@@ -111,7 +111,7 @@ display: none;
 /*upload*/
 #uploadPopupCon,
 #deletePopupCon,
-#aboutPopupCon {
+#sharePopupCon {
   display: none;
   justify-content: center;
   align-items: center;
@@ -133,6 +133,33 @@ display: none;
   border-radius: var(--radius);
   box-shadow: 0 0 2rem black;
   line-height: 2rem;
+}
+.popupIcon {
+  height: 5rem;
+  width: 5rem;
+}
+/*workspaces*/
+#sharePopup {
+  width: 88vw;
+  height: 72vh;
+}
+#addWorkspaceInput {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.addWorkspaceInputInput {
+  background-color: #1f1f1f;
+  padding: 1rem;
+  border: none;
+  border-radius: var(--radius);
+  text-align: center;
+  height: 2rem;
+}
+.addWorkspaceInputInput::placeholder {
+  text-align: center;
+  color: gray;
+  font-style: italic;
+  font-size: 1.5rem;
 }
 .primarySecondaryContainer {
   display: flex;

@@ -72,7 +72,7 @@ h5 {
   animation: fileFade .75s ease both;
   display: grid;
   grid-template-columns: 4fr 1fr 1fr;
-  cursor: pointer;
+  cursor: pointer; 
   transition: all .15s ease;
 }
 #fileLink:hover {
@@ -115,6 +115,10 @@ h5 {
   margin-inline: .5rem;
   text-align: center;
   cursor: alias;
+  transition: all .15s ease;
+}
+#menuArea div:hover {
+  background-color: var(--dark);
 }
 #menuArea img {
   height: 2rem;
@@ -144,7 +148,8 @@ h5 {
 /*upload*/
 #uploadPopupCon,
 #deletePopupCon,
-#sharePopupCon {
+#sharePopupCon,
+#settingsPopupCon {
   display: none;
   justify-content: center;
   align-items: center;
@@ -167,6 +172,35 @@ h5 {
   box-shadow: 0 0 2rem black;
   line-height: 2rem;
 }
+.popupIcon {
+  height: 5rem;
+  width: 5rem;
+}
+/*workspaces*/
+#sharePopup,
+#settingsPopup {
+  width: 66vw;
+  height: 46vh;
+}
+#addWorkspaceInput {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.addWorkspaceInputInput {
+  background-color: #1f1f1f;
+  padding: 1rem;
+  border: none;
+  border-radius: var(--radius);
+  text-align: center;
+  width: 512px;
+  height: 4rem;
+}
+.addWorkspaceInputInput::placeholder {
+  text-align: center;
+  color: gray;
+  font-style: italic;
+  font-size: 1.5rem;
+}
 select {
   background-color: var(--dark);
   width: 20vw;
@@ -178,21 +212,21 @@ select {
   align-items: center;
   margin-block: 2rem;
 }
-.primarySecondaryContainer * {
-  padding-inline: 1rem;
-  padding-block: .5rem;
-  border-radius: 1rem;
-  
-}
 .confirmDeleteBtn {
   background-color: red;
   border: none;
   cursor: crosshair;
+  padding-inline: 1rem;
+  padding-block: .5rem;
+  border-radius: 1rem;
 }
 .cancelDeleteBtn {
   border: solid 1px white;
   background-color: transparent;
   cursor: pointer;
+  padding-inline: 1rem;
+  padding-block: .5rem;
+  border-radius: 1rem;
 }
 
 
