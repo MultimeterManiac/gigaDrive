@@ -12,7 +12,6 @@
   font-size: 1rem;
   box-sizing: border-box;
   color: white;
-  -webkit-tap-highlight-color: transparent;
 }
 body {
   background-color: var(--dark);
@@ -26,7 +25,7 @@ h1 {
   color: white;
 }
 h2 {
-  font-size: 1.5rem;
+  font-size: 1.25rem;
   color: lightgray;
 }
 a {
@@ -112,9 +111,7 @@ display: none;
 /*upload*/
 #uploadPopupCon,
 #deletePopupCon,
-#sharePopupCon,
-#statusPopupCon,
-#settingsPopupCon {
+#aboutPopupCon {
   display: none;
   justify-content: center;
   align-items: center;
@@ -137,81 +134,27 @@ display: none;
   box-shadow: 0 0 2rem black;
   line-height: 2rem;
 }
-.popupIcon {
-  height: 5rem;
-  width: 5rem;
-}
-#sharePopup,
-#settingsPopup,
-#uploadPopup {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  animation: popup .15s ease both;
-  width: 88vw;
-  min-height: 64vh;
-  background-color: var(--accent);
-  border-radius: var(--radius);
-  box-shadow: 0 0 2rem black;
-  line-height: 2rem;
-  padding: .5rem;
-  overflow-y: scroll;
-}
-/*workspaces*/
-#sharePopup {
-  width: 88vw;
-  height: 72vh;
-}
-#addWorkspaceInput {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.addWorkspaceInputInput {
-  background-color: #1f1f1f;
-  padding: 1rem;
-  border: none;
-  border-radius: var(--radius);
-  text-align: center;
-  height: 2rem;
-  width: 90%;
-  margin-bottom: 2rem;
-}
-.addWorkspaceInputInput::placeholder {
-  text-align: center;
-  color: gray;
-  font-style: italic;
-  font-size: 1.5rem;
-}
 .primarySecondaryContainer {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-block: 2rem;
 }
+.primarySecondaryContainer * {
+  padding-inline: 1rem;
+  padding-block: .5rem;
+  border-radius: 1rem;
+  
+}
 .confirmDeleteBtn {
   background-color: red;
   border: none;
   cursor: crosshair;
-  padding-inline: 1rem;
-  padding-block: .5rem;
-  border-radius: 1rem;
 }
 .cancelDeleteBtn {
   border: solid 1px white;
   background-color: transparent;
   cursor: pointer;
-  border-radius: 1rem;
-  padding-block: .5rem;
-  padding-inline: 1rem;
-}
-#statusBar {
-  width: 88%;
-  height: 1rem;
-  background-image: linear-gradient(90deg, orange, orange, orange, orange, orange, green, green, green);
-  border-radius: .5rem;
-  animation: fileFade .5s ease both;
-  box-shadow: 0 0 2rem black;
 }
 /*keyframes*/
 @keyframes popup {
