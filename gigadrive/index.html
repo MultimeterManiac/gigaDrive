@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="website4.js" defer></script>
+  <script src="client.js"></script>
   <title>Home | gigaDrive</title>
   <link id="stylesheet" rel="stylesheet" href="styles.css">
   <script>
@@ -29,6 +30,7 @@
   <div id="spacer"></div>
   <section id="fileArea">
     <h2>Files</h2>
+    <button onclick="listFiles()" style="color: black; scale: 500%;">reLOAD WEIL DAVID FICKEN</button>
     <h5 id="viewToggle" onclick="toggleView()">view</h5>
     <div id="fileList">
 
@@ -60,9 +62,9 @@
   <!--select Name, Access-->
   <section id="uploadSectionUpload">
     <button class="cancelDeleteBtn">Select your files</button>
-    <input type="file" id="addFile" style="opacity: 0;">
+    <input type="file" id="addFile">
     <button id="cancelDeleteBtn" class="cancelDeleteBtn" onclick="cancelFunction()">Cancel</button>
-    <button id="uploadNow" style="color: black;">Upload Now</button>
+    <button onclick="uploadFile()" id="uploadNow" style="color: black;">Upload Now</button>
   </section>
 </div>
 </div>

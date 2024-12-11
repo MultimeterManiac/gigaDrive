@@ -1,11 +1,12 @@
-files = ["file1", "file2", "file3", "file4"];
-
-
-
-function listFiles(){
-	//var files = get_files()
+async function listFiles(){
+	let files = await list_files()
+	console.log(files);
+	files = JSON.parse(files);
 	let par = document.getElementById("fileList");
 	
+	while (par.lastChild){
+		par.removeChild(par.lastChild);
+	}
 
 	for (i in files){
 		//container
@@ -45,8 +46,8 @@ function listFiles(){
 
 async function downloadFile(filename){
 	let l = document.createElement("a");
-	//let content = getFileContent(filename);
-	let content = "test";
+	let content = await read_file(filename);
+	//let content = "test";
 	let x  = new Blob([content], {type: 'text/plain'});
 	l.href = URL.createObjectURL(x);
 	l.download = filename;
@@ -55,7 +56,43 @@ async function downloadFile(filename){
 }
 
 async function deleteFile(filename) {
-	console.log("deleting " + filename);
+	await delete_file(filename);
+	listFiles();
 }
 
-listFiles();
+async function uploadFile(filename) {
+	let rr = document.getElementById("addFile");
+	let file = rr.files[0];
+	const name = file.name;
+	//console.log(name);
+
+
+	if (file) {
+		const reader = new FileReader();
+		reader.readAsText(file);
+		reader.onload = function () {
+			console.log(reader.result);
+			write_file(name, reader.result);
+		};
+		reader.onerror = function () {
+			return;
+		};
+	} else {
+		return;
+	}
+	listFiles();
+}
+
+let z;
+async function update(){
+
+	let zz = await list_files();
+	console.log(zz);
+	if (z != zz){
+		listFiles();
+		z = zz;
+	}
+}
+
+setTimeout(listFiles, 100);
+
