@@ -30,8 +30,7 @@
   </section>
   <div id="spacer"></div>
   <section id="fileArea">
-    <h2>Files</h2>
-    <button onclick="listFiles()" style="color: black; scale: 500%;">reLOAD WEIL DAVID FICKEN</button>
+    <h2 onclick="listFiles()" id="filesHeading">Files</h2>
     <h5 id="viewToggle" onclick="toggleView()">view</h5>
     <div id="fileList">
 
@@ -142,6 +141,21 @@
 </div>
 
 <!--hidden-->
+<div id="warningPopupCon">
+  <div id="deletePopup" class="popup" style="padding: 1rem; line-height: 3rem;">
+    <h2>Sorry!</h2>
+    <div style="text-align: center;">An error occured on our end.<br>You can try reloading the page or contacting the developers<br><span style="letter-spacing: 2px; color: red; font-family: monospace;">WEBSOCKET_ERROR</span></div>
+    <div>
+    <div class="primarySecondaryContainer">
+      <button class="cancelDeleteBtn" style="margin-right: 1rem;" onclick="cancelFunction()">Close popup</button>
+      <button class="cancelDeleteBtn" style="margin-right: 1rem;" id="reload">Reload</button>
+      <button class="cancelDeleteBtn">Contact us</button>
+    </div>
+    </div>
+  </div>
+  </div>
+
+<!--hidden-->
 <div id="statusPopupCon">
   <div id="deletePopup" class="popup">
     <h2>Disk Space</h2>
@@ -224,6 +238,16 @@ function cancelFunction() {
     h1.style.filter = 'none';
 }
 
+
+
+
+function reloadPage() {
+            location.reload();
+        }
+
+        window.onload = function() {
+            document.getElementById('reload').addEventListener('click', reloadPage);
+        };
 </script>
 </body>
 </html>

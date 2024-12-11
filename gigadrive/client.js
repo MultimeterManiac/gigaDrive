@@ -91,13 +91,13 @@ socket.onmessage = function(event) {
 socket.onclose = function(event) {
     wopened = false;
   if (event.wasClean) {
-    alert(`[error] please refresh page or contact developers`);
+    document.getElementById('warningPopupCon').style.display = 'flex';
   } else {
-    alert('[error] please refresh page or contact developers');
+    document.getElementById('warningPopupCon').style.display = 'flex';
   }
 };
 
 socket.onerror = function(error) {
     wopened = false;
-  alert(`[error] please refresh page or contact developers`);
+    document.getElementById('warningPopupCon').style.display = 'flex';
 };
