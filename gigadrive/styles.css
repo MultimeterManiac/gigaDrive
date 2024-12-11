@@ -147,6 +147,7 @@ h5 {
 
 /*upload*/
 #uploadPopupCon,
+#uploadStatusPopupCon,
 #deletePopupCon,
 #warningPopupCon,
 #sharePopupCon,
@@ -160,6 +161,23 @@ h5 {
   left: 0;
   right: 0;
   bottom: 0;
+}
+#uploadStatusPopupCon {
+  display: flex;
+}
+.uploadStatus {
+  display: none;
+}
+.uploadStatus.activeUploadStatus {
+  display: block;
+  border: none;
+  animation: opacity 10s infinite both;;
+}
+@keyframes opacity {
+  0% {opacity: 0;}
+  25% {opacity: 1;}
+  75% {opacity: 1;}
+  100% {opacity: 0;}
 }
 .popup {
   display: flex;
@@ -267,6 +285,14 @@ select {
   width: 88%;
   height: 1rem;
   background-image: linear-gradient(90deg, orange, orange, orange, orange, orange, green, green, green);
+  border-radius: .5rem;
+  animation: fileFade .5s ease both;
+  box-shadow: 0 0 2rem black;
+}
+#statusBarUpload {
+  width: 88%;
+  height: 1rem;
+  background-image: linear-gradient(90deg, rebeccapurple, rebeccapurple, rebeccapurple, green, green);
   border-radius: .5rem;
   animation: fileFade .5s ease both;
   box-shadow: 0 0 2rem black;

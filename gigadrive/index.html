@@ -144,7 +144,7 @@
 <div id="warningPopupCon">
   <div id="deletePopup" class="popup" style="padding: 1rem; line-height: 3rem;">
     <h2>Sorry!</h2>
-    <div style="text-align: center;">An error occured on our end.<br>You can try reloading the page or contacting the developers<br><span style="letter-spacing: 2px; color: red; font-family: monospace;">WEBSOCKET_ERROR</span></div>
+    <div style="text-align: center;">An error occured on our end.<br>You can try reloading the page or contacting the developers.<br><span style="letter-spacing: 2px; color: red; font-family: monospace;">WEBSOCKET_ERROR</span></div>
     <div>
     <div class="primarySecondaryContainer">
       <button class="cancelDeleteBtn" style="margin-right: 1rem;" onclick="cancelFunction()">Close popup</button>
@@ -164,6 +164,25 @@
 
     <div class="primarySecondaryContainer">
       <button id="cancelDeleteBtn" class="cancelDeleteBtn" onclick="cancelFunction()">Close</button>
+    </div>
+    </div>
+  </div>
+  </div>
+
+  <!--hidden-->
+<div id="uploadStatusPopupCon">
+  <div id="deletePopup" class="popup">
+    <h2>Uploading ....</h2>
+    <div class="uploadStatus">Thanks for using gigaDrive!</div>
+    <div class="uploadStatus">Upload in progress ....</div>
+    <div class="uploadStatus">Saving big files can take time ....</div>
+    <div class="uploadStatus">Looks like it's gonna take a while ....</div>
+    <div class="uploadStatus">Take a little break and come back later!</div>
+    <div id="statusBarUpload"></div>
+    <div id="uploadProgress" style="font-size: .9rem; font-style: italic;">calculating ....</div>
+
+    <div class="primarySecondaryContainer">
+      <button id="cancelDeleteBtn" class="cancelDeleteBtn" onclick="cancelFunction(), reloadPage()" style="border: none; color: red;">Cancel Upload</button>
     </div>
     </div>
   </div>
@@ -248,6 +267,36 @@ function reloadPage() {
         window.onload = function() {
             document.getElementById('reload').addEventListener('click', reloadPage);
         };
+
+
+                // Functionality to cycle through the elements
+                const statuses = document.querySelectorAll('.uploadStatus');
+        let currentIndex = 0;
+
+        function showNextStatus() {
+            // Hide the current status
+            statuses[currentIndex].classList.remove('activeUploadStatus');
+
+            // Move to the next status (loop back to start if at the end)
+            currentIndex = (currentIndex + 1) % statuses.length;
+
+            // Show the next status
+            statuses[currentIndex].classList.add('activeUploadStatus');
+        }
+
+        function cycleStatuses() {
+            // Show the first element initially
+            statuses[currentIndex].classList.add('activeUploadStatus');
+
+            // Set interval to cycle through statuses
+            setInterval(() => {
+                // Fade out after 10 seconds, then switch
+                showNextStatus();
+            }, 10000); // 10000ms = 10 seconds
+        }
+
+        // Initialize the cycle
+        cycleStatuses();
 </script>
 </body>
 </html>
