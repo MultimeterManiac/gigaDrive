@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | gigaDrive</title>
-    <script type="text/javascript" src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
     <script type="text/javascript" src="login.js"></script>
     <link id="stylesheet" rel="stylesheet" href="styles.css">
 <script>
@@ -40,20 +40,18 @@
 
 <section id="loginArea">
   <div id="inputList">
-    <input type="text" id="userName" placeholder="gigaDrive username ....">
+    <input type="text" id="userName" placeholder="email ....">
     <div id="spacer"></div>
     <input type="text" id="password" placeholder="gigaDrive password ....">
 
   </div>
 </section>
 <section id="menuArea">
-<div id="menuLink" class="active">Login</div>
+<div onclick="login()" id="menuLink" class="active">Login</div>
   </section>
 </main>
 <script>
-  document.getElementById("menuLink").addEventListener("click", function() {
-    location.reload();
-});
+  
 
 </script>
 </body>
