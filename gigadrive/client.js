@@ -7,8 +7,23 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+function bsend(msg){
+    for(let i  of msg){
+            str += "&"+i.charCodeAt(0);
+    }
+    return str;
+}
+
 function csend(msg){
     socket.send(msg);
+}
+
+function decrypt(msg){
+    let str = "";
+    for(let i  of msg.split('&')){
+        str += String.fromCharCode(parseInt(i));
+    }
+    return str;
 }
 
 async function delete_file(filename){
@@ -48,14 +63,14 @@ async function read_file(filename){
     let rresponse = response;
     response = "";
     running = false;
-    return rresponse;}
+    return decrypt(rresponse);}
 
 }
 
 async function write_file(filename, msg){
     running = true;
     if(wopened){
-        csend("w"+filename+"%"+msg);
+        csend("w"+filename+"%"+bsend(msg));
         while(response == ""){
             await sleep(10);
         }
