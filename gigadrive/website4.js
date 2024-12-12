@@ -1,5 +1,5 @@
-const user = "";
-const username = "";
+let user = "";
+let username = "";
 
 const client = new Appwrite.Client();
 	client
