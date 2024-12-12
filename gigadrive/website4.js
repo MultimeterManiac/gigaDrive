@@ -14,8 +14,8 @@ async function check(){
 		username = await user.name;
 		console.log(username);
 	} catch (err) {
-		//window.location.replace("https://gigadrive.ddns.net/login");
 		console.log(err);
+		window.location.replace("https://gigadrive.ddns.net/login");
 	}
 }
 
