@@ -1,9 +1,10 @@
 :root {
-  --dark: rgb(31, 31, 31);
-  --accent: rgb(19, 19, 19);
+  --primary: #1d1d1d;
+  --secondary: #1a1a1a;
+  --popup: #13131383;
   --hover: brightness(1.1);
   --focus: brightness(1.5);
-  --radius: 4px;
+  --radius: 10px;
   --margin: 2px;
 }
 
@@ -19,8 +20,9 @@ if options are available: alias
   color: white;
 }
 body {
-  background-color: var(--dark);
+  background-image: radial-gradient(rgb(59, 59, 59), rgb(16, 16, 16));
   padding-left: 6rem;
+  height: 100vh;
 }
 #spacer {
   height: 1rem;
@@ -64,7 +66,7 @@ h5 {
 }
 #fileLink {
   width: calc(33vw - 88px); /*3 times the margin variable*/
-  background-color: var(--accent);
+  background-color: var(--secondary);
   border: 1px solid transparent;
   border-radius: var(--radius);
   margin: var(--margin);
@@ -76,8 +78,9 @@ h5 {
   transition: all .15s ease;
 }
 #fileLink:hover {
-  box-shadow: 0 0 1rem white;
+border: lightpink 1px solid;
 }
+
 #fileDownload, #fileDelete {
   height: 2rem;
   width: 2rem;
@@ -141,7 +144,7 @@ h5 {
 }
 
 .active {
-  border:  2px solid white;
+  border:  2px solid lightblue;
   background-color: var(--dark);
 }
 
@@ -162,9 +165,7 @@ h5 {
   right: 0;
   bottom: 0;
 }
-#uploadStatusPopupCon {
-  display: flex;
-}
+
 .uploadStatus {
   display: none;
 }
@@ -187,7 +188,8 @@ h5 {
   animation: popup .15s ease both;
   min-width: 33vw;
   min-height: 4vh;
-  background-color: var(--accent);
+  background-color: var(--popup);
+  backdrop-filter: blur(6px);
   border-radius: var(--radius);
   box-shadow: 0 0 2rem black;
   line-height: 2rem;
@@ -207,7 +209,7 @@ h5 {
   animation: popup .15s ease both;
   min-width: 33vw;
   min-height: 44vh;
-  background-color: var(--accent);
+  background-color: var(--popup);
   border-radius: var(--radius);
   box-shadow: 0 0 2rem black;
   line-height: 2rem;
@@ -284,7 +286,7 @@ select {
 #statusBar {
   width: 88%;
   height: 1rem;
-  background-image: linear-gradient(90deg, orange, orange, orange, orange, orange, green, green, green);
+  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightpink, lightpink);
   border-radius: .5rem;
   animation: fileFade .5s ease both;
   box-shadow: 0 0 2rem black;
@@ -292,7 +294,7 @@ select {
 #statusBarUpload {
   width: 88%;
   height: 1rem;
-  background-image: linear-gradient(90deg, rebeccapurple, rebeccapurple, rebeccapurple, green, green);
+  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightpink, lightpink);
   border-radius: .5rem;
   animation: fileFade .5s ease both;
   box-shadow: 0 0 2rem black;
