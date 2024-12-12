@@ -1,12 +1,11 @@
-const account = new Appwrite.Account(client);
-
-async function check(){
-	const client = new Appwrite.Client();
+const client = new Appwrite.Client();
 	client
     .setEndpoint('https://cloud.appwrite.io/v1') // Replace with your Appwrite endpoint
     .setProject('67571cd7002ca90a77ef'); // Replace with your Appwrite Project ID
-        
-	
+
+const account = new Appwrite.Account(client);
+
+async function check(){
 	try {
 		const user = await account.get();
 		const username = await user.name;
@@ -20,8 +19,6 @@ async function logout(){
 	const res = await account.deleteSessions();
 	username = "";
 }
-
-
 
 async function listFiles(){
 	let files = await list_files()
