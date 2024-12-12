@@ -11,16 +11,30 @@ client
 const account = new Appwrite.Account(client);
 
 async function login() {
-    let name = document.getElementById("userName").value;
+    let name = document.getElementById("userName").value + "@giga.drive";
     let password = document.getElementById("password").value;
     console.log(name);
     console.log(password);
 
     console.log("Logging in...");
-    const session = await account.createEmailPasswordSession(
-        name, 
-        password
-        );
+    try{
+        const session = await account.createEmailPasswordSession(
+            name, 
+            password
+            );
+    }
+    catch(err){
+        account.deleteSessions();
+        try{
+        const session = await account.createEmailPasswordSession(
+            name, 
+            password
+            );
+        }
+        catch(err){
+            return;
+        }
+    }
 
     console.log(account.get());	
 
