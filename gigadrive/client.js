@@ -8,6 +8,7 @@ function sleep(ms) {
 }
 
 function bsend(msg){
+    let str = "";
     for(let i  of msg){
             str += "&"+i.charCodeAt(0);
     }

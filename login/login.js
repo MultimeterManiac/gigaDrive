@@ -23,4 +23,6 @@ async function login() {
         );
 
     console.log(account.get());	
+
+    window.location.replace("https://gigadrive.ddns.net/gigadrive");
 }
