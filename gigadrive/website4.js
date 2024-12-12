@@ -1,3 +1,6 @@
+const user;
+const username;
+
 const client = new Appwrite.Client();
 	client
     .setEndpoint('https://cloud.appwrite.io/v1') // Replace with your Appwrite endpoint
@@ -7,8 +10,8 @@ const account = new Appwrite.Account(client);
 
 async function check(){
 	try {
-		const user = await account.get();
-		const username = await user.name;
+		user = await account.get();
+		username = await user.name;
 		console.log(username);
 	} catch (err) {
 		window.location.replace("https://gigadrive.ddns.net/login");
