@@ -1,10 +1,11 @@
 :root {
-  --dark: rgb(31, 31, 31);
-  --accent: rgb(19, 19, 19);
+  --primary: #1d1d1d;
+  --secondary: #1a1a1a;
+  --popup: #13131383;
   --hover: brightness(1.1);
   --focus: brightness(1.5);
-  --radius: 4px;
-  --margin: 6px;
+  --radius: 10px;
+  --margin: 2px;
 }
 
 * {
@@ -15,7 +16,8 @@
   -webkit-tap-highlight-color: transparent;
 }
 body {
-  background-color: var(--dark);
+  background-image: radial-gradient(rgb(59, 59, 59), rgb(16, 16, 16));
+  height: 100vh;
 }
 #spacer {
   height: 1rem;
@@ -46,7 +48,7 @@ display: none;
 }
 #fileLink {
   width: calc(100vw - 24px); /*3 times the margin variable*/
-  background-color: var(--accent);
+  background-color: var(--secondary);
   border-radius: var(--radius);
   margin: var(--margin);
   padding: .75rem;
@@ -114,7 +116,9 @@ display: none;
 #deletePopupCon,
 #sharePopupCon,
 #statusPopupCon,
-#settingsPopupCon {
+#settingsPopupCon,
+#warningPopupCon,
+#uploadStatusPopupCon {
   display: none;
   justify-content: center;
   align-items: center;
@@ -132,8 +136,8 @@ display: none;
   animation: popup .15s ease both;
   width: 88vw;
   height: 24vh;
-  background-color: var(--accent);
-  border-radius: var(--radius);
+  background-color: var(--popup);
+  backdrop-filter: blur(6px);
   box-shadow: 0 0 2rem black;
   line-height: 2rem;
 }
@@ -144,7 +148,7 @@ display: none;
 #sharePopup,
 #settingsPopup,
 #uploadPopup {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
