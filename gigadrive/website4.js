@@ -19,6 +19,8 @@ async function check(){
 	}
 }
 
+check();
+
 async function logout(){
 	const res = await account.deleteSessions();
 	username = "";
