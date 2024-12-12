@@ -87,7 +87,7 @@
           <input type="text" id="workspaceName" class="addWorkspaceInputInput" placeholder="required">
           <input type="text" id="workspacePasword" class="addWorkspaceInputInput" placeholder="optional">
         </section> <!--close {} input section-->
-<button onclick="cancelFunction" class="cancelDeleteBtn">Cancel</button>
+<button onclick="cancelFunction()" class="cancelDeleteBtn">Cancel</button>
 <button onclick="addWorkspace()" class="confirmDeleteBtn">Add Workspace</button>
       </section> <!--close addworkspace section-->
     </section> <!--close uploadsectionupload section-->
@@ -213,11 +213,13 @@
   }
 
   function openShareMenu() {
-    shareMenu.style.display = 'flex';
-    h1.style.filter = 'blur(1px)';
-    shareLink.classList.add('active');
-    homeLink.classList.remove('active');
-    document.title = "Workspaces | gigaDrive";
+    if (shareMenu.style.display == 'flex'){
+      shareMenu.style.display = 'none';
+    }
+    else{
+      shareMenu.style.display = 'flex';
+    }
+    console.log('shareMenu');
   }
 
   function openStatusMenu() {
