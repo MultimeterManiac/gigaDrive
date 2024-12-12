@@ -11,7 +11,7 @@ const account = new Appwrite.Account(client);
 async function check(){
 	try {
 		user = await account.get();
-		username = await user.name;
+		username = await user.email;
 		console.log(username);
 	} catch (err) {
 		console.log(err);
@@ -24,6 +24,8 @@ check();
 async function logout(){
 	const res = await account.deleteSessions();
 	username = "";
+	user = "";
+	window.location.replace("https://gigadrive.ddns.net/login");
 }
 
 async function listFiles(){
