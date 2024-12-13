@@ -30,41 +30,73 @@
   </section>
   <div id="spacer"></div>
   <section id="fileArea">
-    <h2 onclick="listFiles()" id="filesHeading">Files</h2>
-    <h5 id="viewToggle" onclick="toggleView()">view</h5>
+    <h2 id="filesHeading">Files</h2>
+    <h5 id="viewToggle">view</h5>
     <div id="fileList">
+      <div id="fileLink">
+        <div id="fileName">file0</div>
+        <div id="fileDownload" title="Download this file."><img src="download.png"></div>
+        <div id="fileDelete" title="Delete this file."><img src="delete.svg"></div>
+        <div id="fileEdit" title="Upload a new version of this file."><img src="update.png"></div><!--pls add eventlistener to open the upload menu-->
+      </div><!--close filelink-->
 
       <div id="fileLink">
         <div id="fileName">file0</div>
         <div id="fileDownload"><img src="download.png"></div>
-        <div id="fileDelete" onclick="openDeletePopup()"><img src="delete.svg"></div>
-      </div>
+        <div id="fileDelete"><img src="delete.svg"></div>
+      </div><!--close filelink-->
 
-    </div>
-  </section>
+      <div id="fileLink">
+        <div id="fileName">file0</div>
+        <div id="fileDownload"><img src="download.png"></div>
+        <div id="fileDelete"><img src="delete.svg"></div>
+      </div><!--close filelink-->
+
+      <div id="fileLink">
+        <div id="fileName">file0</div>
+        <div id="fileDownload"><img src="download.png"></div>
+        <div id="fileDelete"><img src="delete.svg"></div>
+      </div><!--close filelink-->
+
+      <div id="fileLink">
+        <div id="fileName">file0</div>
+        <div id="fileDownload"><img src="download.png"></div>
+        <div id="fileDelete"><img src="delete.svg"></div>
+      </div><!--close filelink-->
+
+      <div id="fileLink">
+        <div id="fileName">file0</div>
+        <div id="fileDownload"><img src="download.png"></div>
+        <div id="fileDelete"><img src="delete.svg"></div>
+      </div><!--close filelink-->
+
+    </div><!--close filelist-->
+  </section><!--close filearea-->
 
 
   <nav id="menuArea">
   <div id="homeLink" class="active"><img src="home.svg"></div>
-  <div id="shareLink" onclick="openShareMenu()"><img src="share.svg"></div>
-  <div id="uploadLink" onclick="openUploadMenu()"><img src="upload.png"></div>
-  <div id="settingsLink" onclick="openSettingsMenu()"><img src="settings.svg"></div>
-  <div id="diskSpace" onclick="openStatusMenu()"><span style="color: lightblue;">xx</span>/<span style="color: lightpink;">xx</span>GB</div>
+  <div id="shareLink"><img src="shared.png"></div>
+  <div id="uploadLink"><img src="upload.png"></div>
+  <div id="settingsLink"><img src="settings.svg"></div>
+  <div id="diskSpace"><span style="color: lightblue;">xx</span>/<span style="color: lightpink;">xx</span>GB</div>
   </nav>
 
 
 <!--hidden-->
 <div id="uploadPopupCon">
 <div id="uploadPopup" class="popup">
+  <img src="upload.png" class="popupIcon">
   <h2 id="headSectionUpload">Upload</h2>
   <p>Click to upload or just drag-and-drop.</p>
+  <p>WARNING: Files with the same name will be overwritten.</p>
   <p style="font-size: .9rem; color: grey; text-align: center;">Files will only visibile to devices you're logged in to.</p>
   <!--select Name, Access-->
   <section id="uploadSectionUpload">
     <button class="cancelDeleteBtn">Select your files</button>
     <input type="file" id="addFile">
-    <button id="cancelDeleteBtn" class="cancelDeleteBtn" onclick="cancelFunction()">Cancel</button>
-    <button onclick="uploadFile()" id="uploadNow" style="color: black;">Upload Now</button>
+    <button id="cancelDeleteBtn" class="cancelDeleteBtn">Cancel</button>
+    <button id="uploadNow" style="color: black;">Upload Now</button>
   </section>
 </div>
 </div>
@@ -73,7 +105,7 @@
 <!--hidden-->
 <div id="sharePopupCon">
   <div id="sharePopup" class="popup">
-    <img src="share.svg" class="popupIcon">
+    <img src="shared.png" class="popupIcon">
     <h2 id="headSectionUpload">Add a shared workspace</h2>
     <!--select Name, Access-->
     <section id="uploadSectionUpload">
@@ -87,8 +119,8 @@
           <input type="text" id="workspaceName" class="addWorkspaceInputInput" placeholder="required">
           <input type="text" id="workspacePasword" class="addWorkspaceInputInput" placeholder="optional">
         </section> <!--close {} input section-->
-<button onclick="cancelFunction()" class="cancelDeleteBtn">Cancel</button>
-<button onclick="addWorkspace()" class="confirmDeleteBtn">Add Workspace</button>
+<button class="cancelDeleteBtn">Cancel</button>
+<button class="confirmDeleteBtn">Add Workspace</button>
       </section> <!--close addworkspace section-->
     </section> <!--close uploadsectionupload section-->
   </div>
@@ -116,8 +148,8 @@
           <input type="text" id="workspaceNameDel" class="addWorkspaceInputInput" placeholder="confirm">
           <input type="text" id="workspacePaswordDel" class="addWorkspaceInputInput" placeholder="confirm">
         </section> <!--close {} input section-->
-<button onclick="cancelFunction" class="cancelDeleteBtn">Cancel and Close</button>
-<button onclick="addWorkspace()" class="confirmDeleteBtn">Delete this Account</button>
+<button class="cancelDeleteBtn">Cancel and Close</button>
+<button class="confirmDeleteBtn">Delete this Account</button>
       </section> <!--close addworkspace section-->
     </section> <!--close uploadsectionupload section-->
   </div>
@@ -133,7 +165,7 @@
   <input type="checkbox" id="deletePermanently" style="accent-color: red; transform: scale(2); margin-right: 1rem;">
   <label for="deletePermanently">I want to delete this item permanently.</label>
   <div class="primarySecondaryContainer">
-    <button id="cancelDeleteBtn" class="cancelDeleteBtn" onclick="cancelFunction()">Cancel</button>
+    <button id="cancelDeleteBtn" class="cancelDeleteBtn">Cancel</button>
     <button type="submit" id="confirmDeleteBtn" class="confirmDeleteBtn">Delete</button>
   </div>
   </div>
@@ -147,9 +179,9 @@
     <div style="text-align: center;">An error occured on our end.<br>You can try reloading the page or contacting the developers.<br><span style="letter-spacing: 2px; color: lightpink; font-family: monospace;">WEBSOCKET_ERROR</span></div>
     <div>
     <div class="primarySecondaryContainer">
-      <button class="cancelDeleteBtn" style="margin-right: 1rem;" onclick="cancelFunction()">Close popup</button>
+      <button class="cancelDeleteBtn" style="margin-right: 1rem;">Close popup</button>
       <button class="cancelDeleteBtn" style="margin-right: 1rem;" id="reload">Reload</button>
-      <a href="https://gigachat.ddns.net" target="_blank"><button class="cancelDeleteBtn">Contact us</button></a>
+      <a href="https://gigachat.ddns.net" target="_blank" title="Contact us via gigaChat, our own messaging application."><button class="cancelDeleteBtn">Contact us</button></a>
     </div>
     </div>
   </div>
@@ -163,7 +195,7 @@
     <div id="statusBar"></div>
 
     <div class="primarySecondaryContainer">
-      <button id="cancelDeleteBtn" class="cancelDeleteBtn" onclick="cancelFunction()">Close</button>
+      <button id="cancelDeleteBtn" class="cancelDeleteBtn">Close</button>
     </div>
     </div>
   </div>
@@ -182,7 +214,7 @@
     <div id="uploadProgress" style="font-size: .9rem; font-style: italic;">calculating ....</div>
 
     <div class="primarySecondaryContainer">
-      <button id="cancelDeleteBtn" class="cancelDeleteBtn" onclick="cancelFunction(), reloadPage()" style="border: none; color: red;">Cancel Upload</button>
+      <button id="cancelDeleteBtn" class="cancelDeleteBtn" reloadPage()" style="border: none; color: red;">Cancel Upload</button>
     </div>
     </div>
   </div>
@@ -196,7 +228,7 @@
     <h2>Success!</h2>
     <div class="uploadSuccess">Your file(s) has been uploaded.</div>
     <div class="primarySecondaryContainer">
-      <button id="cancelDeleteBtn" class="cancelDeleteBtn" onclick="reloadPage()">View files</button>
+      <button id="cancelDeleteBtn" class="cancelDeleteBtn">View files</button>
     </div>
     </div>
   </div>
@@ -205,115 +237,105 @@
 
 
 
-<script> //for all menus etc.
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    // Element references
+    const uploadMenu = document.getElementById("uploadPopupCon");
+    const h1 = document.getElementById("h1");
+    const uploadLink = document.getElementById("uploadLink");
+    const homeLink = document.getElementById("homeLink");
+    const shareMenu = document.getElementById("sharePopupCon");
+    const shareLink = document.getElementById("shareLink");
+    const settingsLink = document.getElementById("settingsLink");
+    const settingsMenu = document.getElementById("settingsPopupCon");
+    const statusMenu = document.getElementById("statusPopupCon");
+    const statusLink = document.getElementById("diskSpace");
+    const deletePopupCon = document.getElementById("deletePopupCon");
+    const reloadButton = document.getElementById("reload");
+    const cancelButtons = document.querySelectorAll(".cancelDeleteBtn");
 
-  // upload
-  let uploadMenu = document.getElementById('uploadPopupCon');
-  let h1 = document.getElementById('h1');
-  let uploadLink = document.getElementById('uploadLink');
-  let homeLink = document.getElementById('homeLink');
-  let shareMenu = document.getElementById('sharePopupCon');
-  let shareLink = document.getElementById('shareLink');
-  let settingsLink = document.getElementById('settingsLink');
-  let settingsMenu = document.getElementById('settingsPopupCon');
-  let statusMenu = document.getElementById('statusPopupCon');
-  let statusLink = document.getElementById('diskSpace');
-
-  function openUploadMenu() {
-    uploadMenu.style.display = 'flex';
-    h1.style.filter = 'blur(1px)';
-    uploadLink.classList.add('active');
-    homeLink.classList.remove('active');
-    document.title = "Upload | gigaDrive";
-  }
-
-  function openShareMenu() {
-    if (shareMenu.style.display == 'flex'){
-      shareMenu.style.display = 'none';
+    // Open upload menu
+    function openUploadMenu() {
+      uploadMenu.style.display = "flex";
+      h1.style.filter = "blur(1px)";
+      uploadLink.classList.add("active");
+      homeLink.classList.remove("active");
+      document.title = "Upload | gigaDrive";
     }
-    else{
-      shareMenu.style.display = 'flex';
+
+    // Open share menu
+    function openShareMenu() {
+      shareMenu.style.display = shareMenu.style.display === "flex" ? "none" : "flex";
     }
-    console.log('shareMenu');
-  }
 
-  function openStatusMenu() {
-    statusMenu.style.display = 'flex';
-    h1.style.filter = 'blur(1px)';
-    statusLink.classList.add('active');
-    homeLink.classList.remove('active');
-    document.title = "Disk Space | gigaDrive";
-  }
+    // Open status menu
+    function openStatusMenu() {
+      statusMenu.style.display = "flex";
+      h1.style.filter = "blur(1px)";
+      statusLink.classList.add("active");
+      homeLink.classList.remove("active");
+      document.title = "Disk Space | gigaDrive";
+    }
 
-  function openSettingsMenu() {
-    settingsMenu.style.display = 'flex';
-    h1.style.filter = 'blur(1px)';
-    settingsLink.classList.add('active');
-    homeLink.classList.remove('active');
-    document.title = "Settings | gigaDrive";
-  }
+    // Open settings menu
+    function openSettingsMenu() {
+      settingsMenu.style.display = "flex";
+      h1.style.filter = "blur(1px)";
+      settingsLink.classList.add("active");
+      homeLink.classList.remove("active");
+      document.title = "Settings | gigaDrive";
+    }
 
-  //delete?
-  let deletePopupCon = document.getElementById('deletePopupCon');
-  let fileDelete = document.getElementById('fileDelete');
+    // Open delete popup
+    function openDeletePopup() {
+      deletePopupCon.style.display = "flex";
+      h1.style.filter = "blur(1px)";
+      document.title = "Delete permanently? | gigaDrive";
+    }
 
-  function openDeletePopup() {
-    deletePopupCon.style.display = 'flex';
-    h1.style.filter = 'blur(1px)';
-    document.title = "Delete permanently? | gigaDrive";
-  }
+    // Close all popups when canceled
+    function cancelFunction() {
+      const popups = document.querySelectorAll(".popup");
+      popups.forEach((popup) => {
+        popup.style.display = "none";
+      });
+      document.title = "Home | gigaDrive";
+      h1.style.filter = "none";
+    }
 
-  //close all windows when canceled
-let popup = document.getElementsByClassName('popup');
+    // Reload the page
+    function reloadPage() {
+      location.reload();
+    }
 
-function cancelFunction() {
-    for (let i = 0; i < popup.length; i++) {
-        popup[i].style.display = 'none';
-    };
-    document.title = "Home | gigaDrive";
-    h1.style.filter = 'none';
-}
+    // Attach event listeners
+    if (uploadLink) uploadLink.addEventListener("click", openUploadMenu);
+    if (shareLink) shareLink.addEventListener("click", openShareMenu);
+    if (statusLink) statusLink.addEventListener("click", openStatusMenu);
+    if (settingsLink) settingsLink.addEventListener("click", openSettingsMenu);
+    if (reloadButton) reloadButton.addEventListener("click", reloadPage);
+    cancelButtons.forEach((button) => button.addEventListener("click", cancelFunction));
 
+    // Cycle statuses
+    const statuses = document.querySelectorAll(".uploadStatus");
+    let currentIndex = 0;
 
+    function showNextStatus() {
+      statuses[currentIndex].classList.remove("activeUploadStatus");
+      currentIndex = (currentIndex + 1) % statuses.length;
+      statuses[currentIndex].classList.add("activeUploadStatus");
+    }
 
+    function cycleStatuses() {
+      if (statuses.length > 0) {
+        statuses[currentIndex].classList.add("activeUploadStatus");
+        setInterval(showNextStatus, 10000);
+      }
+    }
 
-function reloadPage() {
-            location.reload();
-        }
-
-        window.onload = function() {
-            document.getElementById('reload').addEventListener('click', reloadPage);
-        };
-
-
-                // Functionality to cycle through the elements
-                const statuses = document.querySelectorAll('.uploadStatus');
-        let currentIndex = 0;
-
-        function showNextStatus() {
-            // Hide the current status
-            statuses[currentIndex].classList.remove('activeUploadStatus');
-
-            // Move to the next status (loop back to start if at the end)
-            currentIndex = (currentIndex + 1) % statuses.length;
-
-            // Show the next status
-            statuses[currentIndex].classList.add('activeUploadStatus');
-        }
-
-        function cycleStatuses() {
-            // Show the first element initially
-            statuses[currentIndex].classList.add('activeUploadStatus');
-
-            // Set interval to cycle through statuses
-            setInterval(() => {
-                // Fade out after 10 seconds, then switch
-                showNextStatus();
-            }, 10000); // 10000ms = 10 seconds
-        }
-
-        // Initialize the cycle
-        cycleStatuses();
+    cycleStatuses();
+  });
 </script>
+
 </body>
 </html>

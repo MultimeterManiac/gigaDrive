@@ -3,7 +3,7 @@
   --secondary: #1a1a1a;
   --popup: #13131383;
   --hover: brightness(1.1);
-  --focus: brightness(1.5);
+  --fileFocus: #252525;
   --radius: 10px;
   --margin: 2px;
 }
@@ -23,7 +23,7 @@ if options are available: alias
 }
 body {
   background-image: radial-gradient(rgb(59, 59, 59), rgb(16, 16, 16));
-  padding-left: 6rem;
+  padding-left: calc(6rem + 4vw);
   height: 100vh;
 }
 #spacer {
@@ -75,15 +75,23 @@ h5 {
   padding: .75rem;
   animation: fileFade .75s ease both;
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr;
+  grid-template-columns: 4fr 1fr 1fr 1fr;
   cursor: pointer; 
   transition: all .25s ease;
 }
+@media screen and (min-width: 1921px) {
+  #fileList {
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  }
+  #fileLink {
+    width: calc(20vw - 88px); /*3 times the margin variable*/;
+  }
+}
 #fileLink:hover {
-border: lightpink 1px solid;
+border: lightblue 1px solid;
 }
 
-#fileDownload, #fileDelete {
+#fileDownload, #fileDelete, #fileEdit {
   height: 2rem;
   width: 2rem;
   padding: .5rem;
@@ -91,6 +99,12 @@ border: lightpink 1px solid;
   border-radius: 4px;
   background-color: var(--dark);
   cursor: alias;
+  transition: all .15s ease;
+}
+#fileDownload:hover,
+#fileDelete:hover,
+#fileEdit:hover {
+  background-color: var(--fileFocus);
 }
 #fileLink img {
   height: 1rem;
@@ -110,10 +124,18 @@ border: lightpink 1px solid;
   justify-content: center;
   flex-direction: column;
   padding-inline: 12px;
+  transition: all .15s ease;
+  border: 1px solid transparent;
 }
 #menuArea:hover {
-  width: 24vw;
-  backdrop-filter: blur(6px);
+  width: calc(8rem + 4vw);
+  backdrop-filter: blur(4px);
+  top: 8vh;
+  bottom: 8vh;
+  background-color: var(--popup);
+  box-shadow: 1rem 1rem 1rem var(--secondary);
+  border-radius: 1rem;
+  border: 1px solid var(--secondary);
 }
 #menuArea div {
   padding: .75rem;
@@ -127,7 +149,7 @@ border: lightpink 1px solid;
   transition: all .15s ease;
 }
 #menuArea div:hover {
-  background-color: var(--dark);
+  filter: var(--focus);
 }
 #menuArea img {
   height: 2rem;
