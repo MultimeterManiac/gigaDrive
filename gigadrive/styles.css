@@ -36,7 +36,7 @@ h1 {
 }
 h2 {
   font-size: 2rem;
-  color: lightgray;
+  color: lightblue;
 }
 a {
   text-decoration: none;
@@ -110,6 +110,10 @@ border: lightpink 1px solid;
   justify-content: center;
   flex-direction: column;
   padding-inline: 12px;
+}
+#menuArea:hover {
+  width: 24vw;
+  backdrop-filter: blur(6px);
 }
 #menuArea div {
   padding: .75rem;
@@ -278,7 +282,7 @@ select {
   border-radius: 1rem;
 }
 .cancelDeleteBtn {
-  border: solid 1px white;
+  border: solid 2px lightpink;
   background-color: transparent;
   cursor: pointer;
   padding-inline: 1rem;

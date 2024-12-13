@@ -49,7 +49,7 @@
   <div id="shareLink" onclick="openShareMenu()"><img src="share.svg"></div>
   <div id="uploadLink" onclick="openUploadMenu()"><img src="upload.png"></div>
   <div id="settingsLink" onclick="openSettingsMenu()"><img src="settings.svg"></div>
-  <div id="diskSpace" onclick="openStatusMenu()"><span style="color: orange;">xx</span>/<span style="color: green;">xx</span>GB</div>
+  <div id="diskSpace" onclick="openStatusMenu()"><span style="color: lightblue;">xx</span>/<span style="color: lightpink;">xx</span>GB</div>
   </nav>
 
 
@@ -149,7 +149,7 @@
     <div class="primarySecondaryContainer">
       <button class="cancelDeleteBtn" style="margin-right: 1rem;" onclick="cancelFunction()">Close popup</button>
       <button class="cancelDeleteBtn" style="margin-right: 1rem;" id="reload">Reload</button>
-      <button class="cancelDeleteBtn">Contact us</button>
+      <a href="https://gigachat.ddns.net" target="_blank"><button class="cancelDeleteBtn">Contact us</button></a>
     </div>
     </div>
   </div>
@@ -159,7 +159,7 @@
 <div id="statusPopupCon">
   <div id="deletePopup" class="popup">
     <h2>Disk Space</h2>
-    <div>Currently, there is <b style="color: orange;">xx</b> TB of <b style="color: green;">xx</b> TB used.</div>
+    <div>Currently, there is <b style="color: lightblue;">xx</b> TB of <b style="color: lightpink;">xx</b> TB used.</div>
     <div id="statusBar"></div>
 
     <div class="primarySecondaryContainer">
@@ -170,7 +170,7 @@
   </div>
 
   <!--hidden
-<div id="uploadStatusPopupCon">
+<div id="uploadStathusPopupCon">
   <div id="deletePopup" class="popup">
     <h2>Uploading ....</h2>
     <div class="uploadStatus">Thanks for using gigaDrive!</div>
@@ -187,8 +187,23 @@
     </div>
   </div>
   </div>
-
 -->
+
+
+    <!--hidden
+<div id="uploadStathusPopupCon">
+  <div id="deletePopup" class="popup">
+    <h2>Success!</h2>
+    <div class="uploadSuccess">Your file(s) has been uploaded.</div>
+    <div class="primarySecondaryContainer">
+      <button id="cancelDeleteBtn" class="cancelDeleteBtn" onclick="reloadPage()">View files</button>
+    </div>
+    </div>
+  </div>
+  </div>
+-->
+
+
 
 <script> //for all menus etc.
 
