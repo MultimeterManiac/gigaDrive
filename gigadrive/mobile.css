@@ -19,7 +19,7 @@ body {
   background-image: radial-gradient(rgb(59, 59, 59), rgb(16, 16, 16));
   height: 100vh;
 }
-#spacer {
+.spacer {
   height: 1rem;
 }
 h1 {
@@ -115,7 +115,7 @@ display: none;
 #uploadPopupCon,
 #deletePopupCon,
 #sharePopupCon,
-#statusPopupCon,
+#diskPopupCon,
 #settingsPopupCon,
 #warningPopupCon,
 #uploadStatusPopupCon {
@@ -193,7 +193,7 @@ display: none;
   align-items: center;
   margin-block: 2rem;
 }
-.confirmDeleteBtn {
+.primary {
   background-color: red;
   border: none;
   cursor: crosshair;
@@ -201,7 +201,7 @@ display: none;
   padding-block: .5rem;
   border-radius: 1rem;
 }
-.cancelDeleteBtn {
+.secondary {
   border: solid 1px white;
   background-color: transparent;
   cursor: pointer;

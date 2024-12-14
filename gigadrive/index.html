@@ -25,10 +25,10 @@
 </head>
 <body>
   <h1 id="h1">gigaDrive</h1>
-  <div id="spacer"></div>
+  <div class="spacer"></div>
   <section id="dropSection">
   </section>
-  <div id="spacer"></div>
+  <div class="spacer"></div>
   <section id="fileArea">
     <h2 id="filesHeading">Files</h2>
     <h5 id="viewToggle">view</h5>
@@ -84,19 +84,24 @@
 
 
 <!--hidden-->
-<div id="uploadPopupCon">
+<div id="uploadPopupCon" class="popupCon">
 <div id="uploadPopup" class="popup">
   <img src="upload.png" class="popupIcon">
-  <h2 id="headSectionUpload">Upload</h2>
+  <h2>Upload</h2>
   <p><i>Click</i> to upload or just <i>drag-and-drop.</i></p>
   <p>WARNING: Files with the same name will be overwritten.</p>
   <p style="font-size: .9rem; color: grey; text-align: center;">Files will only visibile to devices you're logged in to.</p>
   <!--select Name, Access-->
-  <section id="uploadSectionUpload">
+  <section class="uploadSectionUpload">
     <label for="addFile">
     </label>
     <input type="file" id="addFile" style="opacity: 0; scale: 0;">
-    <button id="cancelDeleteBtn" class="cancelDeleteBtn">Cancel</button>
+    <button class="secondary" onclick="
+            document.getElementById('uploadPopupCon').style.display = 'none';
+        document.getElementById('h1').style.filter = 'none';
+        document.title = 'Home | gigaDrive';
+        document.getElementById('homeLink').classList.add('active');
+        document.getElementById('uploadLink').classList.remove('active');">Cancel</button>
     <button id="uploadNow" style="color: black;">Upload Now</button>
   </section>
 </div>
@@ -104,15 +109,15 @@
 
 
 <!--hidden-->
-<div id="sharePopupCon">
+<div id="sharePopupCon" class="popupCon">
   <div id="sharePopup" class="popup">
     <img src="shared.png" class="popupIcon">
-    <h2 id="headSectionUpload">Add a shared workspace</h2>
+    <h2>Add a shared workspace</h2>
     <!--select Name, Access-->
-    <section id="uploadSectionUpload">
+    <section class="uploadSectionUpload">
       <p style="text-align: center;">To share your files with others, you essentially create another user account called "workspace".<br>From there, you can share everything with others, even if they don't have a gigaDrive account.</p>
       <p style="font-size: .9rem; color: grey; text-align: center;">Use a password for private or secret data.<wbr> For public access for anyone, leave the password field blank.</p>
-      <section id="addWorkspace">
+      <section class="addWorkspace">
 
         <section id="addWorkspaceInput">
           <label for="workspaceName">Workspace Name:</label>
@@ -120,8 +125,14 @@
           <input type="text" id="workspaceName" class="addWorkspaceInputInput" placeholder="required">
           <input type="text" id="workspacePasword" class="addWorkspaceInputInput" placeholder="optional">
         </section> <!--close {} input section-->
-<button class="cancelDeleteBtn">Cancel</button>
-<button class="confirmDeleteBtn">Add Workspace</button>
+<button class="secondary" onclick="
+        document.getElementById('sharePopupCon').style.display = 'none';
+        document.getElementById('h1').style.filter = 'none';
+        document.title = 'Home | gigaDrive';
+        document.getElementById('homeLink').classList.add('active');
+        document.getElementById('shareLink').classList.remove('active');
+        ">Cancel</button>
+<button class="primary">Add Workspace</button>
       </section> <!--close addworkspace section-->
     </section> <!--close uploadsectionupload section-->
   </div>
@@ -129,19 +140,19 @@
 
 
   <!--hidden-->
-<div id="settingsPopupCon">
+<div id="settingsPopupCon" class="popupCon">
   <div id="settingsPopup" class="popup">
     <img src="settings.svg" class="popupIcon">
-    <h2 id="headSectionUpload">Settings & About</h2>
+    <h2>Settings & About</h2>
     <!--select Name, Access-->
-    <section id="uploadSectionUpload">
+    <section class="uploadSectionUpload">
       <!--credits-->
       <p style="text-align: center;">Credits</p>
       <p style="font-size: .9rem; color: grey; text-align: center;">Backend: David Ott<br>Frontend: Jonathan Wallasch<br>Design: Felix Nowak<br><a href="https://icons8.com" target="_blank" style="font-size: .9rem; color: grey; text-decoration: underline;">Icons by Icons8</a></p>
       <!--delete account-->
       <p style="text-align: center;">Account deletion</p>
       <p style="font-size: .9rem; text-align: center;">You have the option to delete your gigaDrive Account. This action is inreversible and will delete any files in your workspace immediately.</p>
-      <section id="addWorkspace">
+      <section class="addWorkspace">
 
         <section id="addWorkspaceInput">
           <label for="workspaceName">Username:</label>
@@ -149,8 +160,13 @@
           <input type="text" id="workspaceNameDel" class="addWorkspaceInputInput" placeholder="confirm">
           <input type="text" id="workspacePaswordDel" class="addWorkspaceInputInput" placeholder="confirm">
         </section> <!--close {} input section-->
-<button class="cancelDeleteBtn">Cancel and Close</button>
-<button class="confirmDeleteBtn">Delete this Account</button>
+<button class="secondary" onclick="
+        document.getElementById('settingsPopupCon').style.display = 'none';
+        document.getElementById('h1').style.filter = 'none';
+        document.title = 'Home | gigaDrive';
+        document.getElementById('homeLink').classList.add('active');
+        document.getElementById('settingsLink').classList.remove('active');">Cancel and Close</button>
+<button class="primary">Delete this Account</button>
       </section> <!--close addworkspace section-->
     </section> <!--close uploadsectionupload section-->
   </div>
@@ -158,7 +174,7 @@
 
 
 <!--hidden-->
-<div id="deletePopupCon">
+<div id="deletePopupCon" class="popupCon">
 <div id="deletePopup" class="popup">
   <h2>Delete?</h2>
   <div>You cannot undo this action.</div>
@@ -166,45 +182,59 @@
   <input type="checkbox" id="deletePermanently" style="accent-color: red; transform: scale(2); margin-right: 1rem;">
   <label for="deletePermanently">I want to delete this item permanently.</label>
   <div class="primarySecondaryContainer">
-    <button id="cancelDeleteBtn" class="cancelDeleteBtn">Cancel</button>
-    <button type="submit" id="confirmDeleteBtn" class="confirmDeleteBtn">Delete</button>
+    <button id="cancelDeleteBtn" class="secondary" onclick="
+              document.getElementById('deletePopupCon').style.display = 'none';
+        document.getElementById('h1').style.filter = 'none';
+        document.title = 'Home | gigaDrive';
+        ">Cancel</button>
+    <button type="submit" class="primary">Delete</button>
   </div>
   </div>
 </div>
 </div>
 
 <!--hidden-->
-<div id="warningPopupCon">
-  <div id="deletePopup" class="popup" style="padding: 1rem; line-height: 3rem;">
+<div id="warningPopupCon" class="popupCon">
+  <div id="websocketPopup" class="popup" style="padding: 1rem; line-height: 3rem;">
     <h2>Sorry!</h2>
     <div style="text-align: center;">An error occured on our end.<br>You can try reloading the page or contacting the developers.<br><span style="letter-spacing: 2px; color: lightpink; font-family: monospace;">WEBSOCKET_ERROR</span></div>
     <div>
     <div class="primarySecondaryContainer">
-      <button class="cancelDeleteBtn" style="margin-right: 1rem;">Close popup</button>
-      <button class="cancelDeleteBtn" style="margin-right: 1rem;" id="reload">Reload</button>
-      <a href="https://gigachat.ddns.net" target="_blank" title="Contact us via gigaChat, our own messaging application."><button class="cancelDeleteBtn">Contact us</button></a>
+      <button class="secondary" style="margin-right: 1rem;" onclick="
+                document.getElementById('warningPopupCon').style.display = 'none';
+        document.getElementById('h1').style.filter = 'none';
+        document.title = 'Home | gigaDrive';
+        ">Close popup</button>
+      <button class="secondary" style="margin-right: 1rem;" id="reload">Reload</button>
+      <a href="https://gigachat.ddns.net" target="_blank" title="Contact us via gigaChat, our own messaging application."><button class="secondary">Contact us</button></a>
     </div>
     </div>
   </div>
   </div>
 
 <!--hidden-->
-<div id="statusPopupCon">
-  <div id="deletePopup" class="popup">
+<div id="diskPopupCon" class="popupCon">
+  <div id="diskPopup" class="popup">
     <h2>Disk Space</h2>
     <div>Currently, there is <b style="color: lightblue;">xx</b> TB of <b style="color: lightpink;">xx</b> TB used.</div>
     <div id="statusBar"></div>
 
     <div class="primarySecondaryContainer">
-      <button id="cancelDeleteBtn" class="cancelDeleteBtn">Close</button>
+      <button class="secondary" onclick="
+        document.getElementById('diskPopupCon').style.display = 'none';
+        document.getElementById('h1').style.filter = 'none';
+        document.title = 'Home | gigaDrive';
+        document.getElementById('homeLink').classList.add('active');
+        document.getElementById('diskSpace').classList.remove('active');
+        ">Close</button>
     </div>
     </div>
   </div>
   </div>
 
   <!--hidden
-<div id="uploadStathusPopupCon">
-  <div id="deletePopup" class="popup">
+<div id="uploadStatusPopupCon" class="popupCon">
+  <div id="uploadStatusPopup" class="popup">
     <h2>Uploading ....</h2>
     <div class="uploadStatus">Thanks for using gigaDrive!</div>
     <div class="uploadStatus">Upload in progress ....</div>
@@ -215,7 +245,7 @@
     <div id="uploadProgress" style="font-size: .9rem; font-style: italic;">calculating ....</div>
 
     <div class="primarySecondaryContainer">
-      <button id="cancelDeleteBtn" class="cancelDeleteBtn" reloadPage()" style="border: none; color: red;">Cancel Upload</button>
+      <button class="secondary" reloadPage()" style="border: none; color: red;">Cancel Upload</button>
     </div>
     </div>
   </div>
@@ -224,12 +254,12 @@
 
 
     <!--hidden
-<div id="uploadStathusPopupCon">
-  <div id="deletePopup" class="popup">
+<div id="succesUploadPopupCon" class="popupCon">
+  <div id="successUpload" class="popup">
     <h2>Success!</h2>
     <div class="uploadSuccess">Your file(s) has been uploaded.</div>
     <div class="primarySecondaryContainer">
-      <button id="cancelDeleteBtn" class="cancelDeleteBtn">View files</button>
+      <button class="secondary">View files</button>
     </div>
     </div>
   </div>
@@ -249,7 +279,7 @@
     const shareLink = document.getElementById("shareLink");
     const settingsLink = document.getElementById("settingsLink");
     const settingsMenu = document.getElementById("settingsPopupCon");
-    const statusMenu = document.getElementById("statusPopupCon");
+    const statusMenu = document.getElementById("diskPopupCon");
     const statusLink = document.getElementById("diskSpace");
     const deletePopupCon = document.getElementById("deletePopupCon");
     const reloadButton = document.getElementById("reload");
@@ -296,9 +326,9 @@
 
     // Close all popups when canceled
     function cancelFunction() {
-      const popups = document.querySelectorAll(".popup");
-      popups.forEach((popup) => {
-        popup.style.display = "none";
+      const popups = document.querySelectorAll(".popupCon");
+      popups.forEach((popupCon) => {
+        popupCon.style.display = "none";
       });
       document.title = "Home | gigaDrive";
       h1.style.filter = "none";

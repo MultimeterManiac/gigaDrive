@@ -26,7 +26,7 @@ body {
   padding-left: calc(6rem + 4vw);
   height: 100vh;
 }
-#spacer {
+.spacer {
   height: 1rem;
 }
 h1 {
@@ -193,7 +193,7 @@ border: lightblue 1px solid;
 #warningPopupCon,
 #sharePopupCon,
 #settingsPopupCon,
-#statusPopupCon {
+#diskPopupCon {
   display: none;
   justify-content: center;
   align-items: center;
@@ -305,7 +305,7 @@ select {
   align-items: center;
   margin-block: 2rem;
 }
-.confirmDeleteBtn {
+.primary {
   background-color: red;
   border: none;
   cursor: crosshair;
@@ -313,7 +313,7 @@ select {
   padding-block: .5rem;
   border-radius: 1rem;
 }
-.cancelDeleteBtn {
+.secondary {
   border: solid 2px lightblue;
   background-color: transparent;
   cursor: pointer;
