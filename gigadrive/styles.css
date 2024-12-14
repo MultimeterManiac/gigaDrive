@@ -110,6 +110,9 @@ border: lightblue 1px solid;
   height: 1rem;
   width: 1rem;
 }
+#fileName {
+  word-break: break-all;
+}
 
 /*menu*/
 #menuArea {
@@ -149,7 +152,7 @@ border: lightblue 1px solid;
   transition: all .15s ease;
 }
 #menuArea div:hover {
-  filter: var(--focus);
+  background-color: var(--fileFocus);
 }
 #menuArea img {
   height: 2rem;
@@ -169,6 +172,13 @@ border: lightblue 1px solid;
   margin-inline: .5rem;
   text-align: center;
   cursor: crosshair;
+}
+#uploadPopupCon label {
+  position: fixed;
+  top: 0;
+  bottom: 5rem;
+  left: 0;
+  right: 0;
 }
 
 .active {

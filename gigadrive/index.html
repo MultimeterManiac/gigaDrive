@@ -35,9 +35,9 @@
     <div id="fileList">
       <div id="fileLink">
         <div id="fileName">file0</div>
-        <div id="fileDownload" title="Download this file."><img src="download.png"></div>
-        <div id="fileDelete" title="Delete this file."><img src="delete.svg"></div>
-        <div id="fileEdit" title="Upload a new version of this file."><img src="update.png"></div><!--pls add eventlistener to open the upload menu-->
+        <div id="fileDownload" title="Download"><img src="download.png"></div>
+        <div id="fileDelete" title="Delete"><img src="delete.svg"></div>
+        <div id="fileEdit" title="Upload a new version"><img src="update.png"></div><!--pls add eventlistener to open the upload menu-->
       </div><!--close filelink-->
 
       <div id="fileLink">
@@ -88,13 +88,14 @@
 <div id="uploadPopup" class="popup">
   <img src="upload.png" class="popupIcon">
   <h2 id="headSectionUpload">Upload</h2>
-  <p>Click to upload or just drag-and-drop.</p>
+  <p><i>Click</i> to upload or just <i>drag-and-drop.</i></p>
   <p>WARNING: Files with the same name will be overwritten.</p>
   <p style="font-size: .9rem; color: grey; text-align: center;">Files will only visibile to devices you're logged in to.</p>
   <!--select Name, Access-->
   <section id="uploadSectionUpload">
-    <button class="cancelDeleteBtn">Select your files</button>
-    <input type="file" id="addFile">
+    <label for="addFile">
+    </label>
+    <input type="file" id="addFile" style="opacity: 0; scale: 0;">
     <button id="cancelDeleteBtn" class="cancelDeleteBtn">Cancel</button>
     <button id="uploadNow" style="color: black;">Upload Now</button>
   </section>
