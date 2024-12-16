@@ -66,7 +66,7 @@ h5 {
   grid-template-columns: 1fr 1fr 1fr;
   width: calc(100vw-4rem-36px);
 }
-#fileLink {
+.fileLink {
   width: calc(33vw - 88px); /*3 times the margin variable*/
   background-color: var(--secondary);
   border: 1px solid transparent;
@@ -83,15 +83,15 @@ h5 {
   #fileList {
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   }
-  #fileLink {
+  .fileLink {
     width: calc(20vw - 88px); /*3 times the margin variable*/;
   }
 }
-#fileLink:hover {
+.fileLink:hover {
 border: lightblue 1px solid;
 }
 
-#fileDownload, #fileDelete, #fileEdit {
+.fileDownload, .fileDelete, .fileEdit {
   height: 2rem;
   width: 2rem;
   padding: .5rem;
@@ -101,16 +101,16 @@ border: lightblue 1px solid;
   cursor: alias;
   transition: all .15s ease;
 }
-#fileDownload:hover,
-#fileDelete:hover,
-#fileEdit:hover {
+.fileDownload:hover,
+.fileDelete:hover,
+.fileEdit:hover {
   background-color: var(--fileFocus);
 }
-#fileLink img {
+.fileLink img {
   height: 1rem;
   width: 1rem;
 }
-#fileName {
+.fileName {
   word-break: break-all;
 }
 
