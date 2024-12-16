@@ -149,10 +149,15 @@ border: lightblue 1px solid;
   margin-inline: .5rem;
   text-align: center;
   cursor: alias;
+}
+#menuArea * {
   transition: all .15s ease;
 }
 #menuArea div:hover {
   background-color: var(--fileFocus);
+}
+#menuArea div:hover img {
+  transform: scale(.9);
 }
 #menuArea img {
   height: 2rem;
