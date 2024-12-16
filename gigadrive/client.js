@@ -7,25 +7,10 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function bsend(msg){
-    let str = "";
-    for(let i  of msg){
-            str += "&"+i.charCodeAt(0);
-    }
-    return str;
-}
-
 function csend(msg){
     socket.send(msg);
 }
 
-function decrypt(msg){
-    let str = "";
-    for(let i  of msg.split('&')){
-        str += String.fromCharCode(parseInt(i));
-    }
-    return str;
-}
 
 async function delete_file(filename){
     running = true;
@@ -64,24 +49,30 @@ async function read_file(filename){
     let rresponse = response;
     response = "";
     running = false;
-    return decrypt(rresponse);}
+    return rresponse;}
 
 }
 
-async function write_file(filename, msg){
-    running = true;
-    if(wopened){
-        csend("w"+filename+"%"+bsend(msg));
-        while(response == ""){
-            await sleep(10);
-        }
-        if(response == "d"){
-            response == "";
-            running = false;
-            return true;
-        }
+async function write_file() {
+    const fileInput = document.getElementById("addFile");
+    const file = fileInput.files[0];
+    const reader = new FileReader();
+    reader.onload = () => {
+        if(wopened){
+        csend("w"+file.name);
+        csend(reader.result);}
+    };
+    reader.readAsArrayBuffer(file);
+    while(response == ""){
+        await sleep(10);
+    }
+    if(response == "d"){
+        response == "";
+        running = false;
+        return true;
     }
 }
+
 
 async function make_file(filename){
     if(wopened){
