@@ -32,6 +32,7 @@ async function listFiles(){
 	let files = await list_files()
 	console.log(files);
 	files = JSON.parse(files);
+	//let files = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 	let par = document.getElementById("fileList");
 	
 	while (par.lastChild){
@@ -41,35 +42,42 @@ async function listFiles(){
 	for (i in files){
 		//container
 		let parpar = document.createElement("div");
-		parpar.setAttribute("id", "fileLink");
+		parpar.setAttribute("class", "fileLink");
 		//filename
 			
 
 		let elficken = document.createElement("div");
-		elficken.setAttribute("id", "fileName");
+		elficken.setAttribute("class", "fileName");
 
 		let el2 = document.createTextNode(files[i]);
 		elficken.appendChild(el2);
 		//download button
 		let el3 = document.createElement("div");
 		el3.setAttribute("onclick", "downloadFile('" + files[i] + "')");
-		el3.setAttribute("id", "fileDownload")
+		el3.setAttribute("class", "fileDownload")
 		let el8 = document.createElement("img");
 		el8.setAttribute("src", "download.png");
 		el3.appendChild(el8);
 		//delete button
 		let el5 = document.createElement("div");
 		el5.setAttribute("onclick", "deleteFile('" + files[i] + "')");
-		el5.setAttribute("id", "fileDelete");
+		el5.setAttribute("class", "fileDelete");
 		let el9 = document.createElement("img");
 		el9.setAttribute("src", "delete.svg");
 		el5.appendChild(el9);
+		let el10 = document.createElement("div");
+		el10.setAttribute("class", "fileEdit");
+		let el11 = document.createElement("img");
+		el11.setAttribute("src", "update.png");
+		el10.appendChild(el11);
+
 
 		
 		parpar.appendChild(elficken);
 		//parpar.appendChild(el);
 		parpar.appendChild(el3);
 		parpar.appendChild(el5);
+		parpar.appendChild(el10);
 		par.appendChild(parpar);
 	}
 }
