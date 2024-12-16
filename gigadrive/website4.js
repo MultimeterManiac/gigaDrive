@@ -19,7 +19,7 @@ async function check(){
 	}
 }
 
-check();
+//check();
 
 async function logout(){
 	const res = await account.deleteSessions();
@@ -98,26 +98,10 @@ async function deleteFile(filename) {
 	listFiles();
 }
 
-async function uploadFile(filename) {
-	let rr = document.getElementById("addFile");
-	let file = rr.files[0];
-	const name = file.name;
-	//console.log(name);
-
-
-	if (file) {
-		const reader = new FileReader();
-		reader.readAsText(file);
-		reader.onload = function () {
-			console.log(reader.result);
-			write_file(name, reader.result);
-		};
-		reader.onerror = function () {
-			return;
-		};
-	} else {
-		return;
-	}
+async function uploadFile() {
+	
+	write_file();
+	
 	listFiles();
 }
 
