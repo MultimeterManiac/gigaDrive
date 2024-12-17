@@ -38,6 +38,7 @@ body {
 .breaker {
   width: 72%;
   border-bottom: 1px solid grey;
+  margin-bottom: 2rem;
 }
 h1 {
   font-size: 3.2rem;
