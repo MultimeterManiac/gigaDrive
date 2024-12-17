@@ -43,10 +43,7 @@ display: none;
   display: grid;
   grid-template-columns: 1fr;
 }
-.listView {
-  display: block;
-}
-#fileLink {
+.fileLink {
   width: calc(100vw - 24px); /*3 times the margin variable*/
   background-color: var(--secondary);
   border-radius: var(--radius);
@@ -54,9 +51,9 @@ display: none;
   padding: .75rem;
   animation: fileFade .75s ease both;
   display: grid;
-  grid-template-columns: 4fr 1fr 1fr;
+  grid-template-columns: 4fr 1fr 1fr 1fr;
 }
-#fileDownload, #fileDelete {
+.fileDownload, .fileDelete, .fileEdit {
   height: 2rem;
   width: 2rem;
   padding: .5rem;
@@ -64,7 +61,7 @@ display: none;
   border-radius: 4px;
   background-color: var(--dark);
 }
-#fileLink img {
+.fileLink img {
   height: 1rem;
   width: 1rem;
 }

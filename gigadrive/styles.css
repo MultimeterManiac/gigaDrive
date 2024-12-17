@@ -4,13 +4,19 @@
   --popup: #13131383;
   --hover: brightness(1.1);
   --fileFocus: #252525;
-  --radius: 10px;
+  --radius: 12px;
   --margin: 2px;
 }
 
-
+::selection {
+  background-color: rgba(173, 216, 230, 0.5);
+  color: white;
+}
 
 /*
+cursor on hiver
+file delete confirmation and status
+downalod popup?
 cursor crosshair: primary action,
 if options are available: alias
 */
@@ -29,14 +35,21 @@ body {
 .spacer {
   height: 1rem;
 }
+.breaker {
+  width: 72%;
+  border-bottom: 1px solid grey;
+}
 h1 {
-  font-size: 3rem;
+  font-size: 3.2rem;
   text-align: center;
   color: white;
 }
 h2 {
-  font-size: 2rem;
+  font-size: 2.75rem;
   color: lightpink;
+  color: white;
+  color: lightblue;
+  font-weight: normal;
 }
 a {
   text-decoration: none;
@@ -65,6 +78,7 @@ h5 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   width: calc(100vw-4rem-36px);
+  row-gap: .75rem;
 }
 .fileLink {
   width: calc(33vw - 88px); /*3 times the margin variable*/
@@ -167,17 +181,6 @@ border: lightblue 1px solid;
   padding-left: 0;
   margin-left: 0;
 }
-#uploadNow {
-  padding: .75rem;
-  border: none;
-  border-radius: var(--radius);
-  color: white;
-  font-weight: bold;
-  margin-block: 1rem;
-  margin-inline: .5rem;
-  text-align: center;
-  cursor: crosshair;
-}
 #uploadPopupCon label {
   position: fixed;
   top: 0;
@@ -198,7 +201,8 @@ border: lightblue 1px solid;
 #warningPopupCon,
 #sharePopupCon,
 #settingsPopupCon,
-#diskPopupCon {
+#diskPopupCon,
+#successUploadPopupCon {
   display: none;
   justify-content: center;
   align-items: center;
@@ -234,7 +238,7 @@ border: lightblue 1px solid;
   background-color: var(--popup);
   backdrop-filter: blur(6px);
   border-radius: var(--radius);
-  box-shadow: 0 0 2rem black;
+  box-shadow: 0 0 6rem black;
   line-height: 2rem;
   padding: 0;
 }
@@ -254,7 +258,7 @@ border: lightblue 1px solid;
   min-height: 44vh;
   background-color: var(--popup);
   border-radius: var(--radius);
-  box-shadow: 0 0 2rem black;
+  box-shadow: 0 0 6rem black;
   line-height: 2rem;
   padding: 0rem;
   overflow-y: scroll;
@@ -265,13 +269,21 @@ border: lightblue 1px solid;
   grid-template-columns: 1fr 1fr;
 }
 .addWorkspaceInputInput {
-  background-color: #1f1f1f;
-  padding: 1rem;
+  background-color: transparent;
   border: none;
+  border-bottom: 1px solid lightblue;
   border-radius: var(--radius);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   text-align: center;
   width: 88%;
   height: 4rem;
+  transition: all .15s ease;
+}
+.addWorkspaceInputInput:focus {
+  outline: none;
+  transform: scale(0.95);
+  border-bottom: 2px solid lightpink;
 }
 .addWorkspaceInputInput::placeholder {
   text-align: center;
@@ -311,7 +323,7 @@ select {
   margin-block: 2rem;
 }
 .primary {
-  background-color: red;
+  background-color: lightblue;
   border: none;
   cursor: crosshair;
   padding-inline: 1rem;
@@ -319,7 +331,7 @@ select {
   border-radius: 1rem;
 }
 .secondary {
-  border: solid 2px lightblue;
+  border: solid 2px rgba(173, 216, 230, 0.5);
   background-color: transparent;
   cursor: pointer;
   padding-inline: 1rem;
