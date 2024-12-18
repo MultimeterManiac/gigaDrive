@@ -324,12 +324,13 @@ select {
   margin-block: 2rem;
 }
 .primary {
-  background-color: lightblue;
+  background-color: rgba(173, 216, 230, 0.75);
   border: none;
   cursor: crosshair;
   padding-inline: 1rem;
   padding-block: .5rem;
   border-radius: 1rem;
+  transition: all .15s ease;
 }
 .secondary {
   border: solid 2px rgba(173, 216, 230, 0.5);
@@ -338,6 +339,14 @@ select {
   padding-inline: 1rem;
   padding-block: .5rem;
   border-radius: 1rem;
+  transition: all .15s ease;
+}
+.secondary:hover {
+  background-color: #33333370;
+  border: solid 2px rgba(173, 216, 230, .25);
+}
+.primary:hover {
+  background-color: rgba(173, 216, 230, 0.5);
 }
 #statusBar {
   width: 88%;
