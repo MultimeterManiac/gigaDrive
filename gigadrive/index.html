@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
-  <script src="website4.js" defer></script>
-  <script src="client.js"></script>
+  <script src="websfite4.js" defer></script>
+  <script src="clienvt.js"></script>
   <title>Home | gigaDrive</title>
   <link id="stylesheet" rel="stylesheet" href="styles.css">
   <script>
@@ -26,7 +26,6 @@
 <body>
   <h1 id="h1">gigaDrive</h1>
   <div class="spacer"></div>
-  <section id="dropSection">
   </section>
   <div class="spacer"></div>
   <section id="fileArea">
@@ -52,9 +51,11 @@
   <img src="upload.png" class="popupIcon">
   <h2>Upload</h2>
   <div class="breaker"></div>
-  <p><i>Click</i> to upload or just <i>drag-and-drop.</i></p>
-  <p>WARNING: Files with the same name will be overwritten.</p>
-  <p style="font-size: .9rem; color: grey; text-align: center;">Files will only visibile to devices you're logged in to.</p>
+  <p class="uploadInfo"><i>Click</i> to upload or just <i>drag-and-drop.</i></p>
+  <p class="uploadInfo">WARNING: Files with the same name will be overwritten.</p>
+  <p style="font-size: .9rem; color: grey; text-align: center;" class="uploadInfo">Files will only visibile to devices you're logged in to.</p>
+  <p class="dragInfo">Release to drop into Upload Section</p>
+
   <!--select Name, Access-->
   <section class="uploadSectionUpload">
     <label for="addFile">
