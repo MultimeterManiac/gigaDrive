@@ -42,11 +42,16 @@ async function list_files(){
 async function read_file(filename){
     running = true;
     if(wopened){
+        console.log(filename);
     csend("r" + filename);
     while(response == ""){
         await sleep(10);
     }
     let rresponse = response;
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(response);
+    a.download = filename;
+    a.click();
     response = "";
     running = false;
     return rresponse;}
@@ -54,12 +59,12 @@ async function read_file(filename){
 }
 
 async function write_file() {
-    const fileInput = document.getElementById("addFile");
+    const fileInput = document.getElementById("fileInput");
     const file = fileInput.files[0];
     const reader = new FileReader();
     reader.onload = () => {
         if(wopened){
-        csend("w"+file.name);
+        csend("w/"+file.name);
         csend(reader.result);}
     };
     reader.readAsArrayBuffer(file);
