@@ -1,4 +1,4 @@
-let user = "";
+let user = "testuser1";
 let username = "";
 
 const client = new Appwrite.Client();
@@ -19,7 +19,7 @@ async function check(){
 	}
 }
 
-check();
+//check();
 
 async function logout(){
 	const res = await account.deleteSessions();
@@ -83,14 +83,7 @@ async function listFiles(){
 }
 
 async function downloadFile(filename){
-	let l = document.createElement("a");
-	let content = await read_file(filename);
-	//let content = "test";
-	let x  = new Blob([content], {type: 'text/plain'});
-	l.href = URL.createObjectURL(x);
-	l.download = filename;
-	l.click();
-	URL.revokeObjectURL(l.href);
+	read_file(filename);
 }
 
 async function deleteFile(filename) {

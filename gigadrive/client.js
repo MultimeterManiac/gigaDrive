@@ -59,7 +59,7 @@ async function read_file(filename){
 }
 
 async function write_file() {
-    const fileInput = document.getElementById("fileInput");
+    const fileInput = document.getElementById("addFile");
     const file = fileInput.files[0];
     const reader = new FileReader();
     reader.onload = () => {
