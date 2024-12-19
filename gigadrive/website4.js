@@ -1,4 +1,5 @@
-let user = "testuser1";
+//let user = "testuser1";
+let user = "";
 let username = "";
 
 const client = new Appwrite.Client();
@@ -19,7 +20,7 @@ async function check(){
 	}
 }
 
-//check();
+check();
 
 async function logout(){
 	const res = await account.deleteSessions();

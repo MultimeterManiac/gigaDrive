@@ -43,7 +43,8 @@ async function read_file(filename){
     running = true;
     if(wopened){
         console.log(filename);
-    csend("r" + filename);
+    let path = "r/" + user + "/" + filename;
+    csend(path);
     while(response == ""){
         await sleep(10);
     }
@@ -64,7 +65,8 @@ async function write_file() {
     const reader = new FileReader();
     reader.onload = () => {
         if(wopened){
-        csend("w/"+file.name);
+        let path = "w/" + user + "/" + file.name;
+        csend(path);
         csend(reader.result);}
     };
     reader.readAsArrayBuffer(file);
