@@ -27,9 +27,9 @@ async function delete_file(filename){
     }
 }
 
-async function list_files(){
+async function list_files(folder){
     if(wopened){
-        csend("l");
+        csend("l"+folder);
     while(response == ""){
         await sleep(10);
     }
