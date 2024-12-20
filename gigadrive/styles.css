@@ -187,7 +187,7 @@ border: lightblue 1px solid;
 #uploadPopupCon label {
   position: fixed;
   top: 0;
-  bottom: 5rem;
+  bottom: 12vh;
   left: 0;
   right: 0;
 }
@@ -232,14 +232,16 @@ border: lightblue 1px solid;
   bottom: 0;
 }
 
-.uploadStatus {
+.uploadStatus, .downloadStatus {
   display: none;
 }
-.uploadStatus.activeUploadStatus {
+.uploadStatus.activeUploadStatus,
+.downloadStatus .activeDownloadStatus {
   display: block;
   border: none;
-  animation: opacity 10s infinite both;;
+  animation: opacity 10s infinite both;
 }
+
 @keyframes opacity {
   0% {opacity: 0;}
   25% {opacity: 1;}
@@ -388,7 +390,18 @@ select {
 #statusBarUpload7,
 #statusBarUpload8,
 #statusBarUpload9,
-#statusBarUpload10 {
+#statusBarUpload10,
+#statusBarDownload0,
+#statusBarDownload1,
+#statusBarDownload2,
+#statusBarDownload3,
+#statusBarDownload4,
+#statusBarDownload5,
+#statusBarDownload6,
+#statusBarDownload7,
+#statusBarDownload8,
+#statusBarDownload9,
+#statusBarDownload10 {
   width: 88%;
   height: 1rem;
   border-radius: .5rem;
@@ -438,6 +451,50 @@ select {
 
 #statusBarUpload10 {
   background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+}
+
+#statusBarDownload0 {
+  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+}
+
+#statusBarDownload1 {
+  background-image: linear-gradient(90deg, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+}
+
+#statusBarDownload2 {
+  background-image: linear-gradient(90deg, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+}
+
+#statusBarDownload3 {
+  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+}
+
+#statusBarDownload4 {
+  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+}
+
+#statusBarDownload5 {
+  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue);
+}
+
+#statusBarDownload6 {
+  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue);
+}
+
+#statusBarDownload7 {
+  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue);
+}
+
+#statusBarDownload8 {
+  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue);
+}
+
+#statusBarDownload9 {
+  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue);
+}
+
+#statusBarDownload10 {
+  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
 }
 
 
