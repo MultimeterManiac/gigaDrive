@@ -1,7 +1,7 @@
 :root {
   --primary: #1d1d1d;
   --secondary: #1a1a1a;
-  --popup: #13131383;
+  --popup: #000000cd;
   --hover: brightness(1.1);
   --fileFocus: #252525;
   --radius: 12px;
@@ -28,8 +28,7 @@ if options are available: alias
   color: white;
 }
 body {
-
-  background-color: rgb(23, 23, 23);
+  background-color: rgb(36, 36, 36);
   padding-left: calc(6rem + 4vw);
   height: 100vh;
 }
@@ -165,6 +164,12 @@ border: lightblue 1px solid;
   text-align: center;
   cursor: alias;
 }
+#menuArea .empty {
+  height: 1rem;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+}
 #menuArea * {
   transition: all .15s ease;
 }
@@ -178,10 +183,7 @@ border: lightblue 1px solid;
   height: 2rem;
   width: 2rem;
 }
-#menuArea #diskSpace {
-  padding-left: 0;
-  margin-left: 0;
-}
+
 #uploadPopupCon label {
   position: fixed;
   top: 0;
@@ -253,16 +255,21 @@ border: lightblue 1px solid;
   min-width: 33vw;
   min-height: 4vh;
   background-color: var(--popup);
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(1px);
   border-radius: var(--radius);
-  box-shadow: 0 0 6rem black;
+  box-shadow: 0 0 12px black;
   line-height: 2rem;
-  padding: 0;
+  padding: 2rem;
 }
 .popupIcon {
   height: 5rem;
   width: 5rem;
 }
+/*padd-inl for upl-popup*/
+#uploadPopup {
+  padding-inline: 10vw;
+}
+
 /*workspaces and settings*/
 #sharePopup,
 #settingsPopup {
@@ -275,9 +282,8 @@ border: lightblue 1px solid;
   min-height: 44vh;
   background-color: var(--popup);
   border-radius: var(--radius);
-  box-shadow: 0 0 6rem black;
+  box-shadow: 0 0 3rem black;
   line-height: 2rem;
-  padding: 0rem;
   overflow-y: scroll;
   padding: 2rem;
 }
