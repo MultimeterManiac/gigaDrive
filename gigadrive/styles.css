@@ -28,7 +28,8 @@ if options are available: alias
   color: white;
 }
 body {
-  background-image: radial-gradient(rgb(59, 59, 59), rgb(16, 16, 16));
+
+  background-color: rgb(23, 23, 23);
   padding-left: calc(6rem + 4vw);
   height: 100vh;
 }
@@ -371,13 +372,66 @@ select {
   animation: fileFade .5s ease both;
   box-shadow: 0 0 2rem black;
 }
-#statusBarUpload {
+#statusBarUpload0,
+#statusBarUpload1,
+#statusBarUpload2,
+#statusBarUpload3,
+#statusBarUpload4,
+#statusBarUpload5,
+#statusBarUpload6,
+#statusBarUpload7,
+#statusBarUpload8,
+#statusBarUpload9,
+#statusBarUpload10 {
   width: 88%;
   height: 1rem;
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightpink, lightpink);
   border-radius: .5rem;
   animation: fileFade .5s ease both;
   box-shadow: 0 0 2rem black;
+}
+
+#statusBarUpload0 {
+  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
+}
+
+#statusBarUpload1 {
+  background-image: linear-gradient(90deg, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
+}
+
+#statusBarUpload2 {
+  background-image: linear-gradient(90deg, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
+}
+
+#statusBarUpload3 {
+  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
+}
+
+#statusBarUpload4 {
+  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
+}
+
+#statusBarUpload5 {
+  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink);
+}
+
+#statusBarUpload6 {
+  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink);
+}
+
+#statusBarUpload7 {
+  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink);
+}
+
+#statusBarUpload8 {
+  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink);
+}
+
+#statusBarUpload9 {
+  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink);
+}
+
+#statusBarUpload10 {
+  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
 }
 
 
