@@ -233,7 +233,7 @@
     <div id="statusBarUpload8"></div>
     <div id="statusBarUpload9"></div>
     <div id="statusBarUpload10"></div>
-    <div id="uploadProgress" style="font-size: .9rem; font-style: italic;">50%</div>
+    <div id="uploadProgress" style="font-size: .9rem; font-style: italic;">calculating</div>
 
     <div class="primarySecondaryContainer">
       <button class="secondary" onclick="window.location.reload();">Cancel Upload</button>
@@ -241,6 +241,36 @@
     </div>
   </div>
   </div>
+
+
+
+  <div id="uploadStatusPopupCon" class="popupCon" style="display: none;">
+    <div id="uploadStatusPopup" class="popup">
+      <h2>Uploading ....</h2>
+        <div class="breaker"></div>
+      <div class="downloadStatus">Downloading file now<div>
+        <div class="downloadStatus">Working on it ....</div>
+      <div class="downloadStatus">Downloading big files can take some time<div>
+      <div class="downloadStatus">Take a little break and come back later!</div>
+      <div id="statusBarDownload0"></div>
+      <div id="statusBarDownload1"></div>
+      <div id="statusBarDownload2"></div>
+      <div id="statusBarDownload3"></div>
+      <div id="statusBarDownload4"></div>
+      <div id="statusBarDownload5"></div>
+      <div id="statusBarDownload6"></div>
+      <div id="statusBarDownload7"></div>
+      <div id="statusBarDownload8"></div>
+      <div id="statusBarDownload9"></div>
+      <div id="statusBarDownload10"></div>
+      <div id="uploadProgress" style="font-size: .9rem; font-style: italic;">calculating</div>
+  
+      <div class="primarySecondaryContainer">
+        <button class="secondary" onclick="window.location.reload();">Cancel Download</button>
+      </div>
+      </div>
+    </div>
+    </div>
 
 
 
@@ -368,6 +398,9 @@ fileEditElements.forEach((element) => {
 
     cycleStatuses();
   });
+
+
+  
 </script>
 
 </body>
