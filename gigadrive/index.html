@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
-  <script src="websgite4.js" defer></script>
-  <script src="cliebnt.js"></script>
+  <script src="websigte4.js" defer></script>
+  <script src="client.js"></script>
   <title>Home | gigaDrive</title>
   <link id="stylesheet" rel="stylesheet" href="styles.css">
   <script>
@@ -32,6 +32,8 @@
     <h2 id="filesHeading">Files</h2>
     <div id="fileList">
 
+
+      <div class="loading">loading .....</div>
     <!--file list here-->
     
     </div><!--close filelist-->
@@ -56,13 +58,13 @@
   <h2>Upload</h2>
   <div class="breaker"></div>
   <p class="uploadInfo"><i>Click</i> to upload or just <i>drag-and-drop.</i></p>
-  <p class="uploadInfo">WARNING: Files with the same name will be overwritten.</p>
+  <p class="uploadInfo" style="color: lightpink;">WARNING: Files with the same name will be overwritten.</p>
   <p style="font-size: .9rem; color: grey; text-align: center;" class="uploadInfo">Files will only visibile to devices you're logged in to.</p>
   <p class="dragInfo" style="opacity: 0;">Release to drop into Upload Section</p>
 
   <!--select Name, Access-->
   <section class="uploadSectionUpload">
-    <label for="addFile">
+    <label for="addFile" class="droppingNotActive">
     </label>
     <input type="file" id="addFile" style="opacity: 0; scale: 0;">
     <div class="primarySecondaryContainer">
@@ -124,7 +126,7 @@
       <p style="text-align: center;">Credits</p>
       <p style="font-size: .9rem; color: grey; text-align: center;">Backend: David Ott<br>Frontend: Jonathan Wallasch<br>Design: Felix Nowak<br><a href="https://icons8.com" target="_blank" style="font-size: .9rem; color: grey; text-decoration: underline;">Icons by Icons8</a></p>
       <!--delete account-->
-      <p style="text-align: center;">Account deletion</p>
+      <p style="text-align: center; color: lightpink;">Account deletion</p>
       <p style="font-size: .9rem; text-align: center;">You have the option to delete your gigaDrive Account. This action is inreversible and will delete any files in your workspace immediately.</p>
       <section class="addWorkspace">
 
@@ -244,14 +246,11 @@
 
 
 
-  <div id="uploadStatusPopupCon" class="popupCon" style="display: none;">
-    <div id="uploadStatusPopup" class="popup">
-      <h2>Uploading ....</h2>
+  <div id="downloadStatusPopupCon" class="popupCon">
+    <div id="downloadStatusPopup" class="popup">
+      <h2>Downloading ....</h2>
         <div class="breaker"></div>
-      <div class="downloadStatus">Downloading file now<div>
-        <div class="downloadStatus">Working on it ....</div>
-      <div class="downloadStatus">Downloading big files can take some time<div>
-      <div class="downloadStatus">Take a little break and come back later!</div>
+      <div class="downloadStatus">Downloading file now.<div>
       <div id="statusBarDownload0"></div>
       <div id="statusBarDownload1"></div>
       <div id="statusBarDownload2"></div>
@@ -271,23 +270,33 @@
       </div>
     </div>
     </div>
+  </div>
 
 
 
-
-<div id="successUploadPopupCon" class="popupCon">
-  <div id="successUpload" class="popup">
+<div id="successDownloadPopupCon" class="popupCon">
+  <div id="successDownload" class="popup">
     <h2>Success!</h2>
       <div class="breaker"></div>
-    <div class="uploadSuccess">Your file(s) has been uploaded.</div>
+    <div class="downloadSuccess">Your file(s) has been downloaded.</div>
     <div class="primarySecondaryContainer">
-      <button class="secondary" onclick="window.location.reload();">View files</button>
+      <button class="secondary" title="reload page" onclick="window.location.reload();">Close</button>
     </div>
     </div>
   </div>
   </div>
 
-
+  <div id="successUploadPopupCon" class="popupCon">
+    <div id="successUpload" class="popup">
+      <h2>Success!</h2>
+        <div class="breaker"></div>
+      <div class="uploadSuccess">Your file(s) has been uploaded.</div>
+      <div class="primarySecondaryContainer">
+        <button class="secondary" onclick="window.location.reload();">View files</button>
+      </div>
+      </div>
+    </div>
+    </div>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {
