@@ -30,7 +30,7 @@ async function logout(){
 }
 
 async function listFiles(){
-	let files = await list_files()
+	let files = await list_files("/" + user.name)
 	console.log(files);
 	files = JSON.parse(files);
 	//let files = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
