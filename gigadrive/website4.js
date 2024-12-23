@@ -110,8 +110,7 @@ async function update(){
 	}
 }
 
-setTimeout(listFiles, 100);
-setTimeout(listFiles, 500);
+
 setTimeout(listFiles, 1000);
 
 
