@@ -65,7 +65,7 @@ async function write_file() {
     const reader = new FileReader();
     reader.onload = () => {
         if(wopened){
-        let path = "w/" + username.name + "/" + file.name;
+        let path = "w/" + user.name + "/" + file.name;
         csend(path);
         csend(reader.result);}
     };
