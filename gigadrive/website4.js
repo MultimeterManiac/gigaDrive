@@ -50,7 +50,7 @@ async function listFiles(){
 		let elficken = document.createElement("div");
 		elficken.setAttribute("class", "fileName");
 
-		let el2 = document.createTextNode(files[i]);
+		let el2 = document.createTextNode(files[i].split("/")[files[i].split("/").length-1]);
 		elficken.appendChild(el2);
 		//download button
 		let el3 = document.createElement("div");
@@ -111,5 +111,7 @@ async function update(){
 }
 
 setTimeout(listFiles, 100);
+setTimeout(listFiles, 500);
+setTimeout(listFiles, 1000);
 
 
