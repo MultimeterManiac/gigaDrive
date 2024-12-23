@@ -29,7 +29,7 @@ async function delete_file(filename){
 
 async function list_files(folder){
     if(wopened){
-        csend("l"+folder);
+        csend("l"+user.name);
     while(response == ""){
         await sleep(10);
     }
@@ -43,7 +43,7 @@ async function read_file(filename){
     running = true;
     if(wopened){
         console.log(filename);
-    let path = "r/" + user + "/" + filename;
+    let path = "r/" + user.name + "/" + filename;
     csend(path);
     while(response == ""){
         await sleep(10);
@@ -65,7 +65,7 @@ async function write_file() {
     const reader = new FileReader();
     reader.onload = () => {
         if(wopened){
-        let path = "w/" + user + "/" + file.name;
+        let path = "w/" + username.name + "/" + file.name;
         csend(path);
         csend(reader.result);}
     };
