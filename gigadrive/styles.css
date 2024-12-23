@@ -261,7 +261,7 @@ border: lightblue 1px solid;
   min-width: 33vw;
   min-height: 4vh;
   background-color: var(--popup);
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(4px);
   border-radius: var(--radius);
   box-shadow: 0 0 12px black;
   line-height: 2rem;
