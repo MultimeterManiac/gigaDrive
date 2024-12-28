@@ -10,6 +10,7 @@ const client = new Appwrite.Client();
 const account = new Appwrite.Account(client);
 
 async function check(){
+	updateUsedSpace();
 	try {
 		user = await account.get();
 		username = await user.email;
@@ -30,6 +31,7 @@ async function logout(){
 }
 
 async function listFiles(){
+	updateUsedSpace();
 	let files = await list_files()
 	console.log(files);
 	files = JSON.parse(files);
@@ -101,13 +103,18 @@ async function uploadFile() {
 
 let z;
 async function update(){
-
+	updateUsedSpace();
 	let zz = await list_files();
 	console.log(zz);
 	if (z != zz){
 		listFiles();
 		z = zz;
 	}
+}
+
+function updateUsedSpace(){
+	let l = getElementById("usedSpace");
+	l.innerHTML = get_used_space();
 }
 
 

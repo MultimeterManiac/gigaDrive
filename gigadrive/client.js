@@ -9,19 +9,19 @@ function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-function csend(msg){
+function csend(msg) {
     socket.send(msg);
 }
 
 
-async function delete_file(filename){
+async function delete_file(filename) {
     running = true;
-    if(wopened){
-        csend("d"+filename);
-        while(response == ""){
+    if (wopened) {
+        csend("d" + filename);
+        while (response == "") {
             await sleep(10);
         }
-        if(response == "d"){
+        if (response == "d") {
             response == "";
             running = false;
             return true;
@@ -29,35 +29,37 @@ async function delete_file(filename){
     }
 }
 
-async function list_files(){
-    if(wopened){
-        csend("l/"+user.name);
-    while(response == ""){
-        await sleep(10);
+async function list_files() {
+    if (wopened) {
+        csend("l/" + user.name);
+        while (response == "") {
+            await sleep(10);
+        }
+        let rresponse = response;
+        response = "";
+        return rresponse;
     }
-    let rresponse = response;
-    response = "";
-    return rresponse;}
 }
 
 
-async function read_file(filename){
+async function read_file(filename) {
     running = true;
-    if(wopened){
+    if (wopened) {
         console.log(filename);
-    let path = "r" + filename;
-    csend(path);
-    while(response == ""){
-        await sleep(10);
+        let path = "r" + filename;
+        csend(path);
+        while (response == "") {
+            await sleep(10);
+        }
+        let rresponse = response;
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(response);
+        a.download = filename.replace("/", "");
+        a.click();
+        response = "";
+        running = false;
+        return rresponse;
     }
-    let rresponse = response;
-    const a = document.createElement("a");
-    a.href = URL.createObjectURL(response);
-    a.download = filename.replace("/", "");
-    a.click();
-    response = "";
-    running = false;
-    return rresponse;}
 
 }
 
@@ -66,17 +68,18 @@ async function write_file() {
     const file = fileInput.files[0];
     const reader = new FileReader();
     reader.onload = () => {
-        if(wopened){
-        let path = "w/" + user.name + "/" + file.name;
-        csend(path);
-        csend(reader.result);}
+        if (wopened) {
+            let path = "w/" + user.name + "/" + file.name;
+            csend(path);
+            csend(reader.result);
+        }
     };
     reader.readAsArrayBuffer(file);
-    while(response == ""){
+    while (response == "") {
         await sleep(10);
     }
-    if(response == "d"){
-    
+    if (response == "d") {
+
         response == "";
         running = false;
         return true;
@@ -84,37 +87,51 @@ async function write_file() {
 }
 
 
-async function make_file(filename){
-    if(wopened){
-        csend("m"+filename);
-        while(response == ""){
+async function make_file(filename) {
+    if (wopened) {
+        csend("m" + filename);
+        while (response == "") {
             await sleep(10);
         }
-        if(response == "d"){
+        if (response == "d") {
             response == ""
             return true;
         }
-    }}
+    }
+}
+
+async function get_used_space() {
+    if (wopened) {
+        csend("s");
+        while (response == "") {
+            await sleep(10);
+        }
+        let rresponse = response;
+        response = "";
+        return rresponse;
+    }
+}
 
 
-socket.onopen = async function(e) {
+
+socket.onopen = async function (e) {
     wopened = true;
 };
 
-socket.onmessage = function(event) {
+socket.onmessage = function (event) {
     response = event.data;
 };
 
-socket.onclose = function(event) {
+socket.onclose = function (event) {
     wopened = false;
-  if (event.wasClean) {
-    document.getElementById('warningPopupCon').style.display = 'flex';
-  } else {
-    document.getElementById('warningPopupCon').style.display = 'flex';
-  }
+    if (event.wasClean) {
+        document.getElementById('warningPopupCon').style.display = 'flex';
+    } else {
+        document.getElementById('warningPopupCon').style.display = 'flex';
+    }
 };
 
-socket.onerror = function(error) {
+socket.onerror = function (error) {
     wopened = false;
     document.getElementById('warningPopupCon').style.display = 'flex';
 };
