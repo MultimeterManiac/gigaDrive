@@ -40,3 +40,11 @@ async function login() {
 
     window.location.replace("https://gigadrive.ddns.net/gigadrive");
 }
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        console.log("Enter pressed");
+        login();
+    }
+});
