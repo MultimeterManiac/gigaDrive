@@ -112,11 +112,15 @@ async function update(){
 	}
 }
 
-function updateUsedSpace(){
+async function updateUsedSpace(){
 	let l = document.getElementById("usedSpace");
-	l.innerHTML = get_used_space();
+	l.innerHTML = await get_used_space();
+	let ll = document.getElementById("totalSpace");
+	ll.innerHTML = await get_full_space();
 }
 
 setTimeout(listFiles, 1000);
+setTimeout(updateUsedSpace, 1000);
+
 
 
