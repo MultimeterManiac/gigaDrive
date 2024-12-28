@@ -45,7 +45,7 @@ async function read_file(filename){
     running = true;
     if(wopened){
         console.log(filename);
-    let path = "r" + filename.replace("/", "");
+    let path = "r" + filename;
     csend(path);
     while(response == ""){
         await sleep(10);
@@ -53,7 +53,7 @@ async function read_file(filename){
     let rresponse = response;
     const a = document.createElement("a");
     a.href = URL.createObjectURL(response);
-    a.download = filename;
+    a.download = filename.replace("/", "");
     a.click();
     response = "";
     running = false;
