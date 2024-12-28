@@ -3,6 +3,8 @@ let response = "";
 let wopened = false;
 let running = false;
 
+
+
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -43,7 +45,7 @@ async function read_file(filename){
     running = true;
     if(wopened){
         console.log(filename);
-    let path = "r" + filename;
+    let path = "r" + filename.replace("/", "");
     csend(path);
     while(response == ""){
         await sleep(10);
@@ -74,6 +76,7 @@ async function write_file() {
         await sleep(10);
     }
     if(response == "d"){
+    
         response == "";
         running = false;
         return true;
