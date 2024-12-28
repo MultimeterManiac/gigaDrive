@@ -102,7 +102,7 @@ async function make_file(filename) {
 
 async function get_free_space() {
     if (wopened) {
-        csend("sa");
+        csend("a");
         while (response == "") {
             await sleep(10);
         }
@@ -114,7 +114,7 @@ async function get_free_space() {
 
 async function get_full_space() {
     if (wopened) {
-        csend("sf");
+        csend("f");
         while (response == "") {
             await sleep(10);
         }
