@@ -31,7 +31,7 @@ async function logout(){
 }
 
 async function listFiles(){
-	updateUsedSpace();
+
 	let files = await list_files()
 	console.log(files);
 	files = JSON.parse(files);
