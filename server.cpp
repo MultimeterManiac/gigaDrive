@@ -19,6 +19,7 @@
 #include <vector>
 #include <map>
 #include <memory>
+#include <sys/statvfs.h>
 
 using json = nlohmann::json;
 
@@ -45,6 +46,22 @@ std::set<connection_hdl, std::owner_less<connection_hdl>> m_connections;
 
 void log(std::string msg){
     std::cout<<msg<<std::endl;
+}
+
+int get_storage_free(const std::string& path) {
+    struct statvfs buffer;
+    statvfs(path.c_str(), &buffer);
+    unsigned long long total_space = buffer.f_blocks * buffer.f_frsize;
+    return static_cast<int>(total_space / (1024 * 1024 * 1024));
+}
+
+int get_storage_full(const std::string& path) {
+    struct statvfs buffer;
+    statvfs(path.c_str(), &buffer);
+    unsigned long long total_space = buffer.f_blocks * buffer.f_frsize;
+    unsigned long long free_space = buffer.f_bfree * buffer.f_frsize;
+    unsigned long long used_space = total_space - free_space;
+    return static_cast<int>(used_space / (1024 * 1024 * 1024));
 }
 
 void append_to_json(const std::string& filename, const std::string& newEntry) {
@@ -213,6 +230,12 @@ void on_message(connection_hdl hdl, server::message_ptr msg) {
             delete_json(trim_ex(strip_first(recvmsg)));
             m_server.send(hdl, "d", websocketpp::frame::opcode::text);
             break;}
+        case 'a':
+            m_server.send(hdl, std::to_string(get_storage_free(path)), websocketpp::frame::opcode::text);
+            break;
+        case 'f':
+            m_server.send(hdl, std::to_string(get_storage_full(path)), websocketpp::frame::opcode::text);
+            break; 
         default:
             break;
     }
