@@ -100,9 +100,21 @@ async function make_file(filename) {
     }
 }
 
-async function get_used_space() {
+async function get_free_space() {
     if (wopened) {
-        csend("s");
+        csend("sa");
+        while (response == "") {
+            await sleep(10);
+        }
+        let rresponse = response;
+        response = "";
+        return rresponse;
+    }
+}
+
+async function get_full_space() {
+    if (wopened) {
+        csend("sf");
         while (response == "") {
             await sleep(10);
         }
