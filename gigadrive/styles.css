@@ -14,7 +14,7 @@
 }
 
 /*
-cursor on hiver
+cursor on hover
 file delete confirmation and status
 downalod popup?
 cursor crosshair: primary action,
@@ -147,8 +147,8 @@ border: lightblue 1px solid;
 #menuArea:hover {
   width: calc(8rem + 4vw);
   backdrop-filter: blur(4px);
-  top: 8vh;
-  bottom: 8vh;
+  top: 30vh;
+  bottom: 13vh;
   background-color: var(--popup);
   box-shadow: 1rem 1rem 1rem var(--secondary);
   border-radius: 1rem;
