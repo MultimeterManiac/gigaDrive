@@ -147,8 +147,8 @@ border: lightblue 1px solid;
 #menuArea:hover {
   width: calc(8rem + 4vw);
   backdrop-filter: blur(4px);
-  top: 30vh;
-  bottom: 13vh;
+  top: 15vh;
+  bottom: 15vh;
   background-color: var(--popup);
   box-shadow: 1rem 1rem 1rem var(--secondary);
   border-radius: 1rem;
