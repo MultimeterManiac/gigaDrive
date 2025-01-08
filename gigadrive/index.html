@@ -1,132 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
-  <script src="website4.js" defer></script>
-  <script src="client.js"></script>
-  <title>Home | gigaDrive</title>
-  <link id="stylesheet" rel="stylesheet" href="styles.css">
-  <script>
-      function updateStylesheet() {
-          const stylesheet = document.getElementById("stylesheet");
-          if (window.innerWidth <= 768) {
-              stylesheet.href = "mobile.css";
-          } else {
-              stylesheet.href = "styles.css";
-          }
-      }
-      
-      updateStylesheet();
-      window.addEventListener("resize", updateStylesheet);
-  </script>
-  
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
+	<script src="website4.js" defer></script>
+	<script src="client.js"></script>
+	<title>Home | gigaDrive</title>
+	<link id="stylesheet" rel="stylesheet" href="styles.css">
+	<script>
+		function updateStylesheet() {
+			const stylesheet = document.getElementById("stylesheet");
+			if (window.innerWidth <= 768) {
+				stylesheet.href = "mobile.css";
+			} else {
+				stylesheet.href = "styles.css";
+			}
+		}
+
+		updateStylesheet();
+		window.addEventListener("resize", updateStylesheet);
+	</script>
+
 </head>
+
 <body>
-  <h1 id="h1">gigaDrive</h1>
-  <div class="spacer"></div>
-  </section>
-  <div class="spacer"></div>
-  <section id="fileArea">
-    <h2 id="filesHeading">Files</h2>
-    <div id="fileList">
+	<h1 id="h1">gigaDrive</h1>
+	<div class="spacer"></div>
+	</section>
+	<div class="spacer"></div>
+	<section id="fileArea">
+		<h2 id="filesHeading">Files</h2>
+		<div id="fileList">
 
 
-      <div class="loading">loading .....</div>
-    <!--file list here-->
-    
-    </div><!--close filelist-->
-  </section><!--close filearea-->
+			<div class="loading">loading .....</div>
+			<!--file list here-->
+
+		</div><!--close filelist-->
+	</section><!--close filearea-->
 
 
-  <nav id="menuArea">
-  <div title="Home" id="homeLink" class="active" onclick="listFiles()"><img src="home.svg"></div>
-  <!--<div title="Workspaces" id="shareLink"><img src="shared.png"></div>-->
-  <div title="Upload" id="uploadLink"><img src="upload.png"></div>
-  <div title="Storage" id="diskSpace"><img src="disk.png"></div>
-  <div title="Settings" id="settingsLink"><img src="settings.svg"></div>
-  <div title="Logout" id="logoutLink" onclick="logout()"><img src="logout.png" style="scale: .8;"></div>
-  </nav>
+	<nav id="menuArea">
+		<div title="Home" id="homeLink" class="active" onclick="listFiles()"><img src="home.svg"></div>
+		<!--<div title="Workspaces" id="shareLink"><img src="shared.png"></div>-->
+		<div title="Upload" id="uploadLink"><img src="upload.png"></div>
+		<div title="Storage" id="diskSpace"><img src="disk.png"></div>
+		<div title="Settings" id="settingsLink"><img src="settings.svg"></div>
+		<div title="Logout" id="logoutLink" onclick="logout()"><img src="logout.png" style="scale: .8;"></div>
+	</nav>
 
 
-<!--hidden-->
-<div id="uploadPopupCon" class="popupCon">
-<div id="uploadPopup" class="popup">
-  <img src="upload.png" class="popupIcon">
-  <h2>Upload</h2>
-  <div class="breaker"></div>
-  <p class="uploadInfo"><i>Click</i> to upload or just <i>drag-and-drop.</i></p>
-  <p class="uploadInfo" style="color: lightpink;">WARNING: Files with the same name will be overwritten.</p>
-  <p style="font-size: .9rem; color: grey; text-align: center;" class="uploadInfo">Files will only visibile to devices you're logged in to.</p>
-  <p class="dragInfo" style="opacity: 0;">Release to drop into Upload Section</p>
+	<!--hidden-->
+	<div id="uploadPopupCon" class="popupCon">
+		<div id="uploadPopup" class="popup">
+			<img src="upload.png" class="popupIcon">
+			<h2>Upload</h2>
+			<div class="breaker"></div>
+			<p class="uploadInfo"><i>Click</i> to upload or just <i>drag-and-drop.</i></p>
+			<p class="uploadInfo" style="color: lightpink;">WARNING: Files with the same name will be overwritten.</p>
+			<p style="font-size: .9rem; color: grey; text-align: center;" class="uploadInfo">Files will only visibile to
+				devices you're logged in to.</p>
+			<p class="dragInfo" style="opacity: 0;">Release to drop into Upload Section</p>
 
-  <!--select Name, Access-->
-  <section class="uploadSectionUpload">
-    <label for="addFile" class="droppingNotActive">
-    </label>
-    <input type="file" id="addFile" style="opacity: 0; scale: 0;">
-    <div class="primarySecondaryContainer">
-    <button class="secondary" onclick="
+			<!--select Name, Access-->
+			<section class="uploadSectionUpload">
+				<label for="addFile" class="droppingNotActive">
+				</label>
+				<input type="file" id="addFile" style="opacity: 0; scale: 0;">
+				<div class="primarySecondaryContainer">
+					<button class="secondary" onclick="
             document.getElementById('uploadPopupCon').style.display = 'none';
         document.getElementById('h1').style.filter = 'none';
         document.title = 'Home | gigaDrive';
         document.getElementById('homeLink').classList.add('active');
         document.getElementById('uploadLink').classList.remove('active');">Cancel</button>
-    <button onclick="write_file()" id="uploadNow" class="primary">Upload Now</button>
-    </div> <!--close primarySecondaryContainer-->
-  </section>
-</div>
-</div>
+					<button onclick="write_file()" id="uploadNow" class="primary">Upload Now</button>
+				</div> <!--close primarySecondaryContainer-->
+			</section>
+		</div>
+	</div>
 
 
-<!--hidden-->
-<div id="sharePopupCon" class="popupCon">
-  <div id="sharePopup" class="popup">
-    <img src="shared.png" class="popupIcon">
-    <h2>Add a shared workspace</h2>
-    <div class="breaker"></div>
-    <section class="uploadSectionUpload">
-      <p style="text-align: center;">To share your files with others, you essentially create another user account called "workspace".<br>From there, you can share everything with others, even if they don't have a gigaDrive account.</p>
-      <p style="font-size: .9rem; color: grey; text-align: center;">Use a password for private or secret data.<wbr> For public access for anyone, leave the password field blank.</p>
-      <section class="addWorkspace">
+	<!--hidden-->
+	<div id="sharePopupCon" class="popupCon">
+		<div id="sharePopup" class="popup">
+			<img src="shared.png" class="popupIcon">
+			<h2>Add a shared workspace</h2>
+			<div class="breaker"></div>
+			<section class="uploadSectionUpload">
+				<p style="text-align: center;">To share your files with others, you essentially create another user
+					account called "workspace".<br>From there, you can share everything with others, even if they don't
+					have a gigaDrive account.</p>
+				<p style="font-size: .9rem; color: grey; text-align: center;">Use a password for private or secret
+					data.<wbr> For public access for anyone, leave the password field blank.</p>
+				<section class="addWorkspace">
 
-        <section id="addWorkspaceInput">
-          <label for="workspaceName">Workspace Name:</label>
-          <label for="workspacePasword">Workspace Password:</label>
-          <input type="text" id="workspaceName" class="addWorkspaceInputInput" autocomplete="off" placeholder="required">
-          <input type="text" id="workspacePasword" class="addWorkspaceInputInput" autocomplete="off" placeholder="recommended">
-        </section> <!--close {} input section-->
-        <div class="primarySecondaryContainer">
-        <button class="secondary" onclick="
+					<section id="addWorkspaceInput">
+						<label for="workspaceName">Workspace Name:</label>
+						<label for="workspacePasword">Workspace Password:</label>
+						<input type="text" id="workspaceName" class="addWorkspaceInputInput" autocomplete="off"
+							placeholder="required">
+						<input type="text" id="workspacePasword" class="addWorkspaceInputInput" autocomplete="off"
+							placeholder="recommended">
+					</section> <!--close {} input section-->
+					<div class="primarySecondaryContainer">
+						<button class="secondary" onclick="
         document.getElementById('sharePopupCon').style.display = 'none';
         document.getElementById('h1').style.filter = 'none';
         document.title = 'Home | gigaDrive';
         document.getElementById('homeLink').classList.add('active');
         document.getElementById('shareLink').classList.remove('active');
         ">Cancel</button>
-        <button class="primary">Add Workspace</button>
-        </div>
-      </section> <!--close addworkspace section-->
-    </section> <!--close uploadsectionupload section-->
-  </div>
-  </div>
+						<button class="primary">Add Workspace</button>
+					</div>
+				</section> <!--close addworkspace section-->
+			</section> <!--close uploadsectionupload section-->
+		</div>
+	</div>
 
 
-  <!--hidden-->
-<div id="settingsPopupCon" class="popupCon">
-  <div id="" class="popup">
-    <img src="settings.svg" class="popupIcon">
-    <h2>Settings & About</h2>
-    <div class="breaker"></div>
-    <!--select Name, Access-->
-    <section class="uploadSectionUpload">
-      <!--credits-->
-      <p style="text-align: center;">Credits</p>
-      <p style="font-size: .9rem; color: grey; text-align: center;">Backend: David Ott<br>Frontend: Jonathan Wallasch<br>Design: Felix Nowak<br><a href="https://icons8.com" target="_blank" style="font-size: .9rem; color: grey; text-decoration: underline;">Icons by Icons8</a></p>
-      <p style="text-align: center;">gigaDrive v2.1p</p>
-      <!--private, beta, open-->
-      <!--delete account
+	<!--hidden-->
+	<div id="settingsPopupCon" class="popupCon">
+		<div id="" class="popup">
+			<img src="settings.svg" class="popupIcon">
+			<h2>Settings & About</h2>
+			<div class="breaker"></div>
+			<!--select Name, Access-->
+			<section class="uploadSectionUpload">
+				<!--credits-->
+				<p style="text-align: center;">Credits</p>
+				<p style="font-size: .9rem; color: grey; text-align: center;">Backend: David Ott<br>Frontend: Jonathan
+					Wallasch<br>Design: Felix Nowak<br><a href="https://icons8.com" target="_blank"
+						style="font-size: .9rem; color: grey; text-decoration: underline;">Icons by Icons8</a></p>
+				<p style="text-align: center;">gigaDrive v2.1p</p>
+				<!--private, beta, open-->
+				<!--delete account
       <p style="text-align: center; color: lightpink;">Account deletion</p>
       <p style="font-size: .9rem; text-align: center;">You have the option to delete your gigaDrive Account. This action is inreversible and will delete any files in your workspace immediately.</p>
       <section class="addWorkspace">
@@ -138,280 +148,288 @@
           <input type="text" id="workspacePaswordDel" class="addWorkspaceInputInput" autocomplete="off" placeholder="confirm">
         </section> 
         -->
-        <button class="secondary" onclick="
+				<button class="secondary" onclick="
         document.getElementById('settingsPopupCon').style.display = 'none';
         document.getElementById('h1').style.filter = 'none';
         document.title = 'Home | gigaDrive';
         document.getElementById('homeLink').classList.add('active');
         document.getElementById('settingsLink').classList.remove('active');">Close</button>
-        <!-- <button class="primary">Delete this Account</button>-->
-      
-      </section> <!--close addworkspace section-->
-    </section> <!--close uploadsectionupload section-->
-  </div>
-  </div>
+				<!-- <button class="primary">Delete this Account</button>-->
+
+			</section> <!--close addworkspace section-->
+			</section> <!--close uploadsectionupload section-->
+		</div>
+	</div>
 
 
-<!--hidden-->
-<div id="deletePopupCon" class="popupCon">
-<div id="deletePopup" class="popup">
-  <h2 style="color: lightpink;">Delete?</h2>
-  <div class="breaker"></div>
-  <div>
-  <input type="checkbox" id="deletePermanently" style="accent-color: lightpink; transform: scale(1.5); margin-right: .5rem;">
-  <label for="deletePermanently">I want to delete this item permanently.</label>
-  <div style="color: grey; font-size: .9rem; text-align: center;">You cannot undo this action.</div>
-  <div class="primarySecondaryContainer">
-    <button id="cancelDeleteBtn" class="secondary" onclick="
+	<!--hidden-->
+	<div id="deletePopupCon" class="popupCon">
+		<div id="deletePopup" class="popup">
+			<h2 style="color: lightpink;">Delete?</h2>
+			<div class="breaker"></div>
+			<div>
+				<input type="checkbox" id="deletePermanently"
+					style="accent-color: lightpink; transform: scale(1.5); margin-right: .5rem;">
+				<label for="deletePermanently">I want to delete this item permanently.</label>
+				<div style="color: grey; font-size: .9rem; text-align: center;">You cannot undo this action.</div>
+				<div class="primarySecondaryContainer">
+					<button id="cancelDeleteBtn" class="secondary" onclick="
               document.getElementById('deletePopupCon').style.display = 'none';
         document.getElementById('h1').style.filter = 'none';
         document.title = 'Home | gigaDrive';
         ">Cancel</button>
-    <button type="submit" class="primary">Delete</button>
-  </div>
-  </div>
-</div>
-</div>
+					<button type="submit" class="primary">Delete</button>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<!--hidden-->
-<div id="warningPopupCon" class="popupCon">
-  <div id="websocketPopup" class="popup" style="padding: 1rem; line-height: 3rem;">
-    <h2>Sorry!</h2>
-    <div class="breaker"></div>
-    <div style="text-align: center;">You can try reloading the page or contacting the developers.<br><span style="letter-spacing: 2px; color: lightpink; font-family: monospace;">WEBSOCKET_ERROR</span></div>
-    <div>
-    <div class="primarySecondaryContainer">
-      <button class="secondary" style="margin-right: 1rem;" onclick="
+	<!--hidden-->
+	<div id="warningPopupCon" class="popupCon">
+		<div id="websocketPopup" class="popup" style="padding: 1rem; line-height: 3rem;">
+			<h2>Sorry!</h2>
+			<div class="breaker"></div>
+			<div style="text-align: center;">You can try reloading the page or contacting the developers.<br><span
+					style="letter-spacing: 2px; color: lightpink; font-family: monospace;">WEBSOCKET_ERROR</span></div>
+			<div>
+				<div class="primarySecondaryContainer">
+					<button class="secondary" style="margin-right: 1rem;" onclick="
                 document.getElementById('warningPopupCon').style.display = 'none';
         document.getElementById('h1').style.filter = 'none';
         document.title = 'Home | gigaDrive';
         ">Close popup</button>
-      <button class="secondary" style="margin-right: 1rem;" id="reload" onclick="window.location.reload();">Reload</button>
-      <a href="https://gigachat.ddns.net" target="_blank" title="Contact us via gigaChat, our own messaging application."><button class="secondary">Contact us</button></a>
-    </div>
-    </div>
-  </div>
-  </div>
+					<button class="secondary" style="margin-right: 1rem;" id="reload"
+						onclick="window.location.reload();">Reload</button>
+					<a href="https://gigachat.ddns.net" target="_blank"
+						title="Contact us via gigaChat, our own messaging application."><button
+							class="secondary">Contact us</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
 
-<!--hidden-->
-<div id="diskPopupCon" class="popupCon">
-  <div id="diskPopup" class="popup">
-    <img src="disk.png" style="scale: .9;">
-    <h2>Disk Space</h2>
-    <div class="breaker"></div>
-    <div>Currently, there is <b id="usedSpace" style="color: lightblue;">undefined</b> GB of <b id="totalSpace" style="color: lightpink;">undefined</b> GB used.</div>
-    <div id="statusBar"></div>
+	<!--hidden-->
+	<div id="diskPopupCon" class="popupCon">
+		<div id="diskPopup" class="popup">
+			<img src="disk.png" style="scale: .9;">
+			<h2>Disk Space</h2>
+			<div class="breaker"></div>
+			<div>Currently, there is <b id="usedSpace" style="color: lightblue;">undefined</b> GB of <b id="totalSpace"
+					style="color: lightpink;">undefined</b> GB used.</div>
+			<div id="statusBar"></div>
 
-    <div class="primarySecondaryContainer">
-      <button class="secondary" onclick="
+			<div class="primarySecondaryContainer">
+				<button class="secondary" onclick="
         document.getElementById('diskPopupCon').style.display = 'none';
         document.getElementById('h1').style.filter = 'none';
         document.title = 'Home | gigaDrive';
         document.getElementById('homeLink').classList.add('active');
         document.getElementById('diskSpace').classList.remove('active');
         ">Close</button>
-    </div>
-    </div>
-  </div>
-  </div>
-
-  
-<div id="uploadStatusPopupCon" class="popupCon">
-  <div id="uploadStatusPopup" class="popup">
-    <h2>Uploading ....</h2>
-      <div class="breaker"></div>
-    <div class="uploadStatus">Thanks for using gigaDrive!</div>
-    <div class="uploadStatus">Upload in progress ....</div>
-    <div class="uploadStatus">Saving big files can take time ....</div>
-    <div class="uploadStatus">Looks like it's gonna take a while ....</div>
-    <div class="uploadStatus">Take a little break and come back later!</div>
-    <div id="statusBarUpload0"></div>
-    <div id="statusBarUpload1"></div>
-    <div id="statusBarUpload2"></div>
-    <div id="statusBarUpload3"></div>
-    <div id="statusBarUpload4"></div>
-    <div id="statusBarUpload5"></div>
-    <div id="statusBarUpload6"></div>
-    <div id="statusBarUpload7"></div>
-    <div id="statusBarUpload8"></div>
-    <div id="statusBarUpload9"></div>
-    <div id="statusBarUpload10"></div>
-    <div id="uploadProgress" style="font-size: .9rem; font-style: italic;">calculating</div>
-
-    <div class="primarySecondaryContainer">
-      <button class="secondary" onclick="window.location.reload();">Cancel Upload</button>
-    </div>
-    </div>
-  </div>
-  </div>
+			</div>
+		</div>
+	</div>
+	</div>
 
 
+	<div id="uploadStatusPopupCon" class="popupCon">
+		<div id="uploadStatusPopup" class="popup">
+			<h2>Uploading ....</h2>
+			<div class="breaker"></div>
+			<div class="uploadStatus">Thanks for using gigaDrive!</div>
+			<div class="uploadStatus">Upload in progress ....</div>
+			<div class="uploadStatus">Saving big files can take time ....</div>
+			<div class="uploadStatus">Looks like it's gonna take a while ....</div>
+			<div class="uploadStatus">Take a little break and come back later!</div>
+			<div id="statusBarUpload0"></div>
+			<div id="statusBarUpload1"></div>
+			<div id="statusBarUpload2"></div>
+			<div id="statusBarUpload3"></div>
+			<div id="statusBarUpload4"></div>
+			<div id="statusBarUpload5"></div>
+			<div id="statusBarUpload6"></div>
+			<div id="statusBarUpload7"></div>
+			<div id="statusBarUpload8"></div>
+			<div id="statusBarUpload9"></div>
+			<div id="statusBarUpload10"></div>
+			<div id="uploadProgress" style="font-size: .9rem; font-style: italic;">calculating</div>
 
-  <div id="downloadStatusPopupCon" class="popupCon">
-    <div id="downloadStatusPopup" class="popup">
-      <h2>Downloading ....</h2>
-        <div class="breaker"></div>
-      <div class="downloadStatus">Downloading file now.<div>
-      <div id="statusBarDownload0"></div>
-      <div id="statusBarDownload1"></div>
-      <div id="statusBarDownload2"></div>
-      <div id="statusBarDownload3"></div>
-      <div id="statusBarDownload4"></div>
-      <div id="statusBarDownload5"></div>
-      <div id="statusBarDownload6"></div>
-      <div id="statusBarDownload7"></div>
-      <div id="statusBarDownload8"></div>
-      <div id="statusBarDownload9"></div>
-      <div id="statusBarDownload10"></div>
-      <div id="uploadProgress" style="font-size: .9rem; font-style: italic;">calculating</div>
-  
-      <div class="primarySecondaryContainer">
-        <button class="secondary" onclick="window.location.reload();">Cancel Download</button>
-      </div>
-      </div>
-    </div>
-    </div>
-  </div>
+			<div class="primarySecondaryContainer">
+				<button class="secondary" onclick="window.location.reload();">Cancel Upload</button>
+			</div>
+		</div>
+	</div>
+	</div>
 
 
 
-<div id="successDownloadPopupCon" class="popupCon">
-  <div id="successDownload" class="popup">
-    <h2>Success!</h2>
-      <div class="breaker"></div>
-    <div class="downloadSuccess">Your file(s) has been downloaded.</div>
-    <div class="primarySecondaryContainer">
-      <button class="secondary" title="reload page" onclick="window.location.reload();">Close</button>
-    </div>
-    </div>
-  </div>
-  </div>
+	<div id="downloadStatusPopupCon" class="popupCon">
+		<div id="downloadStatusPopup" class="popup">
+			<h2>Downloading ....</h2>
+			<div class="breaker"></div>
+			<div class="downloadStatus">Downloading file now.<div>
+					<div id="statusBarDownload0"></div>
+					<div id="statusBarDownload1"></div>
+					<div id="statusBarDownload2"></div>
+					<div id="statusBarDownload3"></div>
+					<div id="statusBarDownload4"></div>
+					<div id="statusBarDownload5"></div>
+					<div id="statusBarDownload6"></div>
+					<div id="statusBarDownload7"></div>
+					<div id="statusBarDownload8"></div>
+					<div id="statusBarDownload9"></div>
+					<div id="statusBarDownload10"></div>
+					<div id="uploadProgress" style="font-size: .9rem; font-style: italic;">calculating</div>
 
-  <div id="successUploadPopupCon" class="popupCon">
-    <div id="successUpload" class="popup">
-      <h2>Success!</h2>
-        <div class="breaker"></div>
-      <div class="uploadSuccess">Your file(s) has been uploaded.</div>
-      <div class="primarySecondaryContainer">
-        <button class="secondary" onclick="window.location.reload();">View files</button>
-      </div>
-      </div>
-    </div>
-    </div>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Element references
-    const uploadMenu = document.getElementById("uploadPopupCon");
-    const h1 = document.getElementById("h1");
-    const uploadLink = document.getElementById("uploadLink");
-    const homeLink = document.getElementById("homeLink");
-    const shareMenu = document.getElementById("sharePopupCon");
-    const shareLink = document.getElementById("shareLink");
-    const settingsLink = document.getElementById("settingsLink");
-    const settingsMenu = document.getElementById("settingsPopupCon");
-    const statusMenu = document.getElementById("diskPopupCon");
-    const statusLink = document.getElementById("diskSpace");
-    const deletePopupCon = document.getElementById("deletePopupCon");
-    const reloadButton = document.getElementById("reload");
-    const cancelButtons = document.querySelectorAll(".cancelDeleteBtn");
-
-    // Open upload menu
-    function openUploadMenu() {
-      uploadMenu.style.display = "flex";
-      h1.style.filter = "blur(1px)";
-      uploadLink.classList.add("active");
-      homeLink.classList.remove("active");
-      document.title = "Upload | gigaDrive";
-    }
-
-    // Open share menu
-    function openShareMenu() {
-      shareMenu.style.display = shareMenu.style.display === "flex" ? "none" : "flex";
-      h1.style.filter = "blur(1px)";
-      shareLink.classList.add("active");
-      homeLink.classList.remove("active");
-      document.title = "Upload | gigaDrive";
-    }
-
-    // Open status menu
-    function openStatusMenu() {
-      statusMenu.style.display = "flex";
-      h1.style.filter = "blur(1px)";
-      statusLink.classList.add("active");
-      homeLink.classList.remove("active");
-      document.title = "Disk Space | gigaDrive";
-    }
-
-    // Open settings menu
-    function openSettingsMenu() {
-      settingsMenu.style.display = "flex";
-      h1.style.filter = "blur(1px)";
-      settingsLink.classList.add("active");
-      homeLink.classList.remove("active");
-      document.title = "Settings | gigaDrive";
-    }
-
-    // Open delete popup
-    function openDeletePopup() {
-      deletePopupCon.style.display = "flex";
-      h1.style.filter = "blur(1px)";
-      document.title = "Delete permanently? | gigaDrive";
-    }
-
-    // Close all popups when canceled
-    function cancelFunction() {
-      const popups = document.querySelectorAll(".popupCon");
-      popups.forEach((popupCon) => {
-        popupCon.style.display = "none";
-      });
-      document.title = "Home | gigaDrive";
-      h1.style.filter = "none";
-    }
-
-    // Reload the page
-    function reloadPage() {
-      location.reload();
-    }
-
-    // Attach event listeners
-    if (uploadLink) uploadLink.addEventListener("click", openUploadMenu);
-if (shareLink) shareLink.addEventListener("click", openShareMenu);
-if (statusLink) statusLink.addEventListener("click", openStatusMenu);
-if (settingsLink) settingsLink.addEventListener("click", openSettingsMenu);
-if (reloadButton) reloadButton.addEventListener("click", reloadPage);
-
-cancelButtons.forEach((button) => button.addEventListener("click", cancelFunction));
-
-// Add click event listeners to all elements with the class 'fileEdit'
-const fileEditElements = document.querySelectorAll('.fileEdit');
-fileEditElements.forEach((element) => {
-    element.addEventListener("click", openUploadMenu);
-});
-
-    // Cycle statuses
-    const statuses = document.querySelectorAll(".uploadStatus");
-    let currentIndex = 0;
-
-    function showNextStatus() {
-      statuses[currentIndex].classList.remove("activeUploadStatus");
-      currentIndex = (currentIndex + 1) % statuses.length;
-      statuses[currentIndex].classList.add("activeUploadStatus");
-    }
-
-    function cycleStatuses() {
-      if (statuses.length > 0) {
-        statuses[currentIndex].classList.add("activeUploadStatus");
-        setInterval(showNextStatus, 10000);
-      }
-    }
-
-    cycleStatuses();
-  });
+					<div class="primarySecondaryContainer">
+						<button class="secondary" onclick="window.location.reload();">Cancel Download</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
 
 
-  
-</script>
+
+	<div id="successDownloadPopupCon" class="popupCon">
+		<div id="successDownload" class="popup">
+			<h2>Success!</h2>
+			<div class="breaker"></div>
+			<div class="downloadSuccess">Your file(s) has been downloaded.</div>
+			<div class="primarySecondaryContainer">
+				<button class="secondary" title="reload page" onclick="window.location.reload();">Close</button>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<div id="successUploadPopupCon" class="popupCon">
+		<div id="successUpload" class="popup">
+			<h2>Success!</h2>
+			<div class="breaker"></div>
+			<div class="uploadSuccess">Your file(s) has been uploaded.</div>
+			<div class="primarySecondaryContainer">
+				<button class="secondary" onclick="window.location.reload();">View files</button>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", function () {
+			// Element references
+			const uploadMenu = document.getElementById("uploadPopupCon");
+			const h1 = document.getElementById("h1");
+			const uploadLink = document.getElementById("uploadLink");
+			const homeLink = document.getElementById("homeLink");
+			const shareMenu = document.getElementById("sharePopupCon");
+			const shareLink = document.getElementById("shareLink");
+			const settingsLink = document.getElementById("settingsLink");
+			const settingsMenu = document.getElementById("settingsPopupCon");
+			const statusMenu = document.getElementById("diskPopupCon");
+			const statusLink = document.getElementById("diskSpace");
+			const deletePopupCon = document.getElementById("deletePopupCon");
+			const reloadButton = document.getElementById("reload");
+			const cancelButtons = document.querySelectorAll(".cancelDeleteBtn");
+
+			// Open upload menu
+			function openUploadMenu() {
+				uploadMenu.style.display = "flex";
+				h1.style.filter = "blur(1px)";
+				uploadLink.classList.add("active");
+				homeLink.classList.remove("active");
+				document.title = "Upload | gigaDrive";
+			}
+
+			// Open share menu
+			function openShareMenu() {
+				shareMenu.style.display = shareMenu.style.display === "flex" ? "none" : "flex";
+				h1.style.filter = "blur(1px)";
+				shareLink.classList.add("active");
+				homeLink.classList.remove("active");
+				document.title = "Upload | gigaDrive";
+			}
+
+			// Open status menu
+			function openStatusMenu() {
+				statusMenu.style.display = "flex";
+				h1.style.filter = "blur(1px)";
+				statusLink.classList.add("active");
+				homeLink.classList.remove("active");
+				document.title = "Disk Space | gigaDrive";
+				updateUsedSpace();
+			}
+
+			// Open settings menu
+			function openSettingsMenu() {
+				settingsMenu.style.display = "flex";
+				h1.style.filter = "blur(1px)";
+				settingsLink.classList.add("active");
+				homeLink.classList.remove("active");
+				document.title = "Settings | gigaDrive";
+			}
+
+			// Open delete popup
+			function openDeletePopup() {
+				deletePopupCon.style.display = "flex";
+				h1.style.filter = "blur(1px)";
+				document.title = "Delete permanently? | gigaDrive";
+			}
+
+			// Close all popups when canceled
+			function cancelFunction() {
+				const popups = document.querySelectorAll(".popupCon");
+				popups.forEach((popupCon) => {
+					popupCon.style.display = "none";
+				});
+				document.title = "Home | gigaDrive";
+				h1.style.filter = "none";
+			}
+
+			// Reload the page
+			function reloadPage() {
+				location.reload();
+			}
+
+			// Attach event listeners
+			if (uploadLink) uploadLink.addEventListener("click", openUploadMenu);
+			if (shareLink) shareLink.addEventListener("click", openShareMenu);
+			if (statusLink) statusLink.addEventListener("click", openStatusMenu);
+			if (settingsLink) settingsLink.addEventListener("click", openSettingsMenu);
+			if (reloadButton) reloadButton.addEventListener("click", reloadPage);
+
+			cancelButtons.forEach((button) => button.addEventListener("click", cancelFunction));
+
+			// Add click event listeners to all elements with the class 'fileEdit'
+			const fileEditElements = document.querySelectorAll('.fileEdit');
+			fileEditElements.forEach((element) => {
+				element.addEventListener("click", openUploadMenu);
+			});
+
+			// Cycle statuses
+			const statuses = document.querySelectorAll(".uploadStatus");
+			let currentIndex = 0;
+
+			function showNextStatus() {
+				statuses[currentIndex].classList.remove("activeUploadStatus");
+				currentIndex = (currentIndex + 1) % statuses.length;
+				statuses[currentIndex].classList.add("activeUploadStatus");
+			}
+
+			function cycleStatuses() {
+				if (statuses.length > 0) {
+					statuses[currentIndex].classList.add("activeUploadStatus");
+					setInterval(showNextStatus, 10000);
+				}
+			}
+
+			cycleStatuses();
+		});
+
+
+
+	</script>
 
 </body>
+
 </html>

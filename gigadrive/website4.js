@@ -120,7 +120,7 @@ async function updateUsedSpace(){
 }
 
 setTimeout(listFiles, 1000);
-setTimeout(updateUsedSpace, 1000);
+//setTimeout(updateUsedSpace, 1000);
 
 
 
