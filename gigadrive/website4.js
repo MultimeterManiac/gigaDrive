@@ -114,9 +114,15 @@ async function update(){
 
 async function updateUsedSpace(){
 	let l = document.getElementById("usedSpace");
-	l.innerHTML = await get_full_space();
+	let x = await get_full_space();
+	l.innerHTML = x;
 	let ll = document.getElementById("totalSpace");
-	ll.innerHTML = await get_free_space();
+	let xx = await get_free_space();
+	ll.innerHTML = xx;
+	let percentage = Math.round(x / xx * 10) / 10;
+	console.log(percentage);
+	let bar = document.getElementById("statusBarDownload0");
+	bar.setAttribute("id", "statusBarDownload" + percentage * 10);
 }
 
 setTimeout(listFiles, 1000);
