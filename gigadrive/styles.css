@@ -130,10 +130,9 @@ border: lightblue 1px solid;
 
 /*menu*/
 #menuArea {
-  padding-top: 6rem;
   position: fixed;
-  top: 0;
-  bottom: 0;
+  top: 12vh;
+  bottom: 12vh;
   left: 0;
   width: 6rem;
   background-color: var(--accent);
@@ -182,6 +181,10 @@ border: lightblue 1px solid;
 #menuArea img {
   height: 2rem;
   width: 2rem;
+}
+#menuArea:hover img {
+  height: 2.5rem;
+  width: 2.5rem;
 }
 
 #uploadPopupCon label {
