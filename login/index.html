@@ -26,18 +26,57 @@
 
 </head>
 <body>
-<section id="loadingSection">
-  <h1>gigaDrive</h1>
-  <div id="loadingPointsDiv">
-  <div class="loadingPoint1"></div>
-  <div class="loadingPoint2"></div>
-  <div class="loadingPoint3"></div>
-  </div>
-  <h3>connecting to server</h3>
-</section>
-<main>
-<h1 id="h1">gigaDrive</h1>
+<div class="app">
+  <header>
+    <img src="icons8-cloud.png" alt="gigaDrive logo">
+    <h1>gigaDrive</h1>
+    <p>Free Online Drive Storage</p>
+    <a href="https://github.com/MultimeterManiac/gigaDrive" target="_blank">Source Code</a>
+  </header>
 
+  <main class="active" id="signIn">
+    <nav>
+      <div onclick="tSIA()" style="background-color: var(--secondary);">Log In</div>
+      <div onclick="tSUA()">Sign Up</div>
+    </nav>
+    <article id="inputList">
+      <input placeholder="username" type="text" id="userName" autofocus>
+      <input placeholder="password" type="password" id="password">
+      <button onclick="login()">Login</button>
+    </article>
+  </main>
+
+<main id="signUp">
+  <nav>
+    <div onclick="tSIA()">Log In</div>
+    <div onclick="tSUA()" style="background-color: var(--secondary);">Sign Up</div>
+  </nav>
+  <article id="signupPopup">
+    <input placeholder="account username" id="1"></input>
+    <input placeholder="account password" id="2" type="password"></input>
+    <button onclick="signup()">Create</button>
+    <div id="success"></div>
+  </article>
+</main>
+</div>
+
+
+<script>
+  let signIn = document.getElementById("signIn");
+  let signUp = document.getElementById("signUp");
+    function tSIA() { // when user clicks on sign in, its class will be toggled.
+      signIn.classList.add("active");
+      signUp.classList.remove("active");
+    }
+
+    function tSUA() { // when user clicks on sign up, its class will be toggled.
+      signIn.classList.remove("active");
+      signUp.classList.add("active");
+    }
+</script>
+
+
+  <!--
 <section id="loginArea">
   <div id="inputList">
     <input type="text" id="userName" placeholder="username ....">
@@ -57,6 +96,6 @@
 <div onclick="signup()">signup</div>
 <div id="succes"></div>
 </div>
-
+-->
 </body>
 </html>

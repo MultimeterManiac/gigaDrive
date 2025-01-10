@@ -55,7 +55,7 @@ function signup(){
 
     promise.then(function (response) {
         console.log(response); // Success
-        document.getElementById("succes").innerHTML = "account creation succesful, please login now";
+        document.getElementById("succes").innerHTML = "Success! You can now login.";
     }, function (error) {
         console.log(error); // Failure
     });

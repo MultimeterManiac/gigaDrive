@@ -1,167 +1,97 @@
-:root {
-  --dark: rgb(31, 31, 31);
-  --accent: rgb(19, 19, 19);
-  --hover: brightness(1.1);
-  --focus: brightness(1.5);
-  --radius: 6px;
-  --margin: 2px;
-}
-
 * {
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 1rem;
   box-sizing: border-box;
   color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  font-size: 1rem;
+}
+:root {
+  --primary: #3a3a3a;
+  --accent: #12b886;
+  --popup: #2e2e2e;
+  --secondary: #808080;
+}
+::selection {
+  background-color: var(--accent);
+  color: white;
+}
+:focus {
+  outline: none;
+}
+.active {
+  display: block;
 }
 body {
-  background-image: radial-gradient(rgb(59, 59, 59), rgb(16, 16, 16));
+  display: flex;
+  justify-content: center;
+  background-color: var(--primary);
+}
+.app {
+  background-color: #3a3a3a;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+  width: calc(100vw - 88px);
+  max-width: 1920px;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+h1 {
+  font-size: 3rem;
+  letter-spacing: -1px;
+  margin-bottom: 3rem;
+  margin-top: 1rem;
+}
+main {
+  background-color: #2e2e2e;
+  display: none;
+  padding: 1rem;
+  border-radius: 1rem;
+}
+nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
-#loadingSection {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+nav div {
+  cursor: pointer;
+  padding-inline: 12%;
+  padding-block: 1rem;
+  border-radius: 1rem;
+  transition: .15s ease all;
+  width: 50%;
+}
+nav div:hover {
+  background-color: var(--primary);
+}
+article {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  animation: fadeOut .75s both;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
 }
-@keyframes fadeOut {
-  0% {visibility: visible;}
-  100% {visibility: hidden;}
-}
-h1 {
-  font-size: 3rem;
-  text-align: center;
-  color: white;
-}
-#loadingPointsDiv {
-  display: flex;
-
-}
-.loadingPoint1,
-.loadingPoint2,
-.loadingPoint3 {
-  background-color: white;
-  height: .5rem;
-  width: .5rem;
-  border-radius: .25rem;
-  margin: .25rem;
-  animation: loadingPoints .6s cubic-bezier(.26,-0.64,.51,1.59) both infinite;
-}
-.loadingPoint1 {
-  animation-delay: 0;
-}
-.loadingPoint2 {
-  animation-delay: .2s;
-}
-.loadingPoint3 {
-  animation-delay: .4s;
-}
-@keyframes loadingPoints {
-  0% {translate: 0 0;}
-  50% {translate: 0 -.75rem;}
-  100% {translate: 0 0;}
-}
-h3 {
-  font-weight: normal;
-  font-size: 2rem;
-  animation: opacity .75s infinite both;
-  position: fixed;
-  bottom: 25vh;
-}
-@keyframes opacity {
-  0% {opacity: .5;}
-  50% {opacity: .5;}
-  100% {opacity: 1;}
-}
-main {
-  height: 100vh;
-  width: 100vw;
-  animation: fadeIn .5s .75s ease both;
-}
-@keyframes fadeIn {
-  0% {visibility: hidden;}
-  100% {visibility: visible;}
-}
-#h1 {
-  font-size: 4rem;
-  text-align: center;
-}
-h2 {
-  font-size: 3rem;
-  color: green;
-}
-#menuArea {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  min-height: 18vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-inline: 12px;
-  animation: startJetzt 1s .5s ease;
-}
-#menuArea * {
-    border: solid 2px lightblue;
-    background-color: transparent;
-    cursor: pointer;
-    padding-inline: 2rem;
-    padding-block: 1rem;
-    border-radius: 2rem;
-}
-#menuArea div:hover {
-  filter: brightness(.9);
-}
-.active {
-  border:  2px solid white;
-  background-color: var(--dark);
-}
-a {
-  text-decoration: none;
-}
-@keyframes startJetzt {
-  0% {translate: 0 4rem;}
-}
-#loginArea {
-  margin-top: 44vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-/*file*/
-#inputList {
-  display: grid;
-  grid-template-columns: 1fr;
+article * {
+  margin-block: 6px;
+  padding-inline: 18px;
+  padding-block: 6px;
+  border-radius: 1rem;
+  border: none;
 }
 input {
-  background-color: #1f1f1f;
-  padding: 1rem;
-  border: none;
-  border-radius: var(--radius);
-  text-align: center;
-  width: 512px;
-  height: 4rem;
-  animation: startNow 1.25s .25s ease both;
+  background-color: var(--primary);
 }
-input::placeholder {
-  text-align: center;
-  color: gray;
-  font-style: italic;
-  font-size: 1.5rem;
+::placeholder {
+  color: white;
 }
-#spacer {
-  height: 1rem;
-}
-@keyframes startNow {
-  0% {translate: 0 1rem; opacity: 0; transform: scale(.5);}
-  50% {transform: scale(.5);}
+button {
+  background-color: var(--accent);
+  padding-block: 8px;
+  margin-top: 12px;
+  cursor: crosshair;
 }
