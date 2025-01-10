@@ -1,18 +1,18 @@
 :root {
-  --primary: #1d1d1d;
-  --secondary: #1a1a1a;
-  --popup: #000000cd;
+  --primary: #3a3a3a;
+  --secondary: #808080;
+  --accent: #12b886;
+  --popup: #2e2e2e;
   --hover: brightness(1.1);
-  --fileFocus: #252525;
+  --fileFocus: #808080;
   --radius: 12px;
   --margin: 2px;
 }
 
 ::selection {
-  background-color: rgba(173, 216, 230, 0.5);
+  background-color: #12b886;
   color: white;
 }
-
 /*
 cursor on hover
 file delete confirmation and status
@@ -28,8 +28,8 @@ if options are available: alias
   color: white;
 }
 body {
-  background-color: rgb(36, 36, 36);
-  padding-left: calc(6rem + 4vw);
+  background-color: #3a3a3a;
+  padding-left: 12rem;
   height: 100vh;
 }
 .spacer {
@@ -49,8 +49,11 @@ h2 {
   font-size: 2.75rem;
   color: lightpink;
   color: white;
-  color: lightblue;
   font-weight: normal;
+}
+.uploadInfo,
+.loading {
+  color: var(--accent);
 }
 a {
   text-decoration: none;
@@ -102,7 +105,7 @@ h4 {
   }
 }
 .fileLink:hover {
-border: lightblue 1px solid;
+border: green 1px solid;
 }
 
 .fileDownload, .fileDelete, .fileEdit {
@@ -134,8 +137,6 @@ border: lightblue 1px solid;
   top: 12vh;
   bottom: 12vh;
   left: 0;
-  width: 6rem;
-  background-color: var(--accent);
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -143,18 +144,14 @@ border: lightblue 1px solid;
   transition: all .15s ease;
   border: 1px solid transparent;
 }
-#menuArea:hover {
-  width: calc(8rem + 4vw);
-  backdrop-filter: blur(4px);
-  top: 15vh;
-  bottom: 15vh;
-  background-color: var(--popup);
-  box-shadow: 1rem 1rem 1rem var(--secondary);
-  border-radius: 1rem;
-  border: 1px solid var(--secondary);
+#menuArea > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: var(--radius);
 }
 #menuArea div {
-  padding: .75rem;
+  padding-inline: .75rem;
   border-radius: var(--radius);
   color: white;
   font-weight: bold;
@@ -179,14 +176,9 @@ border: lightblue 1px solid;
   transform: scale(.9);
 }
 #menuArea img {
-  height: 2rem;
-  width: 2rem;
-}
-#menuArea:hover img {
   height: 2.5rem;
   width: 2.5rem;
 }
-
 #uploadPopupCon label {
   position: fixed;
   top: 0;
@@ -214,7 +206,7 @@ border: lightblue 1px solid;
 }
 
 .active {
-  border:  2px solid lightblue;
+  border:  2px solid var(--accent);
   background-color: var(--dark);
 }
 
@@ -263,12 +255,11 @@ border: lightblue 1px solid;
   animation: popup .15s ease both;
   min-width: 33vw;
   min-height: 4vh;
-  background-color: var(--popup);
   backdrop-filter: blur(4px);
   border-radius: var(--radius);
-  box-shadow: 0 0 12px black;
   line-height: 2rem;
   padding: 2rem;
+  background-color: var(--popup);
 }
 .popupIcon {
   height: 5rem;
@@ -303,7 +294,7 @@ border: lightblue 1px solid;
 .addWorkspaceInputInput {
   background-color: transparent;
   border: none;
-  border-bottom: 1px solid lightblue;
+  border-bottom: 1px solid var(--accent);
   border-radius: var(--radius);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
@@ -355,7 +346,8 @@ select {
   margin-block: 2rem;
 }
 .primary {
-  background-color: rgba(173, 216, 230, 0.75);
+  background-color: var(--accent);
+  filter: saturate(.5);
   border: none;
   cursor: crosshair;
   padding-inline: 1rem;
@@ -364,7 +356,7 @@ select {
   transition: all .15s ease;
 }
 .secondary {
-  border: solid 2px rgba(173, 216, 230, 0.5);
+  border: solid 2px rgba(173, 216, 230, .25);
   background-color: transparent;
   cursor: pointer;
   padding-inline: 1rem;
@@ -373,20 +365,21 @@ select {
   transition: all .15s ease;
 }
 .secondary:hover {
-  background-color: #33333370;
-  border: solid 2px rgba(173, 216, 230, .25);
+  border: solid 2px grey;
 }
 .primary:hover {
-  background-color: rgba(173, 216, 230, 0.5);
+  filter: saturate(1);
 }
-#statusBar {
+
+#statusBarDisk {
   width: 88%;
-  height: 1rem;
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightpink, lightpink);
-  border-radius: .5rem;
-  animation: fileFade .5s ease both;
-  box-shadow: 0 0 2rem black;
+      height: 1rem;
+      background-image: linear-gradient(90deg, var(--accent), rgb(0, 33, 0));
+      border-radius: .5rem;
+      animation: fileFade .5s ease both;
+      box-shadow: 0 0 3rem black;
 }
+
 #statusBarUpload0,
 #statusBarUpload1,
 #statusBarUpload2,
