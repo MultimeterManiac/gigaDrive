@@ -9,6 +9,8 @@
 	<script src="client.js"></script>
 	<title>Home | gigaDrive</title>
 	<link id="stylesheet" rel="stylesheet" href="styles.css">
+	<link rel="icon" type="image/x-icon" href="icons8-cloud.png">
+	<link rel="manifest" href="manifest.json">
 	<script>
 		function updateStylesheet() {
 			const stylesheet = document.getElementById("stylesheet");
@@ -34,8 +36,6 @@
 		<h2 id="filesHeading">Files</h2>
 		<div id="fileList">
 
-<div class="fileLink">hdf</div>
-<div class="fileLink">another_file.txt</div>
 
 			<div class="loading">loading .....</div>
 			<!--file list here-->
@@ -77,10 +77,7 @@
         document.title = 'Home | gigaDrive';
         document.getElementById('homeLink').classList.add('active');
         document.getElementById('uploadLink').classList.remove('active');">Cancel</button>
-					<!--
-					as soon as user selects a file, the upload starts
 					<button onclick="write_file()" id="uploadNow" class="primary">Upload Now</button>
-				-->
 				</div> <!--close primarySecondaryContainer-->
 			</section>
 		</div>
@@ -157,35 +154,12 @@
 		</div>
 	</div>
 
-
-	<!--hidden
-	<div id="deletePopupCon" class="popupCon">
-		<div id="deletePopup" class="popup">
-			<h2 style="color: lightpink;">Delete?</h2>
-			<div class="breaker"></div>
-			<div>
-				<input type="checkbox" id="deletePermanently"
-					style="accent-color: lightpink; transform: scale(1.5); margin-right: .5rem;">
-				<label for="deletePermanently">I want to delete this item permanently.</label>
-				<div style="color: grey; font-size: .9rem; text-align: center;">You cannot undo this action.</div>
-				<div class="primarySecondaryContainer">
-					<button id="cancelDeleteBtn" class="secondary" onclick="
-              document.getElementById('deletePopupCon').style.display = 'none';
-        document.getElementById('h1').style.filter = 'none';
-        document.title = 'Home | gigaDrive';
-        ">Cancel</button>
-					<button type="submit" class="primary">Delete</button>
-				</div>
-			</div>
-		</div>
-	</div>-->
-
 	<!--hidden-->
 	<div id="warningPopupCon" class="popupCon">
 		<div id="websocketPopup" class="popup" style="padding: 1rem; line-height: 3rem;">
 			<h2>Sorry!</h2>
 			<div class="breaker"></div>
-			<div style="text-align: center;">You can try reloading the page or contacting the developers.<br><span
+			<div style="text-align: center;">There was an error with the server connection.<br><span
 					style="letter-spacing: 2px; color: lightpink; font-family: monospace;">WEBSOCKET_ERROR</span></div>
 			<div>
 				<div class="primarySecondaryContainer">
