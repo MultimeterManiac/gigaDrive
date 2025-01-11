@@ -1,4 +1,4 @@
-let socket = new WebSocket("wss://gigachat.ddns.net:12357");
+let socket = new WebSocket("wss://gigadrive.ddns.net:12357");
 let response = "";
 let wopened = false;
 let running = false;
