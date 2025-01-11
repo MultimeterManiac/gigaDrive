@@ -100,13 +100,14 @@ button {
 }
 footer {
   position: fixed;
-  bottom: .5rem;
+  bottom: 1rem;
   left: 0;
   right: 0;
 }
 footer * {
-  font-size: .75rem;
-  color: rgb(86, 86, 86);
+  font-size: 1rem;
+  color: rgb(108, 108, 108);
+  margin-inline: 1rem;
 }
 .mobileonly {
   display: none;

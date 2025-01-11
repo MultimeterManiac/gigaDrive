@@ -139,3 +139,9 @@ if ("serviceWorker" in navigator) {
       .catch((error) => console.error("Service Worker Registration Failed:", error));
   });
 }
+
+// sigma. kp ob des funktioniert.
+function showUsername() {
+	document.getElementById('logoutLink').textContent = username;
+	document.getElementById('popupSettingsUsername').textContent = username;
+ }
