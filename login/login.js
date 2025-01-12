@@ -55,9 +55,14 @@ function signup(){
 
     promise.then(function (response) {
         console.log(response); // Success
-        document.getElementById("succes").innerHTML = "Success! You can now login.";
+        document.getElementById("authStatus").style.display = "block";
+        document.getElementById("authStatus").style.color = "var(--accent)";
+        document.getElementById("authStatus").innerHTML = "redirecting";
     }, function (error) {
         console.log(error); // Failure
+        document.getElementById("authStatus").style.display = "block";
+        document.getElementById("authStatus").style.color = "red";
+        document.getElementById("authStatus").innerHTML = "Try again / Error";
     });
 }
 function makeid(length) {

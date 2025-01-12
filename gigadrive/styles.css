@@ -30,7 +30,6 @@ if options are available: alias
 body {
   background-color: #3a3a3a;
   padding-left: 12rem;
-  height: 100vh;
 }
 .spacer {
   height: 1rem;
@@ -69,11 +68,6 @@ h4 {
   border-radius: 2rem;
   height: 16vh;
   animation: dropZone .75s 1s ease both;
-}
-#loadingFiles {
-  height: 100vh;
-  width: 100vw;
-  background-color: grey;
 }
 
 /*file*/
@@ -313,6 +307,10 @@ border: green 1px solid;
   color: gray;
   font-style: italic;
   font-size: 1.5rem;
+}
+
+.storageInfoText::before {
+  content: 'Currently, there is ';
 }
 
 ::-webkit-scrollbar {
