@@ -46,7 +46,7 @@ h1 {
 }
 h2 {
   font-size: 2.75rem;
-  color: lightpink;
+  color: rgb(0,33, 0);
   color: white;
   font-weight: normal;
 }
@@ -183,7 +183,7 @@ border: green 1px solid;
 }
 #uploadPopupCon .dropping {
   animation: drag 1s infinite both;
-  border: 1px lightpink !important;
+  border: 1px rgb(0,33, 0) !important;
   background-color: rgba(150, 150, 150, 0.025);
 }
 @keyframes drag {
@@ -300,7 +300,7 @@ border: green 1px solid;
 .addWorkspaceInputInput:focus {
   outline: none;
   transform: scale(0.95);
-  border-bottom: 2px solid lightpink;
+  border-bottom: 2px solid rgb(0,33, 0);
 }
 .addWorkspaceInputInput::placeholder {
   text-align: center;
@@ -408,91 +408,91 @@ select {
 }
 
 #statusBarUpload0 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
+  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
 }
 
 #statusBarUpload1 {
-  background-image: linear-gradient(90deg, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
+  background-image: linear-gradient(90deg, var(--accent), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
 }
 
 #statusBarUpload2 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
+  background-image: linear-gradient(90deg, var(--accent), var(--accent), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
 }
 
 #statusBarUpload3 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
+  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
 }
 
 #statusBarUpload4 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
+  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
 }
 
 #statusBarUpload5 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink);
+  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
 }
 
 #statusBarUpload6 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink);
+  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
 }
 
 #statusBarUpload7 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink);
+  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
 }
 
 #statusBarUpload8 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink);
+  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), rgb(0,33, 0), rgb(0,33, 0));
 }
 
 #statusBarUpload9 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink);
+  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), rgb(0,33, 0));
 }
 
 #statusBarUpload10 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent));
 }
 
 #statusBarDownload0 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent));
 }
 
 #statusBarDownload1 {
-  background-image: linear-gradient(90deg, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg, rgb(0,33, 0), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent));
 }
 
 #statusBarDownload2 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent));
 }
 
 #statusBarDownload3 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent));
 }
 
 #statusBarDownload4 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent));
 }
 
 #statusBarDownload5 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent));
 }
 
 #statusBarDownload6 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), var(--accent), var(--accent), var(--accent), var(--accent));
 }
 
 #statusBarDownload7 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), var(--accent), var(--accent), var(--accent));
 }
 
 #statusBarDownload8 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue);
+  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), var(--accent), var(--accent));
 }
 
 #statusBarDownload9 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue);
+  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), var(--accent));
 }
 
 #statusBarDownload10 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
+  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
 }
 
 
