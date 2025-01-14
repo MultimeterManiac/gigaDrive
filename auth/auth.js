@@ -1,9 +1,4 @@
-const client = new Appwrite.Client();
-client
-    .setEndpoint('https://cloud.appwrite.io/v1') // Replace with your Appwrite endpoint
-    .setProject('67571cd7002ca90a77ef'); // Replace with your Appwrite Project ID
-        
-const account = new Appwrite.Account(client);
+
 
 let link = window.location.href;
 //link = "https://gigadrive.ddns.net/auth?user=Justus&pswd=12345";
@@ -13,6 +8,12 @@ console.log(user);
 console.log(pswd);
 
 async function login(){
+    const client = new Appwrite.Client();
+client
+    .setEndpoint('https://cloud.appwrite.io/v1') // Replace with your Appwrite endpoint
+    .setProject('67571cd7002ca90a77ef'); // Replace with your Appwrite Project ID
+        
+const account = new Appwrite.Account(client);
     try{
         const session = await account.createEmailPasswordSession(
             user, 
