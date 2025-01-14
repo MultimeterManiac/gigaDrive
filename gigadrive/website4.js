@@ -121,8 +121,8 @@ async function updateUsedSpace(){
 	ll.innerHTML = xx;
 	let percentage = Math.round(x / xx * 10) / 10;
 	console.log(percentage);
-	let bar = document.getElementById("statusBarDownload0");
-	bar.setAttribute("id", "statusBarDownload" + percentage * 10);
+	let bar = document.getElementById("statusBarDownload0").id = "statusBarDownload" + percentage * 10;
+	//bar.setAttribute("id", "statusBarDownload" + percentage * 10);
 }
 
 setTimeout(listFiles, 1000);
