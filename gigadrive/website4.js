@@ -21,7 +21,7 @@ async function check(){
 	}
 }
 
-check();
+//check();
 
 async function logout(){
 	const res = await account.deleteSessions();
@@ -111,7 +111,7 @@ async function update(){
 		z = zz;
 	}
 }
-
+let pr = 0;
 async function updateUsedSpace(){
 	let l = document.getElementById("usedSpace");
 	let x = await get_full_space();
@@ -121,7 +121,8 @@ async function updateUsedSpace(){
 	ll.innerHTML = xx;
 	let percentage = Math.round(x / xx * 10) / 10;
 	console.log(percentage);
-	let bar = document.getElementById("statusBarDownload0").id = "statusBarDownload" + percentage * 10;
+	let bar = document.getElementById("statusBarDownload" + pr).id = "statusBarDownload" + percentage * 10;
+	pr = percentage * 10;
 	//bar.setAttribute("id", "statusBarDownload" + percentage * 10);
 }
 
