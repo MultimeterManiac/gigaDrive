@@ -154,4 +154,3 @@ function showUsername() {
 	//console.log(e.target.files.length);
   });
   
-  document.getElementById("popupSettingsUsername").innerHTML = userr;
