@@ -146,3 +146,10 @@ function showUsername() {
 	document.getElementById('logoutLink').textContent = username;
 	document.getElementById('popupSettingsUsername').textContent = username;
  }
+
+ document.getElementById('addFile').addEventListener('change', function(e) {
+	document.getElementById("fffi").innerHTML = e.target.files.length + " files selected";
+	//console.log(e.target.files.length);
+  });
+  
+  document.getElementById("popupSettingsUsername").innerHTML = username;

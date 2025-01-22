@@ -60,6 +60,7 @@
 			<h2>Upload</h2>
 			<div class="breaker"></div>
 			<p class="exclude">Click here to upload</p>
+			<p id ="fffi" class="exclude">0 files selected</p>
 			<p class="uploadInfo">Files with the same name will be overwritten.</p>
 
 
@@ -67,7 +68,7 @@
 			<section class="uploadSectionUpload">
 				<label for="addFile" class="droppingNotActive">
 				</label>
-				<input type="file" id="addFile" style="opacity: 0; scale: 0;">
+				<input type="file" id="addFile" style="opacity: 0; scale: 0;" multiple>
 				<div class="primarySecondaryContainer">
 					<button class="secondary" onclick="
             document.getElementById('uploadPopupCon').style.display = 'none';
