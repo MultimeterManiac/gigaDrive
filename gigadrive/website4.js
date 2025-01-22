@@ -14,6 +14,7 @@ async function check(){
 	try {
 		user = await account.get();
 		username = await user.email;
+		userr = await user.name;
 		console.log(username);
 	} catch (err) {
 		console.log(err);
@@ -152,4 +153,4 @@ function showUsername() {
 	//console.log(e.target.files.length);
   });
   
-  document.getElementById("popupSettingsUsername").innerHTML = user;
+  document.getElementById("popupSettingsUsername").innerHTML = userr;
