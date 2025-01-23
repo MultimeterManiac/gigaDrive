@@ -27,6 +27,9 @@ if options are available: alias
   box-sizing: border-box;
   color: white;
 }
+*:focus {
+  outline: none;
+}
 body {
   background-color: #3a3a3a;
 }
@@ -51,7 +54,7 @@ h2 {
 }
 .uploadInfo,
 .loading {
-  color: var(--accent);
+  color: var(--secondary);
   text-align: center;
 }
 a {
@@ -97,6 +100,60 @@ h4 {
     width: calc(20vw - 88px); /*3 times the margin variable*/;
   }
 }
+.headFiles {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  justify-content: center;
+  align-items: center;
+}
+.filesFilterCon {
+  margin-block: .83em;
+  font-family: monospace;
+  letter-spacing: 1px;
+  font-size: .75rem;
+  padding-left: 24px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  overflow-x: scroll;
+}
+.filesFilter,
+#renameOld, #renameNew {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  font-size: .75rem;
+  margin-inline: 6px;
+  background-color: #8080805e;
+  padding: 4px;
+  padding-inline: 6px;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 16px auto;
+}
+.filesFilterFilter:hover {
+  filter: brightness(2);
+}
+.filesFilterColor {
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+.filesFilterName {
+  padding-left: 4px;
+  font-size: .8rem;
+}
+.filesFilterFilter {
+  font-family: monospace;
+  letter-spacing: 1px;
+  font-size: .75rem;
+  margin-inline: 6px;
+  padding: 4px;
+  padding-inline: 6px;
+  border-radius: 4px;
+}
+
+
+
 .fileLink:hover {
 border: green 1px solid;
 }
@@ -260,7 +317,6 @@ border: green 1px solid;
 }
 
 /*workspaces and settings*/
-#sharePopup,
 #settingsPopup {
   display: flex;
   flex-direction: column;
@@ -276,36 +332,44 @@ border: green 1px solid;
   overflow-y: scroll;
   padding: 2rem;
 }
-#addWorkspaceInput {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+#renamePopup {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 18vh;
+  background-color: var(--popup);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  animation: renamePopup 1s ease both;
 }
-.addWorkspaceInputInput {
-  background-color: transparent;
+@keyframes renamePopup {
+  0% {translate: 0 100vh;}
+}
+#renameTag {
+  background-color: var(--secondary);
   border: none;
-  border-bottom: 1px solid var(--accent);
-  border-radius: var(--radius);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
+  border-radius: 10px;
+  padding-block: 6px;
+  margin-top: 6px;
   text-align: center;
-  width: 88%;
-  height: 4rem;
-  transition: all .15s ease;
 }
-.addWorkspaceInputInput:focus {
-  outline: none;
-  transform: scale(0.95);
-  border-bottom: 2px solid lightpink;
+.previewRename {
+  display: flex;
 }
-.addWorkspaceInputInput::placeholder {
-  text-align: center;
-  color: gray;
-  font-style: italic;
-  font-size: 1.5rem;
+#renamePopup .primarySecondaryContainer {
+  position: fixed;
+  bottom: 24px;
+  left: 12vw;
+  right: 12vw;
 }
 
 ::-webkit-scrollbar {
-  width: 10px; /* Width of the scrollbar */
+  width: 10px;
+  height: 0; /* Width of the scrollbar */
 }
 
 ::-webkit-scrollbar-track {
@@ -491,8 +555,8 @@ select {
 @keyframes popup {
   0% {opacity: 0; transform: scale(1.1); filter: blur(1px);}
 }
-@keyframes fileFade {
-  0% {transform: scale(.75);}
+@keyframes fileFade { 
+  0% {transform: scale(.9);}
 }
 @keyframes dropZone {
   0% {height: 40vh; padding-top: 19vh;}

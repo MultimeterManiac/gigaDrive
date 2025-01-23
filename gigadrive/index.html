@@ -24,7 +24,6 @@
 		updateStylesheet();
 		window.addEventListener("resize", updateStylesheet);
 	</script>
-
 </head>
 
 <body>
@@ -33,23 +32,71 @@
 	</section>
 	<div class="spacer"></div>
 	<section id="fileArea">
-		<h2 id="filesHeading">Files</h2>
+		<div class="headFiles">
+			<div class="filesFilterCon">
+				<div class="filesFilterFilter">FILTER</div>
+
+				<div class="filesFilter">
+					<div class="filesFilterColor" style="background-color: orange;"></div>
+					<div class="filesFilterName">Orange</div>
+				</div><!--filter-->
+
+				<div class="filesFilter">
+					<div class="filesFilterColor" style="background-color: red;"></div>
+					<div class="filesFilterName">Red</div>
+				</div><!--filter-->
+
+				<div class="filesFilter">
+					<div class="filesFilterColor" style="background-color: green;"></div>
+					<div class="filesFilterName">Green</div>
+				</div><!--filter-->
+
+				<div class="filesFilter">
+					<div class="filesFilterColor" style="background-color: yellow;"></div>
+					<div class="filesFilterName">Yellow</div>
+				</div><!--filter-->
+
+				<div class="filesFilter">
+					<div class="filesFilterColor" style="background-color: lightblue;"></div>
+					<div class="filesFilterName">Blue</div>
+				</div><!--filter-->
+
+				<div class="filesFilter">
+					<div class="filesFilterColor" style="background-color: purple;"></div>
+					<div class="filesFilterName">Purple</div>
+				</div><!--filter-->
+
+				<div class="filesFilter">
+					<div class="filesFilterColor" style="background-color: white;"></div>
+					<div class="filesFilterName">White</div>
+				</div><!--filter-->
+
+			</div> <!--filterfilter-->
+		</div>
 		<div id="fileList">
-
-
 			<div class="loading">loading your files ...</div>
 			<!--file list here-->
-
+			<div class="fileLink">sigma</div>
 		</div><!--close filelist-->
 	</section><!--close filearea-->
 
 
 	<nav id="menuArea">
-		<div title="Home" id="homeLink" class="active" onclick="listFiles()"><img src="home.svg"><div class="text">Home</div></div>
-		<div title="Upload" id="uploadLink"><img src="upload.png"><div class="text">Upload</div></div>
-		<div title="Storage" id="diskSpace"><img src="disk.png"><div class="text">Storage</div></div>
-		<div title="Settings" id="settingsLink"><img src="settings.svg"><div class="text">Settings</div></div>
-		<div title="Logout" id="logoutLink" onclick="logout()"><img src="logout.png" style="scale: .8;"><div class="text">Logout</div></div>
+		<div title="Home" id="homeLink" class="active" onclick="listFiles()"><img src="home.svg">
+			<div class="text">Home</div>
+		</div>
+		<div title="Upload" id="uploadLink"><img src="upload.png">
+			<div class="text">Upload</div>
+		</div>
+		<div title="Storage" id="diskSpace"><img src="disk.png">
+			<div class="text">Storage</div>
+		</div>
+		<div title="Settings" id="settingsLink"><img src="settings.svg">
+			<div class="text">Settings</div>
+		</div>
+		<div title="Logout" id="logoutLink" onclick="logout()"><img src="logout.png" style="scale: .8;">
+			<div class="text">Logout</div>
+		</div>
 	</nav>
 
 
@@ -60,7 +107,7 @@
 			<h2>Upload</h2>
 			<div class="breaker"></div>
 			<p class="exclude">Click here to upload</p>
-			<p id ="fffi" class="exclude">0 files selected</p>
+			<p id="fffi" class="exclude">0 files selected</p>
 			<p class="uploadInfo">Files with the same name will be overwritten.</p>
 
 
@@ -82,46 +129,6 @@
 		</div>
 	</div>
 
-
-	<!--hidden
-	<div id="sharePopupCon" class="popupCon">
-		<div id="sharePopup" class="popup">
-			<img src="shared.png" class="popupIcon">
-			<h2>Add a shared workspace</h2>
-			<div class="breaker"></div>
-			<section class="uploadSectionUpload">
-				<p style="text-align: center;">To share your files with others, you essentially create another user
-					account called "workspace".<br>From there, you can share everything with others, even if they don't
-					have a gigaDrive account.</p>
-				<p style="font-size: .9rem; color: grey; text-align: center;">Use a password for private or secret
-					data.<wbr> For public access for anyone, leave the password field blank.</p>
-				<section class="addWorkspace">
-
-					<section id="addWorkspaceInput">
-						<label for="workspaceName">Workspace Name:</label>
-						<label for="workspacePasword">Workspace Password:</label>
-						<input type="text" id="workspaceName" class="addWorkspaceInputInput" autocomplete="off"
-							placeholder="required">
-						<input type="text" id="workspacePasword" class="addWorkspaceInputInput" autocomplete="off"
-							placeholder="recommended">
-					</section> close {} input section
-					<div class="primarySecondaryContainer">
-						<button class="secondary" onclick="
-        document.getElementById('sharePopupCon').style.display = 'none';
-        document.getElementById('h1').style.filter = 'none';
-        document.title = 'Home | gigaDrive';
-        document.getElementById('homeLink').classList.add('active');
-        document.getElementById('shareLink').classList.remove('active');
-        ">Cancel</button>
-						<button class="primary">Add Workspace</button>
-					</div>
-				</section> close addworkspace section
-			</section> close uploadsectionupload section
-		</div>
-	</div>
--->
-
-
 	<!--hidden-->
 	<div id="settingsPopupCon" class="popupCon">
 		<div id="" class="popup">
@@ -136,18 +143,18 @@
 					Wallasch<br>Design: Felix Nowak<br><a href="https://icons8.com" target="_blank"
 						style="font-size: .9rem; color: grey; text-decoration: underline;">Icons by Icons8</a></p>
 				<p style="text-align: center;">version</p>
-				<p style="font-size: .9rem; color: grey; text-align: center; line-height: 1rem;"> 2.2 (development)</p>				
-				<p style="font-size: .9rem; color: grey; text-align: center; line-height: 1rem;">Update: new server, more storage</p>
+				<p style="font-size: .9rem; color: grey; text-align: center; line-height: 1rem;"> 2.2 (development)</p>
+				<p style="font-size: .9rem; color: grey; text-align: center; line-height: 1rem;">Update: new server, more
+					storage</p>
 				<!--development, beta, public-->
 				<div style="display: flex; justify-content: center; margin-top: 2rem;">
-				<button class="secondary" onclick="
+					<button class="secondary" onclick="
         document.getElementById('settingsPopupCon').style.display = 'none';
         document.getElementById('h1').style.filter = 'none';
         document.title = 'Home | gigaDrive';
         document.getElementById('homeLink').classList.add('active');
         document.getElementById('settingsLink').classList.remove('active');">Close</button>
 				</div>
-				<!-- <button class="primary">Delete this Account</button>-->
 
 			</section> <!--close uploadsectionupload section-->
 		</div>
@@ -183,11 +190,11 @@
 			<img src="disk.png" class="popupIcon">
 			<h2>Storage</h2>
 			<div class="breaker"></div>
-			<div class="storageInfoText"><b id="usedSpace" style="color: var(--accent);">undefined</b> GB of <b id="totalSpace"
-					style="color: var(--accent);">undefined</b> GB used.</div>
-			
+			<div class="storageInfoText"><b id="usedSpace" style="color: var(--accent);">undefined</b> GB of <b
+					id="totalSpace" style="color: var(--accent);">undefined</b> GB used.</div>
+
 			<div id="statusBarDownload0"></div>
-			
+
 
 
 			<div class="primarySecondaryContainer">
@@ -261,8 +268,6 @@
 		</div>
 	</div>
 
-
-
 	<div id="successDownloadPopupCon" class="popupCon">
 		<div id="successDownload" class="popup">
 			<h2>Success!</h2>
@@ -287,6 +292,36 @@
 	</div>
 	</div>
 
+	<div id="renamePopup">
+		<h2>Rename Tag</h2>
+		<div class="breaker"></div>
+		<label for="renameTag">New Name:</label>
+		<input type="text" id="renameTag">
+		<div class="breaker" style="margin-top: 44px;"></div>
+		<p>Preview:</p>
+		<div class="previewRename">
+
+			<div class="filesFilter">
+				<div class="filesFilterColor" style="background-color: orange;"></div>
+				<div class="filesFilterName">Orange</div>
+			</div><!--filter-->
+
+			<img src="arrow.png" style="height: 1rem; margin-inline: 1rem;">
+
+			<div class="filesFilter">
+				<div class="filesFilterColor" style="background-color: orange;"></div>
+				<div class="filesFilterName">My Projects</div>
+			</div><!--filter-->
+
+		</div>
+
+		<div class="primarySecondaryContainer">
+			<button class="secondary" onclick="
+				document.getElementById('renamePopup').style.display = 'none';
+				">Cancel</button>
+			<button class="primary">Rename</button>
+		</div>
+	</div>
 	<script>
 		document.addEventListener("DOMContentLoaded", function () {
 			// Element references

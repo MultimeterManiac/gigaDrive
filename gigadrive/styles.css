@@ -501,7 +501,7 @@ select {
   0% {opacity: 0; transform: scale(1.1); filter: blur(1px);}
 }
 @keyframes fileFade {
-  0% {transform: scale(.75);}
+  0% {transform: scale(.9);}
 }
 @keyframes dropZone {
   0% {height: 40vh; padding-top: 19vh;}
