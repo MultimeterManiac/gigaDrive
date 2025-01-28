@@ -172,11 +172,8 @@ document.getElementById('addFile').addEventListener('change', function (e) {
 	document.getElementById("fffi").innerHTML = e.target.files.length + " files selected";
 	//console.log(e.target.files.length);
 });
-
+let filterActive = false;
 function filter(tag) {
-
-
-	
 	let childs = document.querySelectorAll(".fileLink");
 	childs.forEach(function (child) {
 		if (child.classList.contains(tag)) {
@@ -189,3 +186,9 @@ function filter(tag) {
 	});
 }
 
+function clearFilter() {
+	let childs = document.querySelectorAll(".fileLink");
+	childs.forEach(function (child) {
+		child.classList.remove("hidden");
+	});
+}
