@@ -32,6 +32,15 @@ async function logout() {
 	window.location.replace("https://gigadrive.ddns.net/login");
 }
 
+const elements = document.querySelectorAll('.filesFilter');
+
+elements.forEach(element => {
+  element.addEventListener('click', () => {
+    elements.forEach(e => e.classList.remove('activeFilter'));
+    element.classList.add('activeFilter');
+  });
+});
+
 async function listFiles() {
 
 	//let files = await list_files()
@@ -44,7 +53,8 @@ async function listFiles() {
 			{ "filename": "/user/file3.txt", "tag": "red" },
 			{ "filename": "/user/file4.txt", "tag": "yellow" },
 			{ "filename": "/user/file5.txt", "tag": "white" },
-			{ "filename": "/user/file6.txt", "tag": "green" }
+			{ "filename": "/user/file6.txt", "tag": "green" },
+			{ "filename": "/user/file7.txt", "tag": "purple" }
 		]
 	let par = document.getElementById("fileList");
 
@@ -166,7 +176,7 @@ document.getElementById('addFile').addEventListener('change', function (e) {
 function filter(tag) {
 
 
-	this.classlist.add("activeFilter");
+	
 	let childs = document.querySelectorAll(".fileLink");
 	childs.forEach(function (child) {
 		if (child.classList.contains(tag)) {
