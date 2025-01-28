@@ -565,22 +565,22 @@ select {
 }
 
 .blue {
-  background-color: blue;
+  position: relative;
 }
 
 .red {
-  background-color: red;
+  position: relative;
 }
 
 .green {
-  background-color: green;
+  position: relative;
 }
 .white {
-  background-color: white;
+  position: relative;
 }
 
 .yellow {
-  background-color: yellow;
+  position: relative;
 }
 
 .purple {
@@ -594,7 +594,56 @@ select {
   position: absolute;
   translate: 80.5vw 1.25rem;
   border-radius: 50%;
+}
 
+.white::after {
+  content: "";
+  background-color: white;
+  height: 1rem;
+  width: 1rem;
+  position: absolute;
+  translate: 80.5vw 1.25rem;
+  border-radius: 50%;
+}
+
+.green::after {
+  content: "";
+  background-color: green;
+  height: 1rem;
+  width: 1rem;
+  position: absolute;
+  translate: 80.5vw 1.25rem;
+  border-radius: 50%;
+}
+
+.blue::after {
+  content: "";
+  background-color: lightskyblue;
+  height: 1rem;
+  width: 1rem;
+  position: absolute;
+  translate: 80.5vw 1.25rem;
+  border-radius: 50%;
+}
+
+.red::after {
+  content: "";
+  background-color: red;
+  height: 1rem;
+  width: 1rem;
+  position: absolute;
+  translate: 80.5vw 1.25rem;
+  border-radius: 50%;
+}
+
+.yellow::after {
+  content: "";
+  background-color: yellow;
+  height: 1rem;
+  width: 1rem;
+  position: absolute;
+  translate: 80.5vw 1.25rem;
+  border-radius: 50%;
 }
 
 .hidden {
