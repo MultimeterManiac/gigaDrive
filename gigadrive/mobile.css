@@ -46,6 +46,8 @@ h1 {
   text-align: center;
   color: white;
 }
+
+
 h2 {
   font-size: 1.5rem;
   color: lightpink;
@@ -560,4 +562,32 @@ select {
 }
 @keyframes dropZone {
   0% {height: 40vh; padding-top: 19vh;}
+}
+
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+.white {
+  background-color: white;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.hidden {
+  display: none;
+}
+
+.activeFilter{
+  filter: brightness(1.5);
+  border: 1px solöid white;
 }

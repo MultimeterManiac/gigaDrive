@@ -199,6 +199,25 @@ border: green 1px solid;
   translate: 0 -8vh;
 }
 
+.blue {
+  background-color: blue;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+.white {
+  background-color: white;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
 .active {
   border:  2px solid var(--accent);
   background-color: var(--dark);
@@ -505,4 +524,8 @@ select {
 }
 @keyframes dropZone {
   0% {height: 40vh; padding-top: 19vh;}
+}
+
+.hidden {
+  display: none;
 }
