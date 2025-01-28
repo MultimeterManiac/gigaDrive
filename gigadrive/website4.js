@@ -89,11 +89,7 @@ async function listFiles() {
 		let el9 = document.createElement("img");
 		el9.setAttribute("src", "delete.svg");
 		el5.appendChild(el9);
-		let el10 = document.createElement("div");
-		el10.setAttribute("class", "fileEdit");
-		let el11 = document.createElement("img");
-		el11.setAttribute("src", "update.png");
-		el10.appendChild(el11);
+		
 
 
 
@@ -101,7 +97,7 @@ async function listFiles() {
 		//parpar.appendChild(el);
 		parpar.appendChild(el3);
 		parpar.appendChild(el5);
-		parpar.appendChild(el10);
+
 		par.appendChild(parpar);
 	}
 }

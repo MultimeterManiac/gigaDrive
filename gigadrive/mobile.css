@@ -642,7 +642,7 @@ select {
   height: 1rem;
   width: 1rem;
   position: absolute;
-  translate: 80.5vw 1.25rem;
+  translate: 72vw 1.25rem;
   border-radius: 50%;
 }
 
@@ -652,5 +652,6 @@ select {
 
 .activeFilter{
   filter: brightness(1.5);
-  border: 1px solöid white;
+  border: 1px solid white;
+  border-radius: 4px;
 }
