@@ -199,6 +199,7 @@ border: green 1px solid;
   padding-inline: 6px;
   transition: all .15s ease;
   border-top: solid 1px black;
+  background-color: var(--primary);
 }
 #menuArea > div {
   display: flex;
