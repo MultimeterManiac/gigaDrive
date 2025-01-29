@@ -119,8 +119,7 @@ h4 {
   align-items: center;
   overflow-x: scroll;
 }
-.filesFilter,
-#renameOld, #renameNew {
+.filesFilter {
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
   font-size: .75rem;

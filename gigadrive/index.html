@@ -34,9 +34,7 @@
 	<section id="fileArea">
 		<div class="headFiles">
 			<div class="filesFilterCon">
-				<div onclick="clearFilter()" class="filesFilterFilter"> CLEAR FILTER</div>
-
-				
+				<div onclick="clearFilter()" class="filesFilterFilter">CLEAR</div>
 
 				<div onclick="filter('red')" class="filesFilter">
 					<div class="filesFilterColor" style="background-color: red;"></div>
@@ -287,37 +285,6 @@
 			</div>
 		</div>
 	</div>
-	</div>
-
-	<div id="renamePopup">
-		<h2>Rename Tag</h2>
-		<div class="breaker"></div>
-		<label for="renameTag">New Name:</label>
-		<input type="text" id="renameTag">
-		<div class="breaker" style="margin-top: 44px;"></div>
-		<p>Preview:</p>
-		<div class="previewRename">
-
-			<div class="filesFilter">
-				<div class="filesFilterColor" style="background-color: orange;"></div>
-				<div class="filesFilterName">Orange</div>
-			</div><!--filter-->
-
-			<img src="arrow.png" style="height: 1rem; margin-inline: 1rem;">
-
-			<div class="filesFilter">
-				<div class="filesFilterColor" style="background-color: orange;"></div>
-				<div class="filesFilterName">My Projects</div>
-			</div><!--filter-->
-
-		</div>
-
-		<div class="primarySecondaryContainer">
-			<button class="secondary" onclick="
-				document.getElementById('renamePopup').style.display = 'none';
-				">Cancel</button>
-			<button class="primary">Rename</button>
-		</div>
 	</div>
 	<script>
 		document.addEventListener("DOMContentLoaded", function () {

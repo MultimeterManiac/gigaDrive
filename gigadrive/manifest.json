@@ -1,6 +1,6 @@
 {
   "name": "gigaDrive",
-  "short_name": "gigaChat",
+  "short_name": "gigaDrive",
   "description": "A online storage application",
   "start_url": "/gigadrive",
   "display": "standalone",

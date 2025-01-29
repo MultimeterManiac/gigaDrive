@@ -174,9 +174,7 @@ function filter(tag) {
 	childs.forEach(function (child) {
 		if (child.classList.contains(tag)) {
 			child.classList.remove("hidden");
-			console.log("added");	
 		} else {
-			console.log("removed");
 			child.classList.add("hidden");
 		}
 	});
@@ -185,6 +183,9 @@ function filter(tag) {
 function clearFilter() {
 	let childs = document.querySelectorAll(".fileLink");
 	childs.forEach(function (child) {
-		child.classList.remove("hidden");
-	});
+		child.classList.remove("hidden")});
+		const elements = document.querySelectorAll('.filesFilter');
+    elements.forEach(function(element) {element.classList.remove('activeFilter');
+    element.classList.remove('activeFilter');});
+	
 }
