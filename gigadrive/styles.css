@@ -104,43 +104,72 @@ h4 {
     width: calc(20vw - 88px);
   }
 }
-.fileLink:hover {
-border: green 1px solid;
-}
-/*
-#fileList {
+.headFiles {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: auto 1fr;
+  justify-content: center;
+  align-items: center;
 }
-.fileLink {
-  width: auto;
-  border-bottom: 1px solid var(--secondary);
-  padding: .75rem;
-  animation: fileFade .75s ease both;
+.filesFilterCon {
+  margin-block: .83em;
+  font-family: monospace;
+  letter-spacing: 1px;
+  padding-left: 24px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  overflow-x: scroll;
+}
+.filesFilter {
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 1px;
+  margin-inline: 6px;
+  background-color: #8080805e;
+  padding: 4px;
+  padding-inline: 6px;
+  border-radius: 4px;
   display: grid;
-  grid-template-columns: 1fr 88px 88px;
-  cursor: pointer; 
-  transition: all .25s ease;
+  grid-template-columns: 16px auto;
+  cursor: pointer;
+}
+.filesFilterFilter:hover {
+  filter: brightness(2);
+}
+.filesFilterColor {
+  border-radius: 50%;
+  width: 12px;
+  height: 12px;
+  translate: .2rem .25rem;
+}
+.filesFilterName {
+  padding-left: 4px;
+  font-size: 1.2rem;
+}
+.filesFilterFilter {
+  letter-spacing: 1px;
+  font-size: 1rem;
+  margin-inline: 6px;
+  padding: 4px;
+  padding-inline: 6px;
+  border-radius: 4px;
+  cursor: pointer;
 }
 .fileLink:hover {
-  background-color: var(--popup);
+border: var(--popup) 1px solid;
 }
-  */
-
 .fileDownload, .fileDelete, .fileEdit {
   height: 2rem;
   width: 2rem;
   padding: .5rem;
   margin-right: 4px;
   border-radius: 4px;
-  background-color: var(--dark);
   cursor: alias;
   transition: all .15s ease;
 }
 .fileDownload:hover,
 .fileDelete:hover,
 .fileEdit:hover {
-  background-color: var(--fileFocus);
+  background-color: var(--primary);
 }
 .fileLink img {
   height: 1rem;
@@ -158,6 +187,7 @@ border: green 1px solid;
   left: 0;
   display: flex;
   justify-content: center;
+  align-items: last baseline;
   flex-direction: column;
   padding-inline: 12px;
   transition: all .15s ease;
@@ -292,7 +322,6 @@ border: green 1px solid;
 }
 
 /*workspaces and settings*/
-#sharePopup,
 #settingsPopup {
   display: flex;
   flex-direction: column;
@@ -308,33 +337,6 @@ border: green 1px solid;
   overflow-y: scroll;
   padding: 2rem;
 }
-#addWorkspaceInput {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-.addWorkspaceInputInput {
-  background-color: transparent;
-  border: none;
-  border-bottom: 1px solid var(--accent);
-  border-radius: var(--radius);
-  border-bottom-left-radius: 0;
-  border-bottom-right-radius: 0;
-  text-align: center;
-  width: 88%;
-  height: 4rem;
-  transition: all .15s ease;
-}
-.addWorkspaceInputInput:focus {
-  outline: none;
-  transform: scale(0.95);
-  border-bottom: 2px solid rgb(0,33, 0);
-}
-.addWorkspaceInputInput::placeholder {
-  text-align: center;
-  color: gray;
-  font-style: italic;
-  font-size: 1.5rem;
-}
 
 .storageInfoText::before {
   content: 'Currently, there is ';
@@ -342,6 +344,7 @@ border: green 1px solid;
 
 ::-webkit-scrollbar {
   width: 10px; /* Width of the scrollbar */
+  height: 0;
 }
 
 ::-webkit-scrollbar-track {
@@ -557,9 +560,22 @@ select {
   height: .75rem;
   width: .75rem;
   position: absolute;
-  translate: 80.5vw 1.5rem;
+  top: calc(50% - .375rem);
+  right: 8px;
   border-radius: 50%;
 }
+@media (min-width: 1500px) {
+  .purple::after,
+  .white::after,
+  .green::after,
+  .blue::after,
+  .red::after,
+  .yellow::after {
+    right: 36px;
+  }
+}
+
+
 .white::after {
   background-color: var(--white);
 }
@@ -583,8 +599,4 @@ select {
   filter: brightness(1.5);
   border: 1px solid white;
   border-radius: 4px;
-}
-
-.filesFilterCon {
-  display: none;
 }
