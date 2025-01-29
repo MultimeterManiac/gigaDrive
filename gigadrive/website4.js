@@ -87,7 +87,7 @@ async function listFiles() {
 		el5.setAttribute("onclick", "deleteFile('" + files[i] + "')");
 		el5.setAttribute("class", "fileDelete");
 		let el9 = document.createElement("img");
-		el9.setAttribute("src", "delete.svg");
+		el9.setAttribute("src", "delete.png");
 		el5.appendChild(el9);
 		
 

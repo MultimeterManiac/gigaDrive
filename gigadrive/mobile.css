@@ -1,12 +1,18 @@
 :root {
   --primary: #3a3a3a;
-  --secondary: #808080;
+  --secondary: #5f5f5f;
   --accent: #12b886;
   --popup: #2e2e2e;
   --hover: brightness(1.1);
-  --fileFocus: #808080;
+  --fileFocus: #5f5f5f;
   --radius: 12px;
   --margin: 2px;
+  --white: #e6e6e6;
+  --green: #12b886;
+  --blue: #2c64b9;
+  --red: #ad3131;
+  --yellow: #caca29;
+  --purple: #af00af;
 }
 
 ::selection {
@@ -138,15 +144,15 @@ h4 {
   border-radius: 50%;
   width: 10px;
   height: 10px;
+  translate: 0 1px;
 }
 .filesFilterName {
   padding-left: 4px;
   font-size: .8rem;
 }
 .filesFilterFilter {
-  font-family: monospace;
   letter-spacing: 1px;
-  font-size: .75rem;
+  font-size: .6rem;
   margin-inline: 6px;
   padding: 4px;
   padding-inline: 6px;
@@ -557,92 +563,50 @@ select {
   0% {opacity: 0; transform: scale(1.1); filter: blur(1px);}
 }
 @keyframes fileFade { 
-  0% {transform: scale(.9);}
+  0% {opacity: .1; filter: saturate(0);}
 }
 @keyframes dropZone {
   0% {height: 40vh; padding-top: 19vh;}
 }
 
-.blue {
-  position: relative;
-}
-
-.red {
-  position: relative;
-}
-
-.green {
-  position: relative;
-}
-.white {
-  position: relative;
-}
-
-.yellow {
-  position: relative;
-}
-
+.blue,
+.red,
+.green,
+.white,
+.yellow,
 .purple {
   position: relative;
 }
-.purple::after {
-  content: "";
-  background-color: purple;
-  height: 1rem;
-  width: 1rem;
-  position: absolute;
-  translate: 80.5vw 1.25rem;
-  border-radius: 50%;
-}
-
-.white::after {
-  content: "";
-  background-color: white;
-  height: 1rem;
-  width: 1rem;
-  position: absolute;
-  translate: 80.5vw 1.25rem;
-  border-radius: 50%;
-}
-
-.green::after {
-  content: "";
-  background-color: green;
-  height: 1rem;
-  width: 1rem;
-  position: absolute;
-  translate: 80.5vw 1.25rem;
-  border-radius: 50%;
-}
-
-.blue::after {
-  content: "";
-  background-color: lightskyblue;
-  height: 1rem;
-  width: 1rem;
-  position: absolute;
-  translate: 80.5vw 1.25rem;
-  border-radius: 50%;
-}
-
-.red::after {
-  content: "";
-  background-color: red;
-  height: 1rem;
-  width: 1rem;
-  position: absolute;
-  translate: 80.5vw 1.25rem;
-  border-radius: 50%;
-}
-
+.purple::after,
+.white::after,
+.green::after,
+.blue::after,
+.red::after,
 .yellow::after {
   content: "";
-  background-color: yellow;
-  height: 1rem;
-  width: 1rem;
+  height: .75rem;
+  width: .75rem;
   position: absolute;
-  translate: 72vw 1.25rem;
+  translate: 80.5vw 1.5rem;
   border-radius: 50%;
+}
+.white::after {
+  background-color: var(--white);
+}
+.green::after {
+  background-color: var(--green);
+}
+.blue::after {
+  background-color: var(--blue);
+}
+.red::after {
+  background-color: var(--red);
+}
+.yellow::after {
+  background-color: var(--yellow);
+}
+.purple::after {
+  background-color: var(--purple);
 }
 
 .hidden {

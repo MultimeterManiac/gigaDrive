@@ -25,7 +25,10 @@
 		window.addEventListener("resize", updateStylesheet);
 	</script>
 </head>
+<!--PLS FIX
 
+
+-->
 <body>
 	<h1 id="h1">gigaDrive</h1>
 	<div class="spacer"></div>
@@ -37,32 +40,32 @@
 				<div onclick="clearFilter()" class="filesFilterFilter">CLEAR</div>
 
 				<div onclick="filter('red')" class="filesFilter">
-					<div class="filesFilterColor" style="background-color: red;"></div>
+					<div class="filesFilterColor" style="background-color: var(--red);"></div>
 					<div class="filesFilterName">Red</div>
 				</div><!--filter-->
 
 				<div onclick="filter('green')" class="filesFilter">
-					<div class="filesFilterColor" style="background-color: green;"></div>
+					<div class="filesFilterColor" style="background-color: var(--green);"></div>
 					<div class="filesFilterName">Green</div>
 				</div><!--filter-->
 
 				<div onclick="filter('yellow')" class="filesFilter">
-					<div class="filesFilterColor" style="background-color: yellow;"></div>
+					<div class="filesFilterColor" style="background-color: var(--yellow);"></div>
 					<div class="filesFilterName">Yellow</div>
 				</div><!--filter-->
 
 				<div onclick="filter('blue')" class="filesFilter">
-					<div class="filesFilterColor" style="background-color: lightblue;"></div>
+					<div class="filesFilterColor" style="background-color: var(--blue);"></div>
 					<div class="filesFilterName">Blue</div>
 				</div><!--filter-->
 
 				<div onclick="filter('purple')" class="filesFilter">
-					<div class="filesFilterColor" style="background-color: purple;"></div>
+					<div class="filesFilterColor" style="background-color: var(--purple);"></div>
 					<div class="filesFilterName">Purple</div>
 				</div><!--filter-->
 
 				<div onclick="filter('white')" class="filesFilter">
-					<div class="filesFilterColor" style="background-color: white;"></div>
+					<div class="filesFilterColor" style="background-color: var(--white);"></div>
 					<div class="filesFilterName">White</div>
 				</div><!--filter-->
 
@@ -71,7 +74,6 @@
 		<div id="fileList">
 			<div class="loading">loading your files ...</div>
 			<!--file list here-->
-			<div class="fileLink">sigma</div>
 		</div><!--close filelist-->
 	</section><!--close filearea-->
 
@@ -138,9 +140,8 @@
 					Wallasch<br>Design: Felix Nowak<br><a href="https://icons8.com" target="_blank"
 						style="font-size: .9rem; color: grey; text-decoration: underline;">Icons by Icons8</a></p>
 				<p style="text-align: center;">version</p>
-				<p style="font-size: .9rem; color: grey; text-align: center; line-height: 1rem;"> 2.2 (development)</p>
-				<p style="font-size: .9rem; color: grey; text-align: center; line-height: 1rem;">Update: new server, more
-					storage</p>
+				<p style="font-size: .9rem; color: grey; text-align: center; line-height: 1rem;"> 2.3 (development)</p>
+				<p style="font-size: .9rem; color: grey; text-align: center; line-height: 1rem;">Update: added Tags</p>
 				<!--development, beta, public-->
 				<div style="display: flex; justify-content: center; margin-top: 2rem;">
 					<button class="secondary" onclick="
