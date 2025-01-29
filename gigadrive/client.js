@@ -79,6 +79,8 @@ async function make_file(filename) {
 }
 
 async function sendChunks() {
+    let tag = document.getElementById("tag").value;
+    console.log(tag);
     console.log("Start sending");
     const fileInput = document.getElementById("addFile");
     let file = fileInput.files[0];
@@ -86,7 +88,9 @@ async function sendChunks() {
         const totalChunks = Math.ceil(size / chunksize);
 
         if (wopened) {
-            const path = `w/purple/${file.name}%${totalChunks}`;
+            const path = `w/${userr}/${tag}/${file.name}%${totalChunks}`;
+            make_file(`/${userr}/${tag}/${file.name}`);
+            sleep(200);
             csend(path);
             while (response === "") {
                 await sleep(10);
@@ -136,7 +140,7 @@ async function sendChunks() {
 async function _read_file(filename) {
     msend("r/" + filename);
     filename_glob = filename;
-    await createFile(filename);
+    //await createFile(filename);
     read_active = true;
 }
 
@@ -186,12 +190,17 @@ socket1.onmessage = function (event1) {
             active = false;
             read_active = false;
             counter = 0;
+            console.log("fickenm");
         } else if (response1 != "") {
+            console.log("nicht fickn");
             counter++;
             const chunk = response1;
             chunks.push(chunk);
             response1 = "";
             console.log(counter);
+        }
+        else{
+            console.log("nicht fickn2");
         }
     }
 };
