@@ -46,16 +46,14 @@ async function listFiles() {
 	//let files = await list_files()
 	//console.log(files);
 	//files = JSON.parse(files);
-	let files =
-		[
-			{ "filename": "/user/file1.txt", "tag": "green" },
-			{ "filename": "/user/file2.txt", "tag": "blue" },
-			{ "filename": "/user/file3.txt", "tag": "red" },
-			{ "filename": "/user/file4.txt", "tag": "yellow" },
-			{ "filename": "/user/file5.txt", "tag": "white" },
-			{ "filename": "/user/file6.txt", "tag": "green" },
-			{ "filename": "/user/file7.txt", "tag": "purple" }
-		]
+	let files = [
+		"/user/purple/file1.txt",
+		"/user/red/file2.txt",
+		"/user/blue/file3.txt",
+		"/user/green/file4.txt",
+		"/user/yellow/file5.txt",
+		"/user/white/file6.txt"
+	];
 	let par = document.getElementById("fileList");
 
 	while (par.lastChild) {
@@ -66,14 +64,33 @@ async function listFiles() {
 		//container
 		let parpar = document.createElement("div");
 		parpar.setAttribute("class", "fileLink");
-		parpar.classList.add(files[i].tag);
+		//parpar.classList.add(files[i].tag);
 		//filename
 
 
 		let elficken = document.createElement("div");
 		elficken.setAttribute("class", "fileName");
 
-		let el2 = document.createTextNode(files[i].filename.split("/")[files[i].filename.split("/").length - 1]);
+		let el2 = document.createTextNode(files[i].split("/")[files[i].split("/").length - 1]);
+		let tag = files[i].split("/")[files[i].split("/").length - 2];
+		if (tag == "purple") {
+			parpar.classList.add("purple");
+		}
+		else if (tag == "red") {
+			parpar.classList.add("red");
+		}
+		else if (tag == "blue") {
+			parpar.classList.add("blue");
+		}
+		else if (tag == "green") {
+			parpar.classList.add("green");
+		}
+		else if (tag == "yellow") {
+			parpar.classList.add("yellow");
+		}
+		else if (tag == "white") {
+			parpar.classList.add("white");
+		}
 		elficken.appendChild(el2);
 		//download button
 		let el3 = document.createElement("div");
