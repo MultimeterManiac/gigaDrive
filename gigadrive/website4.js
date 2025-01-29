@@ -23,7 +23,7 @@ async function check() {
 	}
 }
 
-//check();
+check();
 
 async function logout() {
 	const res = await account.deleteSessions();
@@ -46,14 +46,14 @@ async function listFiles() {
 	let files = await list_files("/" + userr);
 	//console.log(files);
 	files = JSON.parse(files);
-	files = [
+	/*files = [
 		"/user/purple/file1.txt",
 		"/user/red/file2.txt",
 		"/user/blue/file3.txt",
 		"/user/green/file4.txt",
 		"/user/yellow/file5.txt",
 		"/user/white/file6.txt"
-	];
+	];*/
 	let par = document.getElementById("fileList");
 
 	while (par.lastChild) {
