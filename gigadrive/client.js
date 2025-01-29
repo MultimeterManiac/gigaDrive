@@ -24,8 +24,8 @@ function msend(msg) {
 }
 
 sleep(500);
-let socket = new WebSocket("wss://gigadrive.ddns.net:12369");
-let socket1 = new WebSocket("wss://gigadrive.ddns.net:12368");
+let socket = new WebSocket("ws://gigadrive.ddns.net:12369");
+let socket1 = new WebSocket("ws://gigadrive.ddns.net:12368");
 
 async function delete_file(filename) {
     running = true;
@@ -62,8 +62,8 @@ function stringToArrayBuffer(hexString) {
     return byteArray.buffer;
 }
 
-const chunksize = 2 * 1024 * 1024; 
-const send_delay = 200; 
+const chunksize = 2 * 1024 * 1024;
+const send_delay = 200;
 
 async function make_file(filename) {
     if (wopened) {
@@ -81,55 +81,56 @@ async function make_file(filename) {
 async function sendChunks() {
     console.log("Start sending");
     const fileInput = document.getElementById("addFile");
-    const file = fileInput.files[0];
-    const size = file.size;
-    const totalChunks = Math.ceil(size / chunksize);
+    let file = fileInput.files[0];
+        const size = file.size;
+        const totalChunks = Math.ceil(size / chunksize);
 
-    if (wopened) {
-        const path = `w/${file.name}%${totalChunks}`;
-        csend(path);
-        while (response === "") {
-            await sleep(10);
-        }
-        identnum = response;
-        response = "";
-    } else {
-        console.error("WebSocket is not open!");
-        return false;
-    }
-
-    let currentChunk = 0;
-    const reader = new FileReader();
-
-    reader.onload = function (event) {
-        if (event.target.error) {
-            console.error("Error reading file:", event.target.error);
-            return;
+        if (wopened) {
+            const path = `w/purple/${file.name}%${totalChunks}`;
+            csend(path);
+            while (response === "") {
+                await sleep(10);
+            }
+            identnum = response;
+            response = "";
+        } else {
+            console.error("WebSocket is not open!");
+            return false;
         }
 
-        const chunkData = new Uint8Array(event.target.result);
-        const identnumBytes = new TextEncoder().encode(identnum);
-        const combined = new Uint8Array(identnumBytes.length + chunkData.length);
-        combined.set(identnumBytes, 0);
-        combined.set(chunkData, identnumBytes.length);
-        console.log(combined);
-        socket1.send(combined);
+        let currentChunk = 0;
+        const reader = new FileReader();
 
-        currentChunk++;
+        reader.onload = function (event) {
+            if (event.target.error) {
+                console.error("Error reading file:", event.target.error);
+                return;
+            }
 
-        if (currentChunk < totalChunks) {
-            setTimeout(() => readNextChunk(), send_delay);
+            const chunkData = new Uint8Array(event.target.result);
+            const identnumBytes = new TextEncoder().encode(identnum);
+            const combined = new Uint8Array(identnumBytes.length + chunkData.length);
+            combined.set(identnumBytes, 0);
+            combined.set(chunkData, identnumBytes.length);
+            console.log(combined);
+            socket1.send(combined);
+
+            currentChunk++;
+
+            if (currentChunk < totalChunks) {
+                setTimeout(() => readNextChunk(), send_delay);
+            }
+        };
+
+        function readNextChunk() {
+            const start = currentChunk * chunksize;
+            const end = Math.min(start + chunksize, size);
+            const blob = file.slice(start, end);
+            reader.readAsArrayBuffer(blob);
         }
-    };
 
-    function readNextChunk() {
-        const start = currentChunk * chunksize;
-        const end = Math.min(start + chunksize, size);
-        const blob = file.slice(start, end);
-        reader.readAsArrayBuffer(blob);
-    }
-
-    readNextChunk();
+        readNextChunk();
+    
 }
 
 async function _read_file(filename) {
@@ -185,7 +186,7 @@ socket1.onmessage = function (event1) {
             active = false;
             read_active = false;
             counter = 0;
-        } else if (response1 != ""){
+        } else if (response1 != "") {
             counter++;
             const chunk = response1;
             chunks.push(chunk);

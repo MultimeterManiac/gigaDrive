@@ -43,17 +43,17 @@ elements.forEach(element => {
 
 async function listFiles() {
 
-	//let files = await list_files()
+	let files = await list_files("/" + userr);
 	//console.log(files);
-	//files = JSON.parse(files);
-	let files = [
+	files = JSON.parse(files);
+	/*let files = [
 		"/user/purple/file1.txt",
 		"/user/red/file2.txt",
 		"/user/blue/file3.txt",
 		"/user/green/file4.txt",
 		"/user/yellow/file5.txt",
 		"/user/white/file6.txt"
-	];
+	];*/
 	let par = document.getElementById("fileList");
 
 	while (par.lastChild) {
@@ -120,7 +120,7 @@ async function listFiles() {
 }
 
 async function downloadFile(filename) {
-	read_file(filename);
+	_read_file(filename);
 }
 
 async function deleteFile(filename) {
@@ -130,7 +130,7 @@ async function deleteFile(filename) {
 
 async function uploadFile() {
 
-	write_file();
+	sendChunks();
 
 	listFiles();
 }
