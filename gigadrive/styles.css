@@ -437,94 +437,202 @@ select {
   box-shadow: 0 0 2rem black;
 }
 
-#statusBarUpload0 {
-  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
-}
-
-#statusBarUpload1 {
-  background-image: linear-gradient(90deg, var(--accent), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
-}
-
-#statusBarUpload2 {
-  background-image: linear-gradient(90deg, var(--accent), var(--accent), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
-}
-
-#statusBarUpload3 {
-  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
-}
-
-#statusBarUpload4 {
-  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
-}
-
-#statusBarUpload5 {
-  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
-}
-
-#statusBarUpload6 {
-  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
-}
-
-#statusBarUpload7 {
-  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
-}
-
-#statusBarUpload8 {
-  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), rgb(0,33, 0), rgb(0,33, 0));
-}
-
-#statusBarUpload9 {
-  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), rgb(0,33, 0));
-}
-
-#statusBarUpload10 {
-  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent));
-}
-
+#statusBarUpload0,
 #statusBarDownload0 {
-  background-image: linear-gradient(90deg, var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent));
+  background-image: linear-gradient(90deg, rgb(0,33,0), rgb(0,33,0) 
+  );
 }
 
+
+#statusBarUpload1,
 #statusBarDownload1 {
-  background-image: linear-gradient(90deg, rgb(0,33, 0), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent));
+  background-image: linear-gradient(90deg,  
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), 
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0) 
+  );
 }
 
+
+#statusBarUpload2,
 #statusBarDownload2 {
-  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent));
+  background-image: linear-gradient(90deg,  
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), 
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), 
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), 
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), 
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0) 
+  );
 }
 
+
+#statusBarUpload3,
 #statusBarDownload3 {
-  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent));
+  background-image: linear-gradient(90deg,  
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0)
+  );
 }
 
+
+#statusBarUpload4,
 #statusBarDownload4 {
-  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent));
+  background-image: linear-gradient(90deg,  
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0)
+  );
 }
 
+
+#statusBarUpload5,
 #statusBarDownload5 {
-  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), var(--accent), var(--accent), var(--accent), var(--accent), var(--accent));
+  background-image: linear-gradient(90deg,  
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0)
+  );
 }
 
+
+#statusBarUpload6,
 #statusBarDownload6 {
-  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), var(--accent), var(--accent), var(--accent), var(--accent));
+  background-image: linear-gradient(90deg,  
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0)
+  );
 }
 
+
+#statusBarUpload7,
 #statusBarDownload7 {
-  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), var(--accent), var(--accent), var(--accent));
+  background-image: linear-gradient(90deg,  
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0)
+  );
 }
 
+
+#statusBarUpload8,
 #statusBarDownload8 {
-  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), var(--accent), var(--accent));
+  background-image: linear-gradient(90deg,  
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0)
+  );
 }
 
+
+#statusBarUpload9,
 #statusBarDownload9 {
-  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), var(--accent));
+  background-image: linear-gradient(90deg,  
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0),
+    rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0), rgb(0,33,0)
+  );
 }
 
+
+#statusBarUpload10,
 #statusBarDownload10 {
-  background-image: linear-gradient(90deg, rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0), rgb(0,33, 0));
+  background-image: linear-gradient(90deg,var(--accent), var(--accent));
 }
-
 
 /*keyframes*/
 @keyframes popup {
