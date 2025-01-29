@@ -23,7 +23,7 @@ function msend(msg) {
     socket1.send(msg);
 }
 
-sleep(500);
+
 let socket = new WebSocket("wss://gigadrive.ddns.net:12369");
 let socket1 = new WebSocket("wss://gigadrive.ddns.net:12368");
 
