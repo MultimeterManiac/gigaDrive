@@ -5,7 +5,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
-	<script src="website4.js" defer></script>
+	<script src="websigte4.js" defer></script>
 	<script src="client.js"></script>
 	<title>Home | gigaDrive</title>
 	<link id="stylesheet" rel="stylesheet" href="styles.css">
@@ -121,7 +121,16 @@
         document.getElementById('homeLink').classList.add('active');
         document.getElementById('uploadLink').classList.remove('active');">Cancel</button>
 					<button onclick="sendChunks()" id="uploadNow" class="primary">Upload Now</button>
-					<input type="text" id="tag" placeholder="Tags" class="inputField"></input>
+					<input type="text" id="tag" placeholder="Tags" class="inputField">
+					<div id="selectTag">
+					<div id="selectThis"></div>
+					<div id="selectTagOption1">Red</div>
+					<div id="selectTagOption2">Green</div>
+					<div id="selectTagOption3">Yellow</div>
+					<div id="selectTagOption4">Blue</div>
+					<div id="selectTagOption5">Purple</div>
+					<div id="selectTagOption6">White</div>
+					</div>
 				</div> <!--close primarySecondaryContainer-->
 			</section>
 		</div>
