@@ -23,7 +23,7 @@ async function check() {
 	}
 }
 
-check();
+//check();
 
 async function logout() {
 	const res = await account.deleteSessions();
@@ -206,3 +206,23 @@ function clearFilter() {
     element.classList.remove('activeFilter');});
 	
 }
+
+function round(value, precision) {
+    var multiplier = Math.pow(10, precision || 0);
+    return Math.round(value * multiplier) / multiplier;
+}
+
+chunkPerc = 0;
+let bar = document.getElementById("statusBarUpload" + chunkPerc);
+
+function updateSentChunks(){
+	bar = document.getElementById("statusBarUpload" + chunkPerc);
+	chunkPerc = _chunks_send / _chunks_total_send;
+	chunckPerc = Math.round(_chunks_send / _chunks_total_send * 10) / 10;
+	chunkPerc = round(round(_chunks_send / _chunks_total_send * 10) / 10 * 10 , 0)
+	bar.id = "statusBarUpload" + chunkPerc;
+	console.log(chunkPerc);
+}
+
+
+
