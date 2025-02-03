@@ -10,6 +10,11 @@ let fileName = "";
 let totalChunks = 0;
 let filename_glob;
 let counter = 0;
+let _chunks_total_send;
+let _chunks_send;
+let _chunks_total_receive;
+let _chunks_receive;
+const _chunks_multiple = 3;
 
 function sleep(ms) {
     return new Promise(resolve => setTimeout(resolve, ms));
@@ -23,7 +28,7 @@ function msend(msg) {
     socket1.send(msg);
 }
 
-
+sleep(500);
 let socket = new WebSocket("wss://gigadrive.ddns.net:12369");
 let socket1 = new WebSocket("wss://gigadrive.ddns.net:12368");
 
@@ -62,8 +67,8 @@ function stringToArrayBuffer(hexString) {
     return byteArray.buffer;
 }
 
-const chunksize = 2 * 1024 * 1024;
-const send_delay = 200;
+const chunksize = 2 * 1024 * 1024; 
+const send_delay = 200; 
 
 async function make_file(filename) {
     if (wopened) {
@@ -79,65 +84,77 @@ async function make_file(filename) {
 }
 
 async function sendChunks() {
-    let tag = document.getElementById("tag").value;
-    console.log(tag);
     console.log("Start sending");
     const fileInput = document.getElementById("addFile");
-    let file = fileInput.files[0];
-        const size = file.size;
-        const totalChunks = Math.ceil(size / chunksize);
+    const file = fileInput.files[0];
+    const size = file.size;
+    const totalChunks = Math.ceil(size / chunksize);
+    _chunks_total_send = totalChunks*_chunks_multiple;
 
-        if (wopened) {
-            const path = `w/${userr}/${tag}/${file.name}%${totalChunks}`;
-            make_file(`/${userr}/${tag}/${file.name}`);
-            sleep(200);
-            csend(path);
-            while (response === "") {
-                await sleep(10);
-            }
-            identnum = response;
-            response = "";
-        } else {
-            console.error("WebSocket is not open!");
-            return false;
+    _chunks_send = 0;
+
+    if (wopened) {
+        const path = `w/${file.name}%${totalChunks}`;
+        csend(path);
+        while (response === "") {
+            await sleep(10);
+        }
+        identnum = response;
+        response = "";
+    } else {
+        console.error("WebSocket is not open!");
+        return false;
+    }
+
+    let currentChunk = 0;
+    const reader = new FileReader();
+
+    reader.onload = function (event) {
+        if (event.target.error) {
+            console.error("Error reading file:", event.target.error);
+            return;
         }
 
-        let currentChunk = 0;
-        const reader = new FileReader();
+        const chunkData = new Uint8Array(event.target.result);
+        const identnumBytes = new TextEncoder().encode(identnum);
+        const combined = new Uint8Array(identnumBytes.length + chunkData.length);
+        combined.set(identnumBytes, 0);
+        combined.set(chunkData, identnumBytes.length);
+        console.log(combined);
+        socket1.send(combined);
 
-        reader.onload = function (event) {
-            if (event.target.error) {
-                console.error("Error reading file:", event.target.error);
-                return;
-            }
+        currentChunk++;
+        _chunks_send++;
 
-            const chunkData = new Uint8Array(event.target.result);
-            const identnumBytes = new TextEncoder().encode(identnum);
-            const combined = new Uint8Array(identnumBytes.length + chunkData.length);
-            combined.set(identnumBytes, 0);
-            combined.set(chunkData, identnumBytes.length);
-            console.log(combined);
-            socket1.send(combined);
-
-            currentChunk++;
-
-            if (currentChunk < totalChunks) {
-                setTimeout(() => readNextChunk(), send_delay);
-            }
-        };
-
-        function readNextChunk() {
-            const start = currentChunk * chunksize;
-            const end = Math.min(start + chunksize, size);
-            const blob = file.slice(start, end);
-            reader.readAsArrayBuffer(blob);
+        if (currentChunk < totalChunks) {
+            setTimeout(() => readNextChunk(), send_delay);
         }
+    };
 
-        readNextChunk();
-    
+    function readNextChunk() {
+        const start = currentChunk * chunksize;
+        const end = Math.min(start + chunksize, size);
+        const blob = file.slice(start, end);
+        reader.readAsArrayBuffer(blob);
+    }
+
+    readNextChunk();
+}
+
+async function sigma_counter(){
+    while(true){
+    sleep(0.7);
+    if(_chunks_send != _chunks_total_send -1){
+            _chunks_send++;
+    }
+    else{
+        break
+    }}
 }
 
 async function _read_file(filename) {
+    _chunks_receive = 0;
+    _chunks_total_receive
     msend("r/" + filename);
     filename_glob = filename;
     //await createFile(filename);
@@ -179,6 +196,10 @@ socket1.onopen = async function (e) {
 socket1.onmessage = function (event1) {
     response1 = event1.data;
     console.log(event1.data);
+    if(response1 == "d"){
+        response1 = "";
+        _chunks_send = _chunks_total_send;
+    }
     if (read_active) {
         if (response1 == "e") {
             const blob = new Blob(chunks);
@@ -190,17 +211,15 @@ socket1.onmessage = function (event1) {
             active = false;
             read_active = false;
             counter = 0;
-            console.log("fickenm");
-        } else if (response1 != "") {
-            console.log("nicht fickn");
+            _chunks_receive = 0;
+            _chunks_total_receive = 0;
+        } else if (response1 != ""){
             counter++;
             const chunk = response1;
             chunks.push(chunk);
             response1 = "";
             console.log(counter);
-        }
-        else{
-            console.log("nicht fickn2");
+            _chunks_receive++;
         }
     }
 };
