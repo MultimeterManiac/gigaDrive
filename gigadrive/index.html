@@ -11,7 +11,7 @@
 	<link id="stylesheet" rel="stylesheet" href="styles.css">
 	<link rel="icon" type="image/x-icon" href="icons8-cloud.png">
 	<link rel="manifest" href="manifest.json">
-	<script> 
+	<script>
 		function updateStylesheet() {
 			const stylesheet = document.getElementById("stylesheet");
 			if (window.innerWidth <= 768) {
@@ -29,6 +29,7 @@
 
 
 -->
+
 <body>
 	<h1 id="h1">gigaDrive</h1>
 	<div class="spacer"></div>
@@ -113,6 +114,37 @@
 				<label for="addFile" class="droppingNotActive">
 				</label>
 				<input type="file" id="addFile" style="opacity: 0; scale: 0;" multiple>
+				<div class="primarySecondaryContainer buttons">
+					<div onclick="filter('red')" class="filesFilter">
+						<div class="filesFilterColor" style="background-color: var(--red);"></div>
+						<div class="filesFilterName">Red</div>
+					</div><!--filter-->
+
+					<div onclick="filter('green')" class="filesFilter">
+						<div class="filesFilterColor" style="background-color: var(--green);"></div>
+						<div class="filesFilterName">Green</div>
+					</div><!--filter-->
+
+					<div onclick="filter('yellow')" class="filesFilter">
+						<div class="filesFilterColor" style="background-color: var(--yellow);"></div>
+						<div class="filesFilterName">Yellow</div>
+					</div><!--filter-->
+
+					<div onclick="filter('blue')" class="filesFilter">
+						<div class="filesFilterColor" style="background-color: var(--blue);"></div>
+						<div class="filesFilterName">Blue</div>
+					</div><!--filter-->
+
+					<div onclick="filter('purple')" class="filesFilter">
+						<div class="filesFilterColor" style="background-color: var(--purple);"></div>
+						<div class="filesFilterName">Purple</div>
+					</div><!--filter-->
+
+					<div onclick="filter('white')" class="filesFilter">
+						<div class="filesFilterColor" style="background-color: var(--white);"></div>
+						<div class="filesFilterName">White</div>
+					</div><!--filter-->
+				</div>
 				<div class="primarySecondaryContainer">
 					<button class="secondary" onclick="
             document.getElementById('uploadPopupCon').style.display = 'none';
@@ -120,17 +152,8 @@
         document.title = 'Home | gigaDrive';
         document.getElementById('homeLink').classList.add('active');
         document.getElementById('uploadLink').classList.remove('active');">Cancel</button>
-					<button onclick="sendChunks()" id="uploadNow" class="primary">Upload Now</button>
+					<button onclick="sendChunks()" id="uploadNow" class="primary">Upload</button>
 					<input type="text" id="tag" placeholder="Tags" class="inputField">
-					<div id="selectTag">
-					<div id="selectThis"></div>
-					<div id="selectTagOption1">Red</div>
-					<div id="selectTagOption2">Green</div>
-					<div id="selectTagOption3">Yellow</div>
-					<div id="selectTagOption4">Blue</div>
-					<div id="selectTagOption5">Purple</div>
-					<div id="selectTagOption6">White</div>
-					</div>
 				</div> <!--close primarySecondaryContainer-->
 			</section>
 		</div>
