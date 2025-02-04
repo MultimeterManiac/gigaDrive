@@ -6,11 +6,11 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
 	<script src="website4.js" defer></script>
-	<script src="client.js"></script>	
+	<script src="client.js"></script>
 	<title>Home | gigaDrive</title>
 	<link id="stylesheet" rel="stylesheet" href="styles.css">
 	<link rel="icon" type="image/x-icon" href="icons8-cloud.png">
-	 <link rel="manifest" href="manifest.json"> 
+	<link rel="manifest" href="manifest.json">
 	<script>
 		function updateStylesheet() {
 			const stylesheet = document.getElementById("stylesheet");
@@ -107,7 +107,6 @@
 			<div class="breaker"></div>
 			<p class="exclude">Click here to upload</p>
 			<p id="fffi" class="exclude">0 files selected</p>
-			<p class="uploadInfo">Files with the same name will be overwritten.</p>
 
 
 			<!--select Name, Access-->
@@ -154,7 +153,7 @@
         document.getElementById('homeLink').classList.add('active');
         document.getElementById('uploadLink').classList.remove('active');">Cancel</button>
 					<button onclick="sendChunks()" id="uploadNow" class="primary">Upload</button>
-					<input type="text" id="tag" placeholder="Tags" class="inputField">
+					<input type="text" id="tag" placeholder="Tags" style="color: black;" class="inputField">
 				</div> <!--close primarySecondaryContainer-->
 			</section>
 		</div>
@@ -195,7 +194,7 @@
 		<div id="websocketPopup" class="popup" style="padding: 1rem; line-height: 3rem;">
 			<h2>Sorry!</h2>
 			<div class="breaker"></div>
-			<div style="text-align: center;">There was an error with the server connection.<br><span
+			<div style="text-align: center;">An error occured with the server connection.<br>Currently running Up/Downloads are corrupted, please delete them.<br><span
 					style="letter-spacing: 2px; color: lightpink; font-family: monospace;">WEBSOCKET_ERROR</span></div>
 			<div>
 				<div class="primarySecondaryContainer">
@@ -243,19 +242,15 @@
 
 	<div id="uploadStatusPopupCon" class="popupCon">
 		<div id="uploadStatusPopup" class="popup">
-			<h2>Uploading ....</h2>
-			<div class="breaker"></div>
+			<h2 class="smallPopupHeading">Upload started.</h2>
 			<div class="uploadStatus">Thanks for using gigaDrive!</div>
-			<div class="uploadStatus">Upload in progress ....</div>
+			<div class="uploadStatus">Don't close the gigaDrive Application</div>
 			<div class="uploadStatus">Saving big files can take time ....</div>
 			<div class="uploadStatus">Looks like it's gonna take a while ....</div>
 			<div class="uploadStatus">Take a little break and come back later!</div>
 			<div id="statusBarUpload0"></div>
-			
-			<div id="uploadProgress" style="font-size: .9rem; font-style: italic;">calculating</div>
-
 			<div class="primarySecondaryContainer">
-				<button class="secondary" onclick="window.location.reload();">Cancel Upload</button>
+				<button class="secondary" onclick="window.location.reload();">Cancel</button>
 			</div>
 		</div>
 	</div>
@@ -265,24 +260,13 @@
 
 	<div id="downloadStatusPopupCon" class="popupCon">
 		<div id="downloadStatusPopup" class="popup">
-			<h2>Downloading ....</h2>
-			<div class="breaker"></div>
-			<div class="downloadStatus">Downloading file now.<div>
-					<div id="statusBarDownload0"></div>
-					<div id="statusBarDownload1"></div>
-					<div id="statusBarDownload2"></div>
-					<div id="statusBarDownload3"></div>
-					<div id="statusBarDownload4"></div>
-					<div id="statusBarDownload5"></div>
-					<div id="statusBarDownload6"></div>
-					<div id="statusBarDownload7"></div>
-					<div id="statusBarDownload8"></div>
-					<div id="statusBarDownload9"></div>
-					<div id="statusBarDownload10"></div>
-					<div id="uploadProgress" style="font-size: .9rem; font-style: italic;">calculating</div>
-
-					<div class="primarySecondaryContainer">
-						<button class="secondary" onclick="window.location.reload();">Cancel Download</button>
+			<h2 class="smallPopupHeading">Download started.</h2>
+			<div class="downloadStatus">We're downloading the requested file.</div>
+			<div class="downloadStatus">Don't close the gigaDrive Application</div>
+			<div class="downloadStatus">Just a sec ...</div>
+			<div id="statusBarDownload0"></div>
+			<div class="primarySecondaryContainer">
+				<button class="secondary" onclick="window.location.reload();">Cancel</button>
 					</div>
 				</div>
 			</div>
@@ -329,14 +313,12 @@
 			const deletePopupCon = document.getElementById("deletePopupCon");
 			const reloadButton = document.getElementById("reload");
 			const cancelButtons = document.querySelectorAll(".cancelDeleteBtn");
-			
+
 			function openUploadStatusMenu() {
 				uploadMenu.style.display = "none";
 				uploadStatus.style.display = "flex";
-				h1.style.filter = "blur(1px)";
 				uploadStatus.classList.add("active");
 				uploadStatus.classList.remove("active");
-				document.title = "Upload Status | gigaDrive";
 			}
 			// Open upload menu
 			function openUploadMenu() {
@@ -416,7 +398,7 @@
 				element.addEventListener("click", openUploadMenu);
 			});
 
-			// Cycle statuses
+			// Cycle statuses for upload
 			const statuses = document.querySelectorAll(".uploadStatus");
 			let currentIndex = 0;
 
@@ -434,6 +416,25 @@
 			}
 
 			cycleStatuses();
+
+			// Cycle statuses for download
+			const downloadStatuses = document.querySelectorAll(".downloadStatus");
+			let downloadIndex = 0;
+
+			function showNextDownloadStatus() {
+				downloadStatuses[downloadIndex].classList.remove("activeDownloadStatus");
+				downloadIndex = (downloadIndex + 1) % downloadStatuses.length;
+				downloadStatuses[downloadIndex].classList.add("activeDownloadStatus");
+			}
+
+			function cycleDownloadStatuses() {
+				if (downloadStatuses.length > 0) {
+					downloadStatuses[downloadIndex].classList.add("activeDownloadStatus");
+					setInterval(showNextDownloadStatus, 10000);
+				}
+			}
+
+			cycleDownloadStatuses();
 		});
 
 
@@ -443,3 +444,11 @@
 </body>
 
 </html>
+
+
+
+<!--
+TODO
+- upload counter -> into button
+- if upload = 0 -> button is disabled 
+-->

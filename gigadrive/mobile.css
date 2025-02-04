@@ -331,18 +331,6 @@ h4 {
   bottom: 0;
 }
 
-.uploadStatus,
-.downloadStatus {
-  display: none;
-}
-
-.uploadStatus.activeUploadStatus,
-.downloadStatus .activeDownloadStatus {
-  display: block;
-  border: none;
-  animation: opacity 10s infinite both;
-}
-
 @keyframes opacity {
   0% {
     opacity: 0;
@@ -375,6 +363,43 @@ h4 {
   padding: 2rem;
   background-color: var(--popup);
 }
+#uploadStatusPopupCon,
+#downloadStatusPopupCon,
+#downloadSuccessPopupCon,
+#successUploadPopupCon {
+  position: static;
+}
+
+#uploadStatusPopup,
+#downloadStatusPopup,
+#downloadSuccessPopup,
+#successUploadPopup {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  animation: popup .15s ease both;
+  backdrop-filter: blur(4px);
+  border-radius: var(--radius);
+  line-height: 2rem;
+  padding-inline: 12px;
+  padding-block: 0;
+  background-color: var(--popup);
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 88vw;
+  gap: 1rem;
+  text-align: center;
+}
+.uploadStatus, .downloadStatus {
+  display: none;
+}
+
+.smallPopupHeading {
+  font-size: 1rem;
+  color: var(--accent);
+}
 
 .popupIcon {
   display: none;
@@ -396,7 +421,7 @@ h4 {
   min-height: 44vh;
   background-color: var(--popup);
   border-radius: var(--radius);
-  box-shadow: 0 0 3rem black;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.164);
   line-height: 2rem;
   overflow-y: scroll;
   padding: 2rem;
@@ -468,11 +493,6 @@ h4 {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #575757;
   /* Thumb color when hovered */
-}
-
-select {
-  background-color: var(--dark);
-  width: 20vw;
 }
 
 .primarySecondaryContainer {
@@ -549,92 +569,248 @@ select {
   box-shadow: 0 0 2rem black;
 }
 
-#statusBarUpload0 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
-}
-
-#statusBarUpload1 {
-  background-image: linear-gradient(90deg, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
-}
-
-#statusBarUpload2 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
-}
-
-#statusBarUpload3 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
-}
-
-#statusBarUpload4 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
-}
-
-#statusBarUpload5 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink, lightpink);
-}
-
-#statusBarUpload6 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink, lightpink);
-}
-
-#statusBarUpload7 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink, lightpink);
-}
-
-#statusBarUpload8 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink, lightpink);
-}
-
-#statusBarUpload9 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightpink);
-}
-
-#statusBarUpload10 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
-}
-
+#statusBarUpload0,
 #statusBarDownload0 {
-  background-image: linear-gradient(90deg, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg, rgb(0, 33, 0), rgb(0, 33, 0));
 }
 
+
+#statusBarUpload1,
 #statusBarDownload1 {
-  background-image: linear-gradient(90deg, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg,
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0));
 }
 
+
+#statusBarUpload2,
 #statusBarDownload2 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg,
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0));
 }
 
+
+#statusBarUpload3,
 #statusBarDownload3 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg,
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0));
 }
 
+
+#statusBarUpload0,
 #statusBarDownload4 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg,
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0));
 }
 
+
+#statusBarUpload5,
 #statusBarDownload5 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg,
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0));
 }
 
+#statusBarUpload6,
 #statusBarDownload6 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg,
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0));
 }
 
+
+#statusBarUpload7,
 #statusBarDownload7 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue, lightblue);
+  background-image: linear-gradient(90deg,
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0));
 }
 
+
+#statusBarUpload8,
 #statusBarDownload8 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue, lightblue);
+  background-image: linear-gradient(90deg,
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0));
 }
 
+
+#statusBarUpload9,
 #statusBarDownload9 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightblue);
+  background-image: linear-gradient(90deg,
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0));
 }
 
+
+#statusBarUploa10,
 #statusBarDownload10 {
-  background-image: linear-gradient(90deg, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink, lightpink);
+  background-image: linear-gradient(90deg, var(--accent), var(--accent));
 }
 
 

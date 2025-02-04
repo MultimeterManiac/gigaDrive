@@ -310,6 +310,7 @@ h4 {
 /*upload*/
 #uploadPopupCon,
 #uploadStatusPopupCon,
+#successUploadPopupCon,
 #deletePopupCon,
 #warningPopupCon,
 #sharePopupCon,
@@ -334,7 +335,7 @@ h4 {
 }
 
 .uploadStatus.activeUploadStatus,
-.downloadStatus .activeDownloadStatus {
+.downloadStatus.activeDownloadStatus {
   display: block;
   border: none;
   animation: opacity 10s infinite both;
@@ -371,6 +372,41 @@ h4 {
   line-height: 2rem;
   padding: 2rem;
   background-color: var(--popup);
+}
+
+#uploadStatusPopupCon,
+#downloadStatusPopupCon,
+#downloadSuccessPopupCon,
+#successUploadPopupCon {
+  position: static;
+}
+
+#uploadStatusPopup,
+#downloadStatusPopup,
+#downloadSuccessPopup,
+#successUploadPopup {
+  display: grid;
+  grid-template-columns: 1fr 500px 2fr 1fr;
+  justify-content: space-between;
+  align-items: center;
+  animation: popup .15s ease both;
+  backdrop-filter: blur(4px);
+  border-radius: var(--radius);
+  line-height: 2rem;
+  padding-inline: 12px;
+  padding-block: 0;
+  background-color: var(--popup);
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: auto;
+  gap: 1rem;
+  text-align: center;
+}
+
+.smallPopupHeading {
+  font-size: 1rem;
+  color: var(--accent);
 }
 
 .popupIcon {
@@ -507,7 +543,7 @@ select {
   height: 1rem;
   border-radius: .5rem;
   animation: fileFade .5s ease both;
-  box-shadow: 0 0 2rem black;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.164);
 }
 
 #statusBarUpload0,
@@ -521,6 +557,8 @@ select {
   background-image: linear-gradient(90deg,
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
@@ -558,6 +596,10 @@ select {
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0));
 }
 
@@ -578,11 +620,17 @@ select {
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0));
 }
 
 
-#statusBarUpload4,
+#statusBarUpload0,
 #statusBarDownload4 {
   background-image: linear-gradient(90deg,
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
@@ -593,6 +641,10 @@ select {
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
@@ -615,6 +667,12 @@ select {
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
@@ -622,7 +680,6 @@ select {
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0));
 }
-
 
 #statusBarUpload6,
 #statusBarDownload6 {
@@ -635,6 +692,14 @@ select {
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
@@ -653,6 +718,14 @@ select {
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
@@ -671,6 +744,16 @@ select {
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
+      rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0));
 }
@@ -687,12 +770,22 @@ select {
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
+      var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0),
       rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0), rgb(0, 33, 0));
 }
 
 
-#statusBarUpload10,
+#statusBarUploa10,
 #statusBarDownload10 {
   background-image: linear-gradient(90deg, var(--accent), var(--accent));
 }
