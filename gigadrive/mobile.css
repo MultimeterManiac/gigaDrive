@@ -331,6 +331,7 @@ h4 {
   bottom: 0;
 }
 
+
 @keyframes opacity {
   0% {
     opacity: 0;
@@ -363,21 +364,27 @@ h4 {
   padding: 2rem;
   background-color: var(--popup);
 }
+
+#diskPopup {
+  height: 36vh;
+}
+
 #uploadStatusPopupCon,
 #downloadStatusPopupCon,
 #downloadSuccessPopupCon,
-#successUploadPopupCon {
+#successUploadPopupCon,
+#successDownloadPopupCon {
   position: static;
 }
 
 #uploadStatusPopup,
 #downloadStatusPopup,
 #downloadSuccessPopup,
-#successUploadPopup {
+#successUpload,
+#successDownload {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   justify-content: space-between;
-  align-items: center;
   animation: popup .15s ease both;
   backdrop-filter: blur(4px);
   border-radius: var(--radius);
@@ -386,18 +393,48 @@ h4 {
   padding-block: 0;
   background-color: var(--popup);
   position: fixed;
-  bottom: 1rem;
-  right: 1rem;
-  width: 88vw;
-  gap: 1rem;
+  top: 1rem;
+  width: calc(100vw - 1rem);
+  height: 66px;
   text-align: center;
+  animation: statuses .5s both cubic-bezier(.16, .68, .44, 1.19);
 }
-.uploadStatus, .downloadStatus {
+
+@keyframes statuses {
+  0% {
+    opacity: .8;
+    filter: blur(10px);
+    translate: 0 calc(-66px - 1rem);
+    transform: scale(.8);
+  }
+
+  20% {
+    transform: scale(.8);
+  }
+}
+
+#uploadStatusPopup *,
+#downloadStatusPopup *,
+#downloadSuccessPopup *,
+#successUpload *,
+#successDownload * {
+  font-size: .8rem;
+  line-height: 1rem;
+}
+
+#uploadStatusPopup button,
+#downloadStatusPopup button,
+#successDownload button,
+#successUpload button {
+  border: rgb(117, 59, 59) 2px solid;
+}
+
+.uploadStatus,
+.downloadStatus {
   display: none;
 }
 
 .smallPopupHeading {
-  font-size: 1rem;
   color: var(--accent);
 }
 
@@ -537,7 +574,7 @@ h4 {
   background-image: linear-gradient(90deg, var(--accent), rgb(0, 33, 0));
   border-radius: .5rem;
   animation: fileFade .5s ease both;
-  box-shadow: 0 0 3rem black;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.514);
 }
 
 #statusBarUpload0,
@@ -566,7 +603,7 @@ h4 {
   height: 1rem;
   border-radius: .5rem;
   animation: fileFade .5s ease both;
-  box-shadow: 0 0 2rem black;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.514);
 }
 
 #statusBarUpload0,
@@ -653,7 +690,7 @@ h4 {
 }
 
 
-#statusBarUpload0,
+#statusBarUpload4,
 #statusBarDownload4 {
   background-image: linear-gradient(90deg,
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),

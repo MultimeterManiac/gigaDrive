@@ -95,7 +95,7 @@
 		<div title="Logout" id="logoutLink" onclick="logout()"><img src="logout.png" style="scale: .8;">
 			<div class="text">Logout</div>
 		</div>
-		<div id="zuck">ficken</div>
+		<div id="zuck">up(deb)</div>
 	</nav>
 
 
@@ -105,8 +105,8 @@
 			<img src="upload.png" class="popupIcon">
 			<h2>Upload</h2>
 			<div class="breaker"></div>
-			<p class="exclude">Click here to upload</p>
-			<p id="fffi" class="exclude">0 files selected</p>
+
+			<p id="fffi" class="exclude"></p>
 
 
 			<!--select Name, Access-->
@@ -194,7 +194,8 @@
 		<div id="websocketPopup" class="popup" style="padding: 1rem; line-height: 3rem;">
 			<h2>Sorry!</h2>
 			<div class="breaker"></div>
-			<div style="text-align: center;">An error occured with the server connection.<br>Currently running Up/Downloads are corrupted, please delete them.<br><span
+			<div style="text-align: center;">An error occured with the server connection.<br>Active binary Up/Downloads
+				are corrupted, please delete them.<br><span
 					style="letter-spacing: 2px; color: lightpink; font-family: monospace;">WEBSOCKET_ERROR</span></div>
 			<div>
 				<div class="primarySecondaryContainer">
@@ -242,16 +243,15 @@
 
 	<div id="uploadStatusPopupCon" class="popupCon">
 		<div id="uploadStatusPopup" class="popup">
-			<h2 class="smallPopupHeading">Upload started.</h2>
+			<h2 class="smallPopupHeading">Uploading</h2>
 			<div class="uploadStatus">Thanks for using gigaDrive!</div>
 			<div class="uploadStatus">Don't close the gigaDrive Application</div>
 			<div class="uploadStatus">Saving big files can take time ....</div>
 			<div class="uploadStatus">Looks like it's gonna take a while ....</div>
 			<div class="uploadStatus">Take a little break and come back later!</div>
+			<div class="uploadStatus">Credits: Jonathan Wallasch, David Ott, Felix Nowak</div>
 			<div id="statusBarUpload0"></div>
-			<div class="primarySecondaryContainer">
-				<button class="secondary" onclick="window.location.reload();">Cancel</button>
-			</div>
+			<button class="secondary" onclick="window.location.reload();">Cancel</button>
 		</div>
 	</div>
 	</div>
@@ -260,39 +260,32 @@
 
 	<div id="downloadStatusPopupCon" class="popupCon">
 		<div id="downloadStatusPopup" class="popup">
-			<h2 class="smallPopupHeading">Download started.</h2>
+			<h2 class="smallPopupHeading">Downloading.</h2>
 			<div class="downloadStatus">We're downloading the requested file.</div>
 			<div class="downloadStatus">Don't close the gigaDrive Application</div>
 			<div class="downloadStatus">Just a sec ...</div>
 			<div id="statusBarDownload0"></div>
-			<div class="primarySecondaryContainer">
 				<button class="secondary" onclick="window.location.reload();">Cancel</button>
-					</div>
-				</div>
-			</div>
 		</div>
+	</div>
+	</div>
 	</div>
 
 	<div id="successDownloadPopupCon" class="popupCon">
 		<div id="successDownload" class="popup">
-			<h2>Success!</h2>
-			<div class="breaker"></div>
-			<div class="downloadSuccess">Your file(s) has been downloaded.</div>
-			<div class="primarySecondaryContainer">
-				<button class="secondary" title="reload page" onclick="window.location.reload();">Close</button>
-			</div>
+			<h2 class="smallPopupHeading">Success!</h2>
+			<div class="downloadSuccess">Download completed.</div>
+			<button class="secondary" title="reload page"
+				onclick="document.getElementById('successDownloadPopupCon').style.display = 'none'">Done</button>
 		</div>
 	</div>
 	</div>
 
 	<div id="successUploadPopupCon" class="popupCon">
 		<div id="successUpload" class="popup">
-			<h2>Success!</h2>
-			<div class="breaker"></div>
-			<div class="uploadSuccess">Your file(s) has been uploaded.</div>
-			<div class="primarySecondaryContainer">
-				<button class="secondary" onclick="window.location.reload();">View files</button>
-			</div>
+			<h2 class="smallPopupHeading">Success!</h2>
+			<div class="uploadSuccess">Upload completed.</div>
+				<button class="secondary" onclick="document.getElementById('successUploadPopupCon').style.display = 'none'">Done</button>
 		</div>
 	</div>
 	</div>

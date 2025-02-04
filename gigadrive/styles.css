@@ -310,15 +310,15 @@ h4 {
 /*upload*/
 #uploadPopupCon,
 #uploadStatusPopupCon,
-#successUploadPopupCon,
 #deletePopupCon,
 #warningPopupCon,
 #sharePopupCon,
 #settingsPopupCon,
 #diskPopupCon,
-#successUploadPopupCon,
+#successUploadCon,
 #downloadStatusPopupCon,
-#successDownloadPopupCon {
+#successDownloadPopupCon,
+#successUploadPopupCon {
   display: none;
   justify-content: center;
   align-items: center;
@@ -377,6 +377,9 @@ h4 {
 #uploadStatusPopupCon,
 #downloadStatusPopupCon,
 #downloadSuccessPopupCon,
+#successUploadCon,
+#successUploadPopupCon,
+#successDownloadPopupCon,
 #successUploadPopupCon {
   position: static;
 }
@@ -384,7 +387,9 @@ h4 {
 #uploadStatusPopup,
 #downloadStatusPopup,
 #downloadSuccessPopup,
-#successUploadPopup {
+#successUpload,
+#successDownload,
+#successUpload {
   display: grid;
   grid-template-columns: 1fr 500px 2fr 1fr;
   justify-content: space-between;
@@ -402,6 +407,23 @@ h4 {
   width: auto;
   gap: 1rem;
   text-align: center;
+  animation: statuses .3s cubic-bezier(.16,.68,.44,1.19) both;
+}
+@keyframes statuses {
+  0% {
+    filter: blur(4px);
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+#uploadStatusPopup button,
+#downloadStatusPopup button,
+#downloadSuccessPopup button,
+#successUpload button {
+  border: rgb(117, 59, 59) 2px solid;
 }
 
 .smallPopupHeading {
@@ -630,7 +652,7 @@ select {
 }
 
 
-#statusBarUpload0,
+#statusBarUpload4,
 #statusBarDownload4 {
   background-image: linear-gradient(90deg,
       var(--accent), var(--accent), var(--accent), var(--accent), var(--accent),
