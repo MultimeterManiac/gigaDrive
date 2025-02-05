@@ -65,6 +65,7 @@ function signup(){
         document.getElementById("authStatus").innerHTML = "Try again / Error";
     });
 }
+//pls add precise feedback: wrong pw/ appwrite error/ gigadrive server error ...
 function makeid(length) {
     let result = '';
     const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789_';

@@ -55,14 +55,14 @@
   <article id="signupPopup">
     <input placeholder="account username" id="1"></input>
     <input placeholder="account password" id="2" type="password"></input>
-    <button onclick="signup()">Create</button>
+    <button onclick="signup()">request account creation</button>
   </article>
 </main>
 <footer>
   <p class="mobileonly">Free Online Drive Storage</p>
   <a class="mobileonly" href="https://github.com/MultimeterManiac/gigaDrive" target="_blank">Source Code</a>
   <a href="https://icons8.com" target="_blank">Icons by Icons8</a>
-  <a id="noacc" style="cursor: alias;" href="#">Log in without account</a>
+  <a style="cursor: alias;" href="https://gigadrive.ddns.net/thisfeatureisindevelopment">Log in without account</a>
 </footer>
 
 </div>
@@ -79,15 +79,6 @@
       signIn.classList.remove("active");
       signUp.classList.add("active");
     }
-</script>
-
-<script>
-  document.getElementById("noacc").addEventListener("click", () => {
-    document.getElementById("userName").value = "admin";
-    document.getElementById("password").value = "access";
-    console.log("Inserted admin profile credentials.");
-});
-
 </script>
 
 </body>
