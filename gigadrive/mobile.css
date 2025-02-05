@@ -33,6 +33,7 @@ if options are available: alias
   font-size: 1rem;
   box-sizing: border-box;
   color: white;
+  -webkit-tap-highlight-color: transparent;
 }
 
 *:focus {
@@ -600,7 +601,7 @@ h4 {
 #statusBarDownload9,
 #statusBarDownload10 {
   width: 88%;
-  height: 1rem;
+  height: 1rem !important;
   border-radius: .5rem;
   animation: fileFade .5s ease both;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.514);
