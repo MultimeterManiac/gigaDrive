@@ -2,6 +2,7 @@
   --primary: #3a3a3a;
   --secondary: #5f5f5f;
   --accent: #12b886;
+  --accenthalf: #12b88686;
   --popup: #2e2e2e;
   --hover: brightness(1.1);
   --fileFocus: #5f5f5f;
@@ -61,6 +62,37 @@ h2 {
   color: rgb(0, 33, 0);
   color: white;
   font-weight: normal;
+}
+
+
+#fileArea {
+  position: relative;
+}
+
+#fileArea:after {
+  content: '';
+  background-image: linear-gradient(transparent, var(--primary), var(--primary));
+  height: 100vh;
+  width: 100vw;
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: -8px;
+  animation: smoothStart .5s .1s both ease;
+}
+
+@keyframes smoothStart {
+  0% {
+    translate: 0 0;
+  }
+
+  99% {
+    translate: 0 100vh;
+  }
+
+  100% {
+    display: none;
+  }
 }
 
 .uploadInfo,
@@ -407,8 +439,9 @@ h4 {
   width: auto;
   gap: 1rem;
   text-align: center;
-  animation: statuses .3s cubic-bezier(.16,.68,.44,1.19) both;
+  animation: statuses .3s cubic-bezier(.16, .68, .44, 1.19) both;
 }
+
 @keyframes statuses {
   0% {
     filter: blur(4px);
@@ -419,6 +452,7 @@ h4 {
     transform: translateY(0);
   }
 }
+
 #uploadStatusPopup button,
 #downloadStatusPopup button,
 #downloadSuccessPopup button,
@@ -907,8 +941,26 @@ select {
   border-radius: 4px;
 }
 
-
-
 .primarySecondaryContainer.buttons {
   transform: scale(.75);
+}
+
+/*selection of files*/
+
+.fileSelect {
+  animation: fileSelect .8s 1s ease both;
+}
+
+@keyframes fileSelect {
+  20% {
+    background-color: var(--secondary);
+  }
+
+  50% {
+    transform: scale(.985);
+  }
+
+  100% {
+    background-color: var(--accenthalf);
+  }
 }
