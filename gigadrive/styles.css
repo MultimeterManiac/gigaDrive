@@ -948,12 +948,13 @@ select {
 /*selection of files*/
 
 .fileSelect {
-  animation: fileSelect .8s 1s ease both;
+  animation: fileSelect .8s ease both;
 }
 
 @keyframes fileSelect {
   20% {
     background-color: var(--secondary);
+    border: 2px solid lightgrey;
   }
 
   50% {

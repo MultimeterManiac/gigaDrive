@@ -166,7 +166,6 @@ h4 {
   font-family: monospace;
   letter-spacing: 1px;
   font-size: .75rem;
-  padding-left: 24px;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -177,13 +176,13 @@ h4 {
   font-family: Arial, Helvetica, sans-serif;
   letter-spacing: 1px;
   font-size: .75rem;
-  margin-inline: 6px;
+  margin-inline: 4px;
   background-color: #8080805e;
-  padding: 4px;
+  padding: 3px;
   padding-inline: 6px;
   border-radius: 4px;
   display: grid;
-  grid-template-columns: 16px auto;
+  grid-template-columns: 12px auto;
 }
 
 .filesFilterFilter:hover {
@@ -205,10 +204,11 @@ h4 {
 .filesFilterFilter {
   letter-spacing: 1px;
   font-size: .6rem;
-  margin-inline: 6px;
-  padding: 4px;
-  padding-inline: 6px;
+  margin-inline: 3px;
+  padding: 5px;
+  padding-inline: 3px;
   border-radius: 4px;
+  background-color: var(--fileFocus);
 }
 
 
@@ -971,7 +971,8 @@ h4 {
 
 @keyframes fileSelect {
   20% {
-    background-color: var(--secondary);
+    background-color: var(--accent);
+    border: 2px solid lightgrey;
   }
 
   50% {

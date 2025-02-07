@@ -25,10 +25,6 @@
 		window.addEventListener("resize", updateStylesheet);
 	</script>
 </head>
-<!--PLS FIX
-
-
--->
 
 <body>
 	<h1 id="h1">gigaDrive</h1>
@@ -36,10 +32,14 @@
 	</section>
 	<div class="spacer"></div>
 	<section id="fileArea">
+		<div class="filesFilterCon">
+			<div onclick="" class="filesFilterFilter">[LOAD]</div>
+			<div onclick="" class="filesFilterFilter">[ZIPLOAD]</div>
+			<div onclick="" class="filesFilterFilter">[CANCEL]</div>
+		</div>
 		<div class="headFiles">
 			<div class="filesFilterCon">
-				<div onclick="" class="filesFilterFilter">[SAVE]</div>
-				<div onclick="" class="filesFilterFilter">[CANCEL]</div>
+				<div onclick="" class="filesFilterFilter">SELECT</div>
 				<div onclick="clearFilter()" class="filesFilterFilter">ALL</div>
 
 				<div onclick="filter('red')" class="filesFilter">
@@ -215,7 +215,7 @@
 		<div id="websocketPopup" class="popup" style="padding: 1rem; line-height: 3rem;">
 			<h2>Sorry!</h2>
 			<div class="breaker"></div>
-			<div style="text-align: center;">An error occured with the server connection.<br>Active binary Up/Downloads
+			<div style="text-align: center; line-height: 2rem;">Current file transfers
 				are corrupted, please delete them.<br><span
 					style="letter-spacing: 2px; color: lightpink; font-family: monospace;">WEBSOCKET_ERROR</span></div>
 			<div>
@@ -286,7 +286,7 @@
 			<div class="downloadStatus">Don't close the gigaDrive Application</div>
 			<div class="downloadStatus">Just a sec ...</div>
 			<div id="statusBarDownload0"></div>
-				<button class="secondary" onclick="window.location.reload();">Cancel</button>
+			<button class="secondary" onclick="window.location.reload();">Cancel</button>
 		</div>
 	</div>
 	</div>
@@ -306,7 +306,8 @@
 		<div id="successUpload" class="popup">
 			<h2 class="smallPopupHeading">Success!</h2>
 			<div class="uploadSuccess">Upload completed.</div>
-				<button class="secondary" onclick="document.getElementById('successUploadPopupCon').style.display = 'none'">Done</button>
+			<button class="secondary"
+				onclick="document.getElementById('successUploadPopupCon').style.display = 'none'">Done</button>
 		</div>
 	</div>
 	</div>
