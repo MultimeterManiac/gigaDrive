@@ -126,6 +126,7 @@ async function sendChunks() {
 
         currentChunk++;
         _chunks_send++;
+        updateSentChunks();
 
         if (currentChunk < totalChunks) {
             setTimeout(() => readNextChunk(), send_delay);
