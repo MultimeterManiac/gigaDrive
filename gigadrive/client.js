@@ -29,8 +29,8 @@ function msend(msg) {
 }
 
 //sleep(500);
-let socket = new WebSocket("ws://gigachat.ddns.net:12369");
-let socket1 = new WebSocket("ws://gigachat.ddns.net:12368");
+let socket = new WebSocket("wss://gigachat.ddns.net:12369");
+let socket1 = new WebSocket("wss://gigachat.ddns.net:12368");
 sleep(500);
 
 async function delete_file(filename) {
