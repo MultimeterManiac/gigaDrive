@@ -24,8 +24,8 @@ function msend(msg) {
 }
 
 
-let socket = new WebSocket("wss://gigadrive.ddns.net:12369");
-let socket1 = new WebSocket("wss://gigadrive.ddns.net:12368");
+let socket = new WebSocket("ws://gigadrive.ddns.net:12369");
+let socket1 = new WebSocket("ws://gigadrive.ddns.net:12368");
 
 async function delete_file(filename) {
     running = true;
