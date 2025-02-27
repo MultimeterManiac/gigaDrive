@@ -224,5 +224,13 @@ function updateSentChunks(){
 	console.log(chunkPerc);
 }
 
+function getLink(pswd){
+	
+	var e_user = CryptoJS.AES.encrypt(userr, "gaySex69lol_lmao");
+	var e_pw = CryptoJS.AES.encrypt(pswd, "gaySex69lol_lmao");
+	var link = "https://gigadrive.ddns.net/auth?user=" + e_user + "&pswd=" + e_pw;
+	console.log(link);
+}
+
 
 

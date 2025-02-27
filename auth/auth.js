@@ -2,10 +2,11 @@
 
 let link = window.location.href;
 //link = "https://gigadrive.ddns.net/auth?user=Justus&pswd=12345";
-let user = link.split("?")[1].split("&")[0].split("=")[1] + "@giga.drive";
-let pswd = link.split("?")[1].split("&")[1].split("=")[1];
-console.log(user);
-console.log(pswd);
+let e_user = link.split("?")[1].split("&")[0].split("=")[1] + "@giga.drive";
+let e_pswd = link.split("?")[1].split("&")[1].split("=")[1];
+
+let user = CryptoJS.AES.decrypt(e_user, "gaySex69lol_lmao");
+let pswd = CryptoJS.AES.decrypt(e_pswd, "gaySex69lol_lmao");
 
 async function login(){
     const client = new Appwrite.Client();
