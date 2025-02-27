@@ -5,7 +5,7 @@ let link = window.location.href;
 let e_user = link.split("?")[1].split("&")[0].split("=")[1];
 let e_pswd = link.split("?")[1].split("&")[1].split("=")[1];
 
-let user = CryptoJS.AES.decrypt(e_user, "gaySex69lol_lmao");
+let user = CryptoJS.AES.decrypt(e_user, "gaySex69lol_lmao") + "@giga.drive";
 let pswd = CryptoJS.AES.decrypt(e_pswd, "gaySex69lol_lmao");
 console.log(user.toString(CryptoJS.enc.Utf8));
 console.log(pswd.toString(CryptoJS.enc.Utf8));
