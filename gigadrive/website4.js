@@ -125,7 +125,7 @@ async function downloadFile(filename) {
 
 async function deleteFile(filename) {
 	await delete_file(filename);
-	listFiles();
+	setTimeout(listFiles, 400);
 }
 
 async function uploadFile() {
