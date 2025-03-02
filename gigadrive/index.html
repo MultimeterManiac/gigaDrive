@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
-	<script src="website4.js" defer></script>
+	<script src="webszite4.js" defer></script>
 	<script src="client.js"></script>
 	<title>Home | gigaDrive</title>
 	<link id="stylesheet" rel="stylesheet" href="styles.css">
@@ -33,10 +33,12 @@
 	</section>
 	<div class="spacer"></div>
 	<section id="fileArea">
+		<!--appear when long pressed or selection
 		<div class="filesFilterCon">
 			<div onclick="" class="filesFilterFilter">[LOAD]</div>
 			<div onclick="" class="filesFilterFilter">[ZIPLOAD]</div>
 			<div onclick="" class="filesFilterFilter">[CANCEL]</div>
+		-->
 		</div>
 		<div class="headFiles">
 			<div class="filesFilterCon">
@@ -79,24 +81,6 @@
 			<div class="loading">loading your files ...</div>
 			<!--file list here-->
 			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
-			<div class="fileLink">filelink</div>
 		</div><!--close filelist-->
 	</section><!--close filearea-->
 
@@ -117,7 +101,7 @@
 		<div title="Logout" id="logoutLink" onclick="logout()"><img src="logout.png" style="scale: .8;">
 			<div class="text">Logout</div>
 		</div>
-		<div id="zuck">up(deb)</div>
+		<!--<div id="zuck">up(deb)</div>-->
 	</nav>
 
 
@@ -167,15 +151,15 @@
 						<div class="filesFilterName">White</div>
 					</div><!--filter-->
 				</div>
+				<input type="text" id="tag" placeholder="Tags" style="color: black;" class="inputField">
 				<div class="primarySecondaryContainer">
 					<button class="secondary" onclick="
             document.getElementById('uploadPopupCon').style.display = 'none';
         document.getElementById('h1').style.filter = 'none';
         document.title = 'Home | gigaDrive';
         document.getElementById('homeLink').classList.add('active');
-        document.getElementById('uploadLink').classList.remove('active');">Cancel</button>
+        document.getElementById('uploadLink').classList.remove('active');" style="z-index: 99;">Cancel</button>
 					<button onclick="sendChunks()" id="uploadNow" class="primary">Upload</button>
-					<input type="text" id="tag" placeholder="Tags" style="color: black;" class="inputField">
 				</div> <!--close primarySecondaryContainer-->
 			</section>
 		</div>
@@ -185,18 +169,19 @@
 	<div id="settingsPopupCon" class="popupCon">
 		<div id="" class="popup">
 			<img src="settings.svg" class="popupIcon">
-			<h2 id="popupSettingsUsername">Settings</h2>
+			<h2 id="popupSettingsUsername">About</h2>
 			<div class="breaker"></div>
 			<!--select Name, Access-->
 			<section class="uploadSectionUpload">
 				<!--credits-->
-				<p style="text-align: center;">Credits</p>
+				<p style="text-align: center;">credits</p>
 				<p style="font-size: .9rem; color: grey; text-align: center;">Backend: David Ott<br>Frontend: Jonathan
 					Wallasch<br>Design: Felix Nowak<br><a href="https://icons8.com" target="_blank"
 						style="font-size: .9rem; color: grey; text-decoration: underline;">Icons by Icons8</a></p>
 				<p style="text-align: center;">version</p>
-				<p style="font-size: .9rem; color: grey; text-align: center; line-height: 1rem;"> 2.3 (development)</p>
-				<p style="font-size: .9rem; color: grey; text-align: center; line-height: 1rem;">Update: added Tags</p>
+				<p style="font-size: .9rem; color: grey; text-align: center; line-height: 1rem;"> 2.4 (development)</p>
+				<p style="font-size: .9rem; color: grey; text-align: center; line-height: 1rem;">Update: link sharing, Tags</p>
+				<p style="text-align: center;" class="shareLink">share this workspace</p>
 				<!--development, beta, public-->
 				<div style="display: flex; justify-content: center; margin-top: 2rem;">
 					<button class="secondary" onclick="
@@ -225,12 +210,7 @@
                 document.getElementById('warningPopupCon').style.display = 'none';
         document.getElementById('h1').style.filter = 'none';
         document.title = 'Home | gigaDrive';
-        ">Close</button>
-					<button class="secondary" style="margin-right: 1rem;" id="reload"
-						onclick="window.location.reload();">Reload</button>
-					<a href="https://gigachat.ddns.net" target="_blank"
-						title="Contact us via gigaChat, our own messaging application."><button
-							class="secondary">Contact</button></a>
+        ">OK</button>
 				</div>
 			</div>
 		</div>
@@ -312,6 +292,57 @@
 		</div>
 	</div>
 	</div>
+
+
+		<!--sharePopup-->
+	<!--hidden-->
+	<div id="shareTwoPopupCon" class="popupCon">
+		<div id="shareTwoPopup" class="popup">
+			<h2>Share this workspace</h2>
+			<div class="breaker"></div>
+			<p style="text-align: center; color: lightgray;">Generate links to collaborate with others.<br><br>They'll be logged in instantly.</p>
+
+			<div class="primarySecondaryContainer">
+				<button class="secondary">Start</button>
+			</div>
+		</div>
+	</div>
+	</div>
+
+	<!--sharePopup-->
+	<!--hidden-->
+	<div id="shareTwoPopupCon" class="popupCon">
+		<div id="shareTwoPopup" class="popup">
+			<h2>Share this workspace</h2>
+			<div class="breaker"></div>
+			<p id="confirmPassword"></p>
+			<input type="password" class="confirmPassword" id="confirmPasswordInput" autofocus>
+
+			<div class="primarySecondaryContainer">
+				<button class="secondary">Generate</button>
+			</div>
+		</div>
+	</div>
+	</div>
+
+
+	<!--sharePopup-->
+	<!--hidden-->
+	<div id="shareTwoPopupCon" class="popupCon">
+		<div id="shareTwoPopup" class="popup">
+			<h2>Share this workspace</h2>
+			<div class="breaker"></div>
+			<p>Link copied to clipboard.</p>
+			<p style="font-size: .9rem; text-align: center; color: lightpink;">WARNING: people with this link can add, edit and remove files in this workspace. Keep it secret and only share it with people you trust.
+				<br><br>They only lose access if the account password is changed.</p>
+				<p style="color: grey; font-size: .6rem; letter-spacing: -1px; text-align: center; line-height: 1rem;">Please note that we CANNOT guarantee the link's security as it only has standard encryption. This feature is designed to give people instant access via link. To be save, just share your workspace password.</p>
+			<div class="primarySecondaryContainer">
+				<button class="secondary">Done</button>
+			</div>
+		</div>
+	</div>
+	</div>
+
 	<script>
 		document.addEventListener("DOMContentLoaded", function () {
 			// Element references
@@ -329,6 +360,10 @@
 			const deletePopupCon = document.getElementById("deletePopupCon");
 			const reloadButton = document.getElementById("reload");
 			const cancelButtons = document.querySelectorAll(".cancelDeleteBtn");
+			const confirmPassword = document.getElementById("confirmPassword");
+			const shareOnePopup = document.getElementById("shareOnePopupCon");
+			const shareTwoPopup = document.getElementById("shareTwoPopupCon");
+			const shareThreePopup = document.getElementById("shareThreePopupCon");
 
 			function openUploadStatusMenu() {
 				uploadMenu.style.display = "none";
@@ -452,8 +487,22 @@
 
 			cycleDownloadStatuses();
 		});
+//link creation windows code
+		function openShareDialogs() {
+			shareOnePopup.style.display = "flex";
+			shareTwoPopup.style.display = "flex";
+			shareThreePopup.style.display = "flex";
+			document.title = "Share | gigaDrive";
+		}
 
 
+
+// link creation insert username
+
+		function insertUsername() {
+			confirmPassword.innerHTML = "Confirm that it's you, " + userr + ".";
+		}
+		insertUsername();
 
 	</script>
 

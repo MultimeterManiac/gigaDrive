@@ -64,37 +64,6 @@ h2 {
   font-weight: normal;
 }
 
-
-#fileArea {
-  position: relative;
-}
-
-#fileArea:after {
-  content: '';
-  background-image: linear-gradient(transparent, var(--primary), var(--primary));
-  height: 100vh;
-  width: 100vw;
-  z-index: 100;
-  position: absolute;
-  top: 0;
-  left: -8px;
-  animation: smoothStart .5s .1s both ease;
-}
-
-@keyframes smoothStart {
-  0% {
-    translate: 0 0;
-  }
-
-  99% {
-    translate: 0 100vh;
-  }
-
-  100% {
-    display: none;
-  }
-}
-
 .uploadInfo,
 .loading {
   color: var(--accent);
@@ -297,7 +266,7 @@ h4 {
 #uploadPopupCon label {
   position: fixed;
   top: 0;
-  bottom: 20vh;
+  bottom: 0;
   left: 0;
   right: 0;
   cursor: cell;
@@ -344,9 +313,11 @@ h4 {
 #uploadStatusPopupCon,
 #deletePopupCon,
 #warningPopupCon,
-#sharePopupCon,
 #settingsPopupCon,
 #diskPopupCon,
+#shareOnePopupCon,
+#shareTwoPopupCon,
+#shareThreePopupCon,
 #successUploadCon,
 #downloadStatusPopupCon,
 #successDownloadPopupCon,
@@ -359,6 +330,21 @@ h4 {
   left: 0;
   right: 0;
   bottom: 0;
+}
+
+.confirmPassword {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 8px;
+}
+
+#shareOnePopup,
+#shareTwoPopup,
+#shareThreePopup {
+  height: 66vh;
+  width: 66vw;
 }
 
 .uploadStatus,
@@ -490,6 +476,19 @@ h4 {
   line-height: 2rem;
   overflow-y: scroll;
   padding: 2rem;
+}
+
+.shareLink {
+  animation: shareLink 10s ease infinite;
+  cursor: crosshair;
+}
+.shareLink:hover {
+  text-decoration: underline;
+}
+@keyframes shareLink {
+  0% {color: white}
+  50% {color: var(--accenthalf)}
+  100% {color: white}
 }
 
 .storageInfoText::before {

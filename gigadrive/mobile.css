@@ -42,7 +42,7 @@ if options are available: alias
 }
 
 body {
-  background-color: #3a3a3a;
+  background-color: var(--primary);
 }
 
 .spacer {
@@ -59,36 +59,6 @@ h1 {
   font-size: 2rem;
   text-align: center;
   color: white;
-}
-
-#fileArea {
-  position: relative;
-}
-
-#fileArea:after {
-  content: '';
-  background-image: linear-gradient(transparent, var(--primary), var(--primary));
-  height: 100vh;
-  width: 100vw;
-  z-index: 100;
-  position: absolute;
-  top: 0;
-  left: -8px;
-  animation: smoothStart .5s .1s both ease;
-}
-
-@keyframes smoothStart {
-  0% {
-    translate: 0 0;
-  }
-
-  99% {
-    translate: 0 100vh;
-  }
-
-  100% {
-    display: none;
-  }
 }
 
 h2 {
@@ -188,6 +158,25 @@ h4 {
 .filesFilterFilter:hover {
   filter: brightness(2);
 }
+.buttons {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.buttons > div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+}
+.buttons * {
+  transform: scale(.9);
+  font-size: 18px !important;
+}
+.buttons .filesFilterColor {
+  height: 1rem;
+  width: 1rem;
+  translate: 0 -1px;
+}
 
 .filesFilterColor {
   border-radius: 50%;
@@ -276,8 +265,8 @@ h4 {
   border-radius: var(--radius);
   color: white;
   font-weight: bold;
-  margin-block: 1rem;
-  margin-inline: .5rem;
+  margin-block: 10px;
+  margin-inline: 8px;
   text-align: center;
   cursor: alias;
 }
@@ -301,7 +290,7 @@ h4 {
 #uploadPopupCon label {
   position: fixed;
   top: 0;
-  bottom: 24vh;
+  bottom: 0;
   left: 0;
   right: 0;
   cursor: cell;
@@ -346,9 +335,11 @@ h4 {
 #uploadStatusPopupCon,
 #deletePopupCon,
 #warningPopupCon,
-#sharePopupCon,
 #settingsPopupCon,
 #diskPopupCon,
+#shareOnePopupCon,
+#shareTwoPopupCon,
+#shareThreePopupCon,
 #successUploadPopupCon,
 #downloadStatusPopupCon,
 #successDownloadPopupCon {
@@ -362,6 +353,13 @@ h4 {
   bottom: 0;
 }
 
+.confirmPassword {
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  font-size: 2rem;
+  letter-spacing: 8px;
+}
 
 @keyframes opacity {
   0% {
@@ -391,7 +389,7 @@ h4 {
   height: 72vh;
   backdrop-filter: blur(4px);
   border-radius: var(--radius);
-  line-height: 2rem;
+  line-height: 1.5rem;
   padding: 2rem;
   background-color: var(--popup);
 }
@@ -429,6 +427,17 @@ h4 {
   height: 66px;
   text-align: center;
   animation: statuses .5s both cubic-bezier(.16, .68, .44, 1.19);
+}
+#shareOnePopupCon,
+#shareTwoPopupCon,
+#shareThreePopupCon {
+  top: 0;
+}
+#shareOnePopup,
+#shareTwoPopup,
+#shareThreePopup {
+  height: 100vh;
+  width: 100vw;
 }
 
 @keyframes statuses {
@@ -490,7 +499,7 @@ h4 {
   background-color: var(--popup);
   border-radius: var(--radius);
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.164);
-  line-height: 2rem;
+  line-height: 1rem !important;
   overflow-y: scroll;
   padding: 2rem;
 }
@@ -529,6 +538,15 @@ h4 {
   display: flex;
 }
 
+.shareLink {
+  animation: shareLink 10s ease infinite;
+  cursor: crosshair;
+}
+@keyframes shareLink {
+  0% {color: white}
+  50% {color: var(--accenthalf)}
+  100% {color: white}
+}
 #renamePopup .primarySecondaryContainer {
   position: fixed;
   bottom: 24px;
