@@ -45,6 +45,54 @@ body {
   background-color: var(--primary);
 }
 
+.start {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #2e2e2e;
+  animation: start .5s .5s ease both;
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes start {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+.start div {
+  animation: verifying .5s both;
+  font-size: 20px;
+  letter-spacing: 4px;
+}
+
+@keyframes verifying {
+  0% {
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 .spacer {
   height: .25rem;
 }
@@ -158,20 +206,24 @@ h4 {
 .filesFilterFilter:hover {
   filter: brightness(2);
 }
+
 .buttons {
   display: grid !important;
   grid-template-columns: 1fr 1fr 1fr;
 }
-.buttons > div {
+
+.buttons>div {
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 2px;
 }
+
 .buttons * {
   transform: scale(.9);
   font-size: 18px !important;
 }
+
 .buttons .filesFilterColor {
   height: 1rem;
   width: 1rem;
@@ -428,11 +480,13 @@ h4 {
   text-align: center;
   animation: statuses .5s both cubic-bezier(.16, .68, .44, 1.19);
 }
+
 #shareOnePopupCon,
 #shareTwoPopupCon,
 #shareThreePopupCon {
   top: 0;
 }
+
 #shareOnePopup,
 #shareTwoPopup,
 #shareThreePopup {
@@ -542,11 +596,21 @@ h4 {
   animation: shareLink 10s ease infinite;
   cursor: crosshair;
 }
+
 @keyframes shareLink {
-  0% {color: white}
-  50% {color: var(--accenthalf)}
-  100% {color: white}
+  0% {
+    color: white
+  }
+
+  50% {
+    color: var(--accenthalf)
+  }
+
+  100% {
+    color: white
+  }
 }
+
 #renamePopup .primarySecondaryContainer {
   position: fixed;
   bottom: 24px;
