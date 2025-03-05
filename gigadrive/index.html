@@ -40,13 +40,14 @@
 	<div class="spacer"></div>
 	<section id="fileArea">
 		<div class="searchCon">
-			<input type="text" id="search" placeholder="Search for files">
+
+			<input type="text" id="search" placeholder="Search for files" autocomplete="off" spellcheck="false" >
 		</div>
 		<!--appear when long pressed or selection
 		<div class="filesFilterCon">
 			<div onclick="" class="filesFilterFilter">[LOAD]</div>
 			<div onclick="" class="filesFilterFilter">[ZIPLOAD]</div>
-			<div onclick="" class="filesFilterFilter">[CANCEL]</div>
+			<div onclick="" class="filesFilterFilter">[CANCEL], remove</div>
 		-->
 		</div>
 		<div class="headFiles">
@@ -110,37 +111,16 @@
 					</label>
 				</div>
 				<input type="file" id="addFile" style="opacity: 0; scale: 0;" multiple>
+				<div style="width: 100%; display: flex; justify-content: center;"><!--open container-->
 				<div class="primarySecondaryContainer buttons">
-					<div onclick="filter('red')" class="filesFilter">
-						<div class="filesFilterColor" style="background-color: var(--red);"></div>
-						<div class="filesFilterName">Red</div>
-					</div><!--filter-->
-
-					<div onclick="filter('green')" class="filesFilter">
-						<div class="filesFilterColor" style="background-color: var(--green);"></div>
-						<div class="filesFilterName">Green</div>
-					</div><!--filter-->
-
-					<div onclick="filter('yellow')" class="filesFilter">
-						<div class="filesFilterColor" style="background-color: var(--yellow);"></div>
-						<div class="filesFilterName">Yellow</div>
-					</div><!--filter-->
-
-					<div onclick="filter('blue')" class="filesFilter">
-						<div class="filesFilterColor" style="background-color: var(--blue);"></div>
-						<div class="filesFilterName">Blue</div>
-					</div><!--filter-->
-
-					<div onclick="filter('purple')" class="filesFilter">
-						<div class="filesFilterColor" style="background-color: var(--purple);"></div>
-						<div class="filesFilterName">Purple</div>
-					</div><!--filter-->
-
-					<div onclick="filter('white')" class="filesFilter">
-						<div class="filesFilterColor" style="background-color: var(--white);"></div>
-						<div class="filesFilterName">White</div>
-					</div><!--filter-->
+					<div onclick="filter('red')" class="filesFilter" style="background-color: var(--red);"></div>
+					<div onclick="filter('green')" class="filesFilter" style="background-color: var(--green);"></div>
+					<div onclick="filter('yellow')" class="filesFilter" style="background-color: var(--yellow);"></div>
+					<div onclick="filter('blue')" class="filesFilter" style="background-color: var(--blue);"></div>
+					<div onclick="filter('purple')" class="filesFilter" style="background-color: var(--purple);"></div>
+					<div onclick="filter('white')" class="filesFilter" style="background-color: var(--white);"></div>
 				</div>
+				</div><!--close container-->
 				<input type="text" id="tag" placeholder="Tags" style="color: black;" class="inputField">
 				<div class="primarySecondaryContainer">
 					<button class="secondary" onclick="
@@ -542,7 +522,7 @@
 TODO
 - upload counter -> into button
 - if upload = 0 -> button is disabled 
-if #search value is empty -> normal size
-
+if #search value is empty -> normal size + --accenthalf
+if #search value is not empty -> bigger size + bg color --fileFocus // class add, transition
 
 -->

@@ -212,7 +212,7 @@ h4 {
 }
 
 #search {
-  background-color: var(--fileFocus);
+  background-color: var(--accenthalf);
   border: none;
   border-radius: var(--radius);
   color: var(--accent);
@@ -1037,7 +1037,7 @@ select {
 }
 
 .primarySecondaryContainer.buttons {
-  transform: scale(.75);
+  transform: scale(.85);
   margin-top: 0;
 }
 
