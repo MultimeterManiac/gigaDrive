@@ -23,7 +23,7 @@ async function check() {
 	}
 }
 
-check();
+//check();
 
 async function logout() {
 	const res = await account.deleteSessions();
@@ -241,11 +241,18 @@ function updateSentChunks(){
 	bar.id = "statusBarUpload" + chunkPerc;
 	console.log(chunkPerc);
 }
+const encrypt = (text) => {
+    return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(text));
+  };
+  
+  const decrypt = (data) => {
+    return CryptoJS.enc.Base64.parse(data).toString(CryptoJS.enc.Utf8);
+  };
 
 function getLink(pswd){
 	
-	var e_user = CryptoJS.AES.encrypt(userr, "gaySex69lol_lmao");
-	var e_pw = CryptoJS.AES.encrypt(pswd, "gaySex69lol_lmao");
+	var e_user = encrypt(userr);
+	var e_pw = encrypt(pswd);
 	var link = "https://gigadrive.ddns.net/auth?user=" + e_user + "&pswd=" + e_pw;
 	console.log(link);
 }

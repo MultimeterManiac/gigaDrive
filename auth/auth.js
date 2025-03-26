@@ -6,18 +6,15 @@ const encrypt = (text) => {
     return CryptoJS.enc.Base64.parse(data).toString(CryptoJS.enc.Utf8);
   };
 
-let link = window.location.href;
-let e_user = link.split("?")[1].split("&")[0].split("=")[1];
-let e_pswd = link.split("?")[1].split("&")[1].split("=")[1];
+//let link = window.location.href;
+//let e_user = link.split("?")[1].split("&")[0].split("=")[1];
+//let e_pswd = link.split("?")[1].split("&")[1].split("=")[1];
 
 
-//let tld = decrypt(tle);
-//console.log(tld);
+
 
 let user = decrypt(e_user);
 let pswd = decrypt(e_pswd);
-console.log(user.toString(CryptoJS.enc.Utf8));
-console.log(pswd.toString(CryptoJS.enc.Utf8));
 
 async function login(){
     const client = new Appwrite.Client();
