@@ -245,6 +245,7 @@ document.getElementById("search").addEventListener("input", function(){
             contact.classList.remove('hidden');
         } else {
             contact.classList.add('hidden');
+			setTimeout(200 , contact.classList.add(".displayNone"));
         }
     });
 
