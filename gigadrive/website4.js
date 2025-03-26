@@ -23,7 +23,7 @@ async function check() {
 	}
 }
 
-check();
+//check();
 
 async function logout() {
 	const res = await account.deleteSessions();
@@ -47,6 +47,24 @@ async function listFiles() {
 	//console.log(files);
 	//files = JSON.parse(files);
 	files = [
+		"/user/purple/file1.txt",
+		"/user/red/file2.txt",
+		"/user/blue/file3.txt",
+		"/user/green/file4.txt",
+		"/user/yellow/file5.txt",
+		"/user/white/file6.txt",
+		"/user/purple/file1.txt",
+		"/user/red/file2.txt",
+		"/user/blue/file3.txt",
+		"/user/green/file4.txt",
+		"/user/yellow/file5.txt",
+		"/user/white/file6.txt",
+		"/user/purple/file1.txt",
+		"/user/red/file2.txt",
+		"/user/blue/file3.txt",
+		"/user/green/file4.txt",
+		"/user/yellow/file5.txt",
+		"/user/white/file6.txt",
 		"/user/purple/file1.txt",
 		"/user/red/file2.txt",
 		"/user/blue/file3.txt",
@@ -232,22 +250,24 @@ function getLink(pswd){
 	console.log(link);
 }
 
-document.getElementById("search").addEventListener("input", function(){
+document.getElementById("search").addEventListener("input", function() {
 
 	let searchQuery = this.value.toLowerCase();
-    console.log(searchQuery);
-    let ll = document.querySelectorAll('.fileLink');
+	console.log(searchQuery);
+	let ll = document.querySelectorAll('.fileLink');
 	console.log(ll);
 
-    ll.forEach(function (contact) {
-        let contactName = contact.textContent.toLowerCase();
-        if (contactName.includes(searchQuery)) {
-            contact.classList.remove('hidden');
-        } else {
-            contact.classList.add('hidden');
-			setTimeout(200 , contact.classList.add(".displayNone"));
-        }
-    });
+	ll.forEach(function(contact) {
+			let contactName = contact.textContent.toLowerCase();
+			if (contactName.includes(searchQuery)) {
+					contact.classList.remove('hiddenResult');
+					contact.classList.remove('displayNone');
+			} else {
+					contact.classList.add('hiddenResult');
+					setTimeout(function() {
+							contact.classList.add('displayNone');
+					}, 400);
+			}
+	});
 
 });
-
