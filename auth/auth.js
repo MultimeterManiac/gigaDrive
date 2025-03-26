@@ -1,16 +1,21 @@
+const encrypt = (text) => {
+    return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(text));
+  };
+  
+  const decrypt = (data) => {
+    return CryptoJS.enc.Base64.parse(data).toString(CryptoJS.enc.Utf8);
+  };
+
 let link = window.location.href;
-//link = "https://gigadrive.ddns.net/auth?user=Justus&pswd=12345";
-//let e_user = link.split("?")[1].split("&")[0].split("=")[1];
-//let e_pswd = link.split("?")[1].split("&")[1].split("=")[1];
+let e_user = link.split("?")[1].split("&")[0].split("=")[1];
+let e_pswd = link.split("?")[1].split("&")[1].split("=")[1];
 
-let tl = "https://gigadrive.ddns.net/auth?user=Justus&pswd=12345";
-let tle = CryptoJS.AES.encrypt(tl, "gaysex69lol_lmao").toString();
-console.log(tle);
-let tld = CryptoJS.AES.decrypt(tle, "gaySex69lol_lmao").toString();
-console.log(tld);
 
-let user = CryptoJS.AES.decrypt(e_user, "gaySex69lol_lmao");
-let pswd = CryptoJS.AES.decrypt(e_pswd, "gaySex69lol_lmao");
+//let tld = decrypt(tle);
+//console.log(tld);
+
+let user = decrypt(e_user);
+let pswd = decrypt(e_pswd);
 console.log(user.toString(CryptoJS.enc.Utf8));
 console.log(pswd.toString(CryptoJS.enc.Utf8));
 
@@ -44,5 +49,9 @@ const account = new Appwrite.Account(client);
     
     window.location.replace("https://gigadrive.ddns.net/gigadrive");
 }
+
+
+
+
 
 login();
