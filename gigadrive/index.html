@@ -52,7 +52,8 @@
 		</div>
 		<div class="headFiles">
 			<div class="filesFilterCon">
-				<div onclick="" class="filesFilterFilter">SELECT</div>
+				<div onclick="window.location.reload()" class="filesFilterFilter hidden" id="cancelSelectBtn">CANCEL</div>
+				<div onclick="selectMenu()" class="filesFilterFilter" id="selectBtn">SELECT</div>
 				<div onclick="clearFilter()" class="filesFilter"
 					style="background-image: linear-gradient(135deg, var(--primary), var(--primary), var(--accenthalf), var(--fileFocus)); filter: brightness(1.5);">
 					ALL</div>
@@ -66,6 +67,7 @@
 
 			</div> <!--filterfilter-->
 		</div>
+		<div id="selectInfo">Select items by clicking, then choose the actions above.</div>
 		<div id="fileList">
 			<div class="loading">loading your files ...</div>
 			<!--file list here-->

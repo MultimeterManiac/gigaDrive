@@ -47,30 +47,26 @@ async function listFiles() {
 	//console.log(files);
 	//files = JSON.parse(files);
 	files = [
-		"/user/purple/file1.txt",
-		"/user/red/file2.txt",
-		"/user/blue/file3.txt",
-		"/user/green/file4.txt",
-		"/user/yellow/file5.txt",
-		"/user/white/file6.txt",
-		"/user/purple/file1.txt",
-		"/user/red/file2.txt",
-		"/user/blue/file3.txt",
-		"/user/green/file4.txt",
-		"/user/yellow/file5.txt",
-		"/user/white/file6.txt",
-		"/user/purple/file1.txt",
-		"/user/red/file2.txt",
-		"/user/blue/file3.txt",
-		"/user/green/file4.txt",
-		"/user/yellow/file5.txt",
-		"/user/white/file6.txt",
-		"/user/purple/file1.txt",
-		"/user/red/file2.txt",
-		"/user/blue/file3.txt",
-		"/user/green/file4.txt",
-		"/user/yellow/file5.txt",
-		"/user/white/file6.txt"
+		"/user/purple/randomfile1.docx",
+		"/user/red/notes123.pdf",
+		"/user/green/image_awesome.png",
+		"/user/yellow/script_final.js",
+		"/user/purple/design_mockup.psd",
+		"/user/red/project_plan.xlsx",
+		"/user/green/photo_album.zip",
+		"/user/yellow/music_track.mp3",
+		"/user/purple/summary_report.txt",
+		"/user/red/diagram_flowchart.svg",
+		"/user/green/video_clip.mp4",
+		"/user/yellow/presentation.pptx",
+		"/user/purple/code_snippet.py",
+		"/user/red/recipe_book.epub",
+		"/user/green/backup_data.tar",
+		"/user/yellow/animation.gif",
+		"/user/purple/financial_report.csv",
+		"/user/red/meeting_minutes.doc",
+		"/user/green/landscape_photo.jpg",
+		"/user/yellow/blueprint.dwg"
 	];
 	let par = document.getElementById("fileList");
 
@@ -278,3 +274,24 @@ document.getElementById("search").addEventListener("input", function() {
 	});
 
 });
+
+let selectBtn = document.getElementById("selectBtn");
+let cancelSelectBtn = document.getElementById("cancelSelectBtn");
+let selectInfo = document.getElementById("selectInfo");
+
+function selectMenu() {
+	console.log("selectMenu");
+	selectBtn.style.display = "none";
+	cancelSelectBtn.style.display = "block";
+	selectInfo.style.display = "block";
+
+	let fileLinks = document.querySelectorAll(".fileLink");
+	fileLinks.forEach(function(fileLink) {
+		fileLink.classList.add("selecting");
+	});
+
+	console.log("selectMenu");
+
+
+	// while being in select mode, you can click on a file to select it
+}
