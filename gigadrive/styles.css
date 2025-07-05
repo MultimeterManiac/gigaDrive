@@ -7,6 +7,7 @@
   --popup: #2e2e2e;
   --hover: brightness(1.1);
   --fileFocus: #5f5f5f;
+  --fileFocus2: #9c9c9c;
   --radius: 12px;
   --margin: 2px;
   --white: #e6e6e6;
@@ -308,7 +309,69 @@ h4 {
   word-break: break-all;
 }
 
+#rCM {
+  background-color: var(--popup);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+  display: grid;
+  grid-template-columns: 1fr;
+  width: 256px;
+  border-radius: var(--radius);
+  z-index: 2;
+}
+.option {
+  width: 100%;
+  cursor: pointer;
+  padding-inline: 12px;
+  padding-block: 10px;
+}
+.one {
+  height: 1rem;
+  background-color: var(--popup);
+}
+
+.option:hover {
+  background-color: var(--fileFocus);
+}
+.one:hover {
+  background-color: var(--popup);
+}
+
+/* Beispiel für .highlight (optional) */
+.fileLink.highlight {
+  background-color: var(--fileFocus2);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+  z-index: 5;
+  border: none;
+}
+
+
+
 /*menu*/
+
+#uploadLink {
+  position: fixed;
+  bottom: 44px;
+  right: 44px;
+  height: 6vh;
+  width: 6vh;
+  background-color: var(--fileFocus);
+  border-radius:25%;
+  display: flex;
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+  transition: all .15s ease;
+}
+#uploadLink:hover {
+  filter: brightness(1.2);
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.164);
+  border-radius: 33%;
+}
+#uploadLink img {
+  height: 100%;
+  width: 100%;
+}
+
 #menuArea {
   position: fixed;
   top: 12vh;

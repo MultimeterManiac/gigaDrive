@@ -23,7 +23,7 @@ async function check() {
 	}
 }
 
-check();
+//check();
 
 async function logout() {
 	const res = await account.deleteSessions();
@@ -329,3 +329,53 @@ function selectMenu() {
 	});
 	// selected files have class (.selectedOne and) .selectedTwo. -> actions
 }
+
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const menu = document.getElementById("rCM");
+  const fileList = document.getElementById("fileList");
+  let currentHighlighted = null;
+
+  menu.style.display = "none";
+  menu.style.position = "absolute";
+
+  // Rechtsklick nur auf .fileLink innerhalb von #fileList
+  fileList.addEventListener("contextmenu", (event) => {
+    const target = event.target.closest(".fileLink");
+
+    if (!target || !fileList.contains(target)) return;
+
+    event.preventDefault();
+
+    // Menü anzeigen
+    menu.style.left = `${event.pageX}px`;
+    menu.style.top = `${event.pageY}px`;
+    menu.style.display = "grid";
+
+    // Abdunkeln
+    fileList.style.filter = "brightness(1)";
+
+    // Alte Hervorhebung entfernen
+    if (currentHighlighted) {
+      currentHighlighted.classList.remove("highlight");
+    }
+
+    // Neue Hervorhebung setzen
+    target.classList.add("highlight");
+    currentHighlighted = target;
+  });
+
+  // Klick außerhalb -> alles zurücksetzen
+  document.addEventListener("click", (event) => {
+    if (!menu.contains(event.target)) {
+      menu.style.display = "none";
+      fileList.style.filter = "";
+
+      if (currentHighlighted) {
+        currentHighlighted.classList.remove("highlight");
+        currentHighlighted = null;
+      }
+    }
+  });
+});
