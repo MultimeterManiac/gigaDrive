@@ -326,7 +326,7 @@ h4 {
 }
 .one {
   height: 1rem;
-  background-color: var(--popup);
+  background-color: var(--popup );
 }
 
 .option:hover {
