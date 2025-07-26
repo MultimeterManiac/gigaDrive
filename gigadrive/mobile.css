@@ -530,11 +530,11 @@ input[type="text"] {
 
 .popup {
   position: fixed;
-  top: 0;
+  top: 20vh;
   bottom: 0;
   left: 0;
   right: 0;
-  height: 100vh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
