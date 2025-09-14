@@ -76,7 +76,7 @@ async function listFiles() {
 		"/user/green/photo_album.zip",
 		"/user/yellow/music_track.mp3"
 	];
-	let par = document.getElementById("fileList");
+	//let par = document.getElementById("fileList");
 
 	while (par.lastChild) {
 		par.removeChild(par.lastChild);

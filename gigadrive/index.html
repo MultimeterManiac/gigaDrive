@@ -15,8 +15,10 @@
 	<link rel="icon" type="image/x-icon" href="icons8-cloud.png">
 	<link rel="manifest" href="manifest.json">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link
+		href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+		rel="stylesheet">
 	<script>
 		function updateStylesheet() {
 			const stylesheet = document.getElementById("stylesheet");
@@ -46,39 +48,46 @@
 
 	<!--// right click menu-->
 
-	</div>
+	<!--
+	fixed positions
+	-->
+
+	<nav id="tools">
+		<div id="nameSort">az/za</div>
+		<div id="timeSort">19/91</div>
+		<div onclick="filter('red')" class="filesFilter" style="background-color: var(--red);"></div>
+		<div onclick="filter('green')" class="filesFilter" style="background-color: var(--green);"></div>
+		<div onclick="filter('yellow')" class="filesFilter" style="background-color: var(--yellow);"></div>
+		<div onclick="filter('blue')" class="filesFilter" style="background-color: var(--blue);"></div>
+		<div onclick="filter('purple')" class="filesFilter" style="background-color: var(--purple);"></div>
+		<div onclick="filter('white')" class="filesFilter" style="background-color: var(--white);"></div>
+		<button id="uploadLink" onclick="document.getElementById('addMenu').style.display = 'flex'"><img src="close.svg"
+				alt="new"></button>
+	</nav>
 
 	<nav id="nav">
-	<section id="headsection">
-	<h1
-	onclick="document.getElementById('popupMenu').style.display = 'grid'" id="gigaChat">
-	gigaDrive</h1>
-	<button id="uploadLink" onclick="document.getElementById('addMenu').style.display = 'flex'"><img src="close.svg" alt="new"></button>
-	</section>
-	<section id="searchSection">
-	<input type="text" id="search" placeholder="Search" autocomplete="off" spellcheck="false">
-	</section>
-	<div class="headFiles">
-		<div class="filesFilterCon">
-			<div onclick="" class="filesFilterFilter hidden" style="color: rgb(255, 97, 97);" id="cancelSelectBtn">CANCEL
-			</div>
-			<div onclick="selectMenu()" class="filesFilterFilter" id="selectBtn">SELECT</div>
-			<div onclick="" class="filesFilterFilter hidden" id="saveSelection">[SAVE]</div>
-			<div onclick="" class="filesFilterFilter hidden" id="deleteSelection">[DELETE]</div>
-			<div onclick="" class="filesFilterFilter hidden" id="slcAllSelection">[slcALL]</div>
-			<div onclick="clearFilter()" id="clearFilter">
-				all</div>
+		<section id="headsection">
+			<h1 onclick="document.documentElement.requestFullscreen()" id="gigaChat">gigaDrive</h1>
+		</section>
+		<section id="searchSection">
+			<input type="text" id="search" placeholder="Search" autocomplete="off" spellcheck="false">
+		</section>
+		<div class="headFiles">
+			<div class="filesFilterCon">
+				<div onclick="" class="filesFilterFilter hidden" style="color: rgb(255, 97, 97);" id="cancelSelectBtn">CANCEL
+				</div>
+				<div onclick="selectMenu()" class="filesFilterFilter" id="selectBtn">SELECT</div>
+				<div onclick="" class="filesFilterFilter hidden" id="saveSelection">[SAVE]</div>
+				<div onclick="" class="filesFilterFilter hidden" id="deleteSelection">[DELETE]</div>
+				<div onclick="" class="filesFilterFilter hidden" id="slcAllSelection">[slcALL]</div>
+				<div onclick="clearFilter()" id="clearFilter">
+					all</div>
 
-			<div onclick="filter('red')" class="filesFilter" style="background-color: var(--red);"></div>
-			<div onclick="filter('green')" class="filesFilter" style="background-color: var(--green);"></div>
-			<div onclick="filter('yellow')" class="filesFilter" style="background-color: var(--yellow);"></div>
-			<div onclick="filter('blue')" class="filesFilter" style="background-color: var(--blue);"></div>
-			<div onclick="filter('purple')" class="filesFilter" style="background-color: var(--purple);"></div>
-			<div onclick="filter('white')" class="filesFilter" style="background-color: var(--white);"></div>
 
-		</div> <!--filterfilter-->
-	</div>
-</nav>
+
+			</div> <!--filterfilter-->
+		</div>
+	</nav>
 
 
 
@@ -88,13 +97,54 @@
 	<section id="fileArea">
 		<div class="searchCon">
 
-			
+
 		</div>
 		</div>
-		
+
 		<div id="selectInfo">Select items by clicking, then choose the actions above.</div>
 		<div id="fileList">
-			<div class="loading">loading your files ...</div>
+			<div class="loading">
+				<div>ic</div>
+				<div>name</div>
+				<div>date</div>
+				<div></div>
+				<div>save</div>
+			</div>
+			<div class="loading">
+				<div>ic</div>
+				<div>name</div>
+				<div>date</div>
+				<div></div>
+				<div>save</div>
+			</div>
+			<div class="loading">
+				<div>ic</div>
+				<div>name</div>
+				<div>date</div>
+				<div></div>
+				<div>save</div>
+			</div>
+			<div class="loading">
+				<div>ic</div>
+				<div>name</div>
+				<div>date</div>
+				<div></div>
+				<div>save</div>
+			</div>
+			<div class="loading">
+				<div>ic</div>
+				<div>name</div>
+				<div>date</div>
+				<div></div>
+				<div>save</div>
+			</div>
+			<div class="fileLink">
+				<div class="icon"><img src="delete.png"></div>
+				<div class="name">file.txt</div>
+				<div class="tag"></div>
+				<div class="date">2023-01-01</div>
+				<button class="save">Save</button>
+			</div>
 			<!--file list here-->
 		</div><!--close filelist-->
 	</section><!--close filearea-->

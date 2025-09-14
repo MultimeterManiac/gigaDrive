@@ -187,15 +187,15 @@ socket.onmessage = function (event) {
 socket.onclose = function (event) {
     wopened = false;
     if (event.wasClean) {
-        document.getElementById('warningPopupCon').style.display = 'flex';
+        document.getElementById('warningPopupCon').style.display = 'none'; //reset to flex
     } else {
-        document.getElementById('warningPopupCon').style.display = 'flex';
+        document.getElementById('warningPopupCon').style.display = 'none'; //reset to flex
     }
 };
 
 socket.onerror = function (error) {
     wopened = false;
-    document.getElementById('warningPopupCon').style.display = 'flex';
+    document.getElementById('warningPopupCon').style.display = 'none'; //reset to flex
 };
 
 socket1.onopen = async function (e) {
@@ -237,9 +237,9 @@ socket1.onclose = function (event1) {
     wwopened = false;
     console.log("closed file");
     if (event1.wasClean) {
-        document.getElementById('warningPopupCon').style.display = 'flex';
+        document.getElementById('warningPopupCon').style.display = 'none'; //reset to flex
     } else {
-        document.getElementById('warningPopupCon').style.display = 'flex';
+        document.getElementById('warningPopupCon').style.display = 'none'; //reset to flex
     }
 };
 
@@ -247,5 +247,5 @@ socket1.onerror = function (error) {
     console.log("error file");
     console.log(error);
     wwopened = false;
-    document.getElementById('warningPopupCon').style.display = 'flex';
+    document.getElementById('warningPopupCon').style.display = 'none'; //reset to flex
 };

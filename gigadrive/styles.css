@@ -127,10 +127,7 @@ h2 {
   font-weight: normal;
 }
 
-.uploadInfo,
-.loading {
-  color: var(--accent);
-}
+
 
 a {
   text-decoration: none;
