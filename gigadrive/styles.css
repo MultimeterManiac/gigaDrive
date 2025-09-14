@@ -382,6 +382,8 @@ h4 {
   padding-inline: 12px;
   transition: all .15s ease;
   border: 1px solid transparent;
+  z-index: 999;
+  background-color: red;
 }
 
 #menuArea>div {

@@ -38,6 +38,7 @@ if options are available: alias
   box-sizing: border-box;
   color: white;
   -webkit-tap-highlight-color: transparent;
+  user-select: none;
 }
 
 *:focus {
@@ -88,6 +89,7 @@ h2 {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100vw;
 }
 
 #searchSection {
@@ -138,19 +140,6 @@ h2 {
 
 a {
   text-decoration: none;
-}
-
-h4 {
-  font-size: 2rem;
-  font-weight: bold;
-  text-align: center;
-  padding: 1rem;
-  padding-top: 7vh;
-  color: grey;
-  border: 1px solid grey;
-  border-radius: 2rem;
-  height: 16vh;
-  animation: dropZone .75s 1s ease both;
 }
 
 /*file*/
@@ -232,22 +221,26 @@ h4 {
 
 #selectBtn,
 #clearFilter {
-  width: 44px;
-  height: 1.2rem;
+  position: fixed;
+  top: calc(.67em + .6rem + 12px);
+  right: calc(44px + 10vw);
+  padding-inline: 8px;
+  padding-block: 5px;
   border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, .1);
-  font-size: .5rem;
+  font-size: .6rem;
   font-family: monospace;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 36px rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, .1);
 }
 
-
-#generate:hover,
-#generate:focus {
-  background-color: var(--fileFocus);
-  color: var(--accent);
+#clearFilter {
+  display: none;
 }
 
 .searchCon {
@@ -314,17 +307,12 @@ input[type="text"] {
   padding: 5px;
   padding-inline: 3px;
   border-radius: 4px;
-  background-color: var(--fileFocus);
 }
 
 .filesFilterFilter img {
   height: .9rem;
   width: .9rem;
   margin: 0;
-}
-
-.fileLink:hover {
-  border: green 1px solid;
 }
 
 .fileDownload,
@@ -358,6 +346,85 @@ input[type="text"] {
 /*menu*/
 
 
+#openMenu {
+  height: 24px;
+  width: 24px;
+  background-color: transparent;
+  border: none;
+  position: fixed;
+  top: calc(.67em + 12px);
+  right: calc(36px);
+  z-index: 5;
+}
+
+#menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 90vw;
+  background-color: var(--secondary);
+  padding: 12px;
+  overflow-y: scroll;
+  padding-bottom: 10vh;
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 20vw !important;
+  z-index: 5;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+h4 {
+  font-size: 1rem;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+aside {
+  margin: 0;
+  display: grid;
+  grid-template-columns: 1fr 10fr;
+  align-items: center;
+}
+aside img {
+  height: 18px;
+}
+aside div {
+  margin-block: 6px;
+}
+
+article {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+}
+
+.menu a {
+  display: block;
+  line-height: 1.8rem;
+  color: var(--light);
+  letter-spacing: 1px;
+}
+.menu span,
+.menu option {
+  color: var(--accenthalf);
+}
+.menu span {
+  font-family: monospace;
+}
 
 #menuArea {
   display: none;
@@ -1303,7 +1370,6 @@ input[type="text"] {
 #uploadLink {
   height: calc(1rem + 18px);
   width: calc(1rem + 18px);
-  right: calc(18px + 1rem);
   display: flex;
   align-items: center;
   justify-content: center;

@@ -67,7 +67,10 @@
 
 	<nav id="nav">
 		<section id="headsection">
-			<h1 onclick="document.documentElement.requestFullscreen()" id="gigaChat">gigaDrive</h1>
+			<button id="openMenu"><img src="menu.svg"></button>
+			<h1 onclick="document.documentElement.requestFullscreen()">gigaDrive</h1>
+			<div onclick="clearFilter()" id="clearFilter">all</div>
+			<div onclick="selectMenu()" class="filesFilterFilter" id="selectBtn">SELECT</div>
 		</section>
 		<section id="searchSection">
 			<input type="text" id="search" placeholder="Search" autocomplete="off" spellcheck="false">
@@ -76,28 +79,17 @@
 			<div class="filesFilterCon">
 				<div onclick="" class="filesFilterFilter hidden" style="color: rgb(255, 97, 97);" id="cancelSelectBtn">CANCEL
 				</div>
-				<div onclick="selectMenu()" class="filesFilterFilter" id="selectBtn">SELECT</div>
+
 				<div onclick="" class="filesFilterFilter hidden" id="saveSelection">[SAVE]</div>
 				<div onclick="" class="filesFilterFilter hidden" id="deleteSelection">[DELETE]</div>
 				<div onclick="" class="filesFilterFilter hidden" id="slcAllSelection">[slcALL]</div>
-				<div onclick="clearFilter()" id="clearFilter">
-					all</div>
-
-
 
 			</div> <!--filterfilter-->
 		</div>
 	</nav>
-
-
-
-	<div class="spacer"></div>
 	</section>
-	<div class="spacer"></div>
 	<section id="fileArea">
 		<div class="searchCon">
-
-
 		</div>
 		</div>
 
@@ -149,6 +141,101 @@
 		</div><!--close filelist-->
 	</section><!--close filearea-->
 
+
+
+
+	<nav id="menu" class="menu">
+		<h3>Settings</h3>
+		<h4>GENERAL</h4>
+
+		<aside>
+			<img src="home.svg">
+			<div>My Drive</div>
+		</aside>
+
+		<aside>
+			<img src="language.svg">
+			<div>Language</div>
+		</aside>
+
+		<article>
+			<option>English</option>
+			<option>Español</option>
+			<option>Deutsch</option>
+		</article>
+
+		<aside>
+			<img src="theme.png">
+			<div>Appearance</div>
+		</aside>
+
+		<article>
+			<option>Theme 1</option>
+			<option>Theme 2</option>
+		</article>
+
+		<aside>
+			<img src="help.png">
+			<div>How To Collaborate</div>
+		</aside>
+
+		<aside>
+			<img src="collaborate.png">
+			<div>Collaborate Now</div>
+		</aside>
+
+		<aside>
+			<img src="bin.png">
+			<div>Recycle Bin</div>
+		</aside>
+
+		<h4>USER</h4>
+
+		<aside>
+			<img src="logout.png">
+			<div>Log Out (device)</div>
+		</aside>
+
+		<aside>
+			<img src="logout.png">
+			<div>Log Out (all devices)</div>
+		</aside>
+
+		<aside>
+			<img src="logout.png">
+			<div>Manage my devices</div>
+		</aside>
+
+		<aside>
+			<img src="delete.svg">
+			<div>Delete account</div>
+		</aside>
+
+		<h4>SERVER</h4>
+
+		<aside>
+			<img src="version.png">
+			<div>gigaDrive f1.5b11</div>
+		</aside>
+
+		<aside>
+			<img src="hdd.png">
+			<div>Disk Space: 128 / 2000 GB</div>
+		</aside>
+
+		<h4>EXTERNAL</h4>
+
+		<a>gigaChat</a>
+		<a>icons8</a>
+		<a>Source Code</a>
+		<a>Contact us</a>
+		<div style="height: 1rem;"></div>
+		<a><span>felixNowak</span>, UI/UX Designer</a>
+		<a><span>jonathanWallasch</span>, Frontend</a>
+		<a><span>davidOtt</span>, Backend</a>
+
+
+	</nav>
 
 	<nav id="menuArea">
 		<div title="Home" id="homeLink" class="active" onclick="listFiles()"><img src="home.svg">
