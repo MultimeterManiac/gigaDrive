@@ -38,36 +38,26 @@
 
 <body>
 
-	<!--right click menu-->
-
-	<div id="rCM">
-		<div class="option one"></div>
-		<div class="option">Rename</div>
-		<div class="option">Delete</div>
-	</div>
-
-	<!--// right click menu-->
-
 	<!--
 	fixed positions
 	-->
 
 	<nav id="tools">
-		<div id="nameSort">az/za</div>
-		<div id="timeSort">19/91</div>
-		<div onclick="filter('red')" class="filesFilter" style="background-color: var(--red);"></div>
-		<div onclick="filter('green')" class="filesFilter" style="background-color: var(--green);"></div>
-		<div onclick="filter('yellow')" class="filesFilter" style="background-color: var(--yellow);"></div>
-		<div onclick="filter('blue')" class="filesFilter" style="background-color: var(--blue);"></div>
-		<div onclick="filter('purple')" class="filesFilter" style="background-color: var(--purple);"></div>
-		<div onclick="filter('white')" class="filesFilter" style="background-color: var(--white);"></div>
-		<button id="uploadLink" onclick="document.getElementById('addMenu').style.display = 'flex'"><img src="close.svg"
-				alt="new"></button>
+		<div id="nameSort"><img src="sortAZ.svg"></div>
+		<div id="timeSort"><img src="sort19.svg"></div>
+		<div id="tagFilter"><img src="filter.svg"></div>
+		<div onclick="filter('red')" class="filesFilter hidden" style="background-color: var(--red);"></div>
+		<div onclick="filter('green')" class="filesFilter hidden" style="background-color: var(--green);"></div>
+		<div onclick="filter('yellow')" class="filesFilter hidden" style="background-color: var(--yellow);"></div>
+		<div onclick="filter('blue')" class="filesFilter hidden" style="background-color: var(--blue);"></div>
+		<div onclick="filter('purple')" class="filesFilter hidden" style="background-color: var(--purple);"></div>
+		<div onclick="filter('white')" class="filesFilter hidden" style="background-color: var(--white);"></div>
 	</nav>
+				<button id="uploadLink" onclick="document.getElementById('addMenu').style.display = 'flex'"><img src="new.svg" alt="new"></button>
 
 	<nav id="nav">
 		<section id="headsection">
-			<button id="openMenu"><img src="menu.svg"></button>
+			<button id="openMenu" onclick="document.getElementById('menu').classList.toggle('menu')"><img src="menu.svg"></button>
 			<h1 onclick="document.documentElement.requestFullscreen()">gigaDrive</h1>
 			<div onclick="clearFilter()" id="clearFilter">all</div>
 			<div onclick="selectMenu()" class="filesFilterFilter" id="selectBtn">SELECT</div>
@@ -137,6 +127,70 @@
 				<div class="date">2023-01-01</div>
 				<button class="save">Save</button>
 			</div>
+
+			<div class="fileLink">
+				<div class="icon"><img src="delete.png"></div>
+				<div class="name">file.txt</div>
+				<div class="tag"></div>
+				<div class="date">2023-01-01</div>
+				<button class="save">Speichern</button>
+			</div>
+
+			<div class="fileLink">
+				<div class="icon"><img src="delete.png"></div>
+				<div class="name">file.txt</div>
+				<div class="tag"></div>
+				<div class="date">2023-01-01</div>
+				<button class="save">Guardar</button>
+			</div>
+
+			<div class="fileLink">
+				<div class="icon"><img src="delete.png"></div>
+				<div class="name">file.txt</div>
+				<div class="tag"></div>
+				<div class="date">2023-01-01</div>
+				<button class="save">Save</button>
+			</div>
+
+			<div class="fileLink">
+				<div class="icon"><img src="delete.png"></div>
+				<div class="name">file.txt</div>
+				<div class="tag"></div>
+				<div class="date">2023-01-01</div>
+				<button class="save">Save</button>
+			</div>
+
+			<div class="fileLink">
+				<div class="icon"><img src="delete.png"></div>
+				<div class="name">file.txt</div>
+				<div class="tag"></div>
+				<div class="date">2023-01-01</div>
+				<button class="save">Save</button>
+			</div>
+
+			<div class="fileLink">
+				<div class="icon"><img src="delete.png"></div>
+				<div class="name">file.txt</div>
+				<div class="tag"></div>
+				<div class="date">2023-01-01</div>
+				<button class="save">Save</button>
+			</div>
+
+			<div class="fileLink">
+				<div class="icon"><img src="delete.png"></div>
+				<div class="name">file.txt</div>
+				<div class="tag"></div>
+				<div class="date">2023-01-01</div>
+				<button class="save">Save</button>
+			</div>
+
+			<div class="fileLink">
+				<div class="icon"><img src="delete.png"></div>
+				<div class="name">file.txt</div>
+				<div class="tag"></div>
+				<div class="date">2023-01-01</div>
+				<button class="save">Save</button>
+			</div>
 			<!--file list here-->
 		</div><!--close filelist-->
 	</section><!--close filearea-->
@@ -144,7 +198,8 @@
 
 
 
-	<nav id="menu" class="menu">
+	<nav id="menu">
+		<button id="closeMenu" onclick="document.getElementById('menu').classList.toggle('menu')"><img src="close.svg"></button>
 		<h3>Settings</h3>
 		<h4>GENERAL</h4>
 
@@ -193,22 +248,22 @@
 
 		<aside>
 			<img src="logout.png">
-			<div>Log Out (device)</div>
+			<div class="cyellow">Log Out (this device)</div>
 		</aside>
 
 		<aside>
 			<img src="logout.png">
-			<div>Log Out (all devices)</div>
+			<div class="cyellow">Log Out (all devices)</div>
 		</aside>
 
 		<aside>
 			<img src="logout.png">
-			<div>Manage my devices</div>
+			<div class="cyellow">Manage my devices</div>
 		</aside>
 
 		<aside>
 			<img src="delete.svg">
-			<div>Delete account</div>
+			<div class="cred">Delete account</div>
 		</aside>
 
 		<h4>SERVER</h4>
