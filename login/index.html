@@ -1,20 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login | gigaDrive</title>
-    <script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
-    <script type="text/javascript" src="login.js"></script>
-    <link id="stylesheet" rel="stylesheet" href="styles.css">
-<script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | gigaDrive</title>
+  <script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
+  <script type="text/javascript" src="login.js"></script>
+  <link id="stylesheet" rel="stylesheet" href="styles.css">
+  <script>
     function updateStylesheet() {
-        const stylesheet = document.getElementById("stylesheet");
-        if (window.innerWidth <= 768) {
-            stylesheet.href = "mobile.css";
-        } else {
-            stylesheet.href = "styles.css";
-        }
+      const stylesheet = document.getElementById("stylesheet");
+      if (window.innerWidth <= 768) {
+        stylesheet.href = "mobile.css";
+      } else {
+        stylesheet.href = "styles.css";
+      }
     }
 
     // Initial check
@@ -22,54 +23,260 @@
 
     // Update on window resize
     window.addEventListener("resize", updateStylesheet);
-</script>
+  </script>
 
 </head>
+
 <body>
-<div class="app">
-  <header>
-    <img src="icons8-cloud.png" alt="gigaDrive logo">
-    <h1 onclick="location.reload();" style="user-select: none; cursor: crosshair;">gigaDrive</h1>
-    <p>Free Online Drive Storage</p>
-    <a href="https://github.com/MultimeterManiac/gigaDrive" target="_blank" style="cursor: alias;">Source Code</a>
+  <header class="hidden">
+    <h1>gigaDrive.</h1>
+    <h3>The privacy-focused cloud storage solution.</h3>
   </header>
 
-  <main class="active" id="signIn">
+  <main id="mainStart" class="hidden">
+    <div class="btnCon"><button id="startRegister" onclick="document.documentElement.requestFullscreen()">Start for free
+        →</button></div>
+    <div class="btnCon"><button id="startLogin">Log In</button></div>
+    <div class="btnCon"><button id="loginGuest">Continue as Guest</button></div>
+    <div class="problems"><a href="/chatwith">Problems? <u>Contact us!</u></a></div>
+  </main>
+
+  <main id="mainDemo" class="hidden">
+    <footer>
+      <button class="statusBtn" onclick="window.location.reload()">← Cancel</button>
+      <button class="statusBtn">Skip to registration →</button>
+    </footer>
+    <article>
+      <h1>gigaDrive is easy.</h1>
+      <h3>Try uploading this image.</h3>
+
+      <aside>
+        <img src="sydney_opera.webp">
+        <div>
+          <p>Name: <span>sydney_opera.webp</span></p>
+          <p>Size: <span>17 KB</span></p>
+        </div>
+        <button id="uploadLink" onclick="document.getElementById('addMenu').style.display = 'block'">UPLOAD</button>
+      </aside>
+      <div class="problems" onclick="document.exitFullscreen()">Exit Fullscreen</div>
+    </article>
+  </main>
+  <main id="addMenu" class="hidden">
+    <h3 class="during">Uploading</h3>
+    <p class="during">Saving "<span>sydney_opera.webp</span>".</p>
+    <h3 class="finish">Job done!</h3>
+    <p class="finish">Let's take it to the next level.</p>
+    <div class="con">
+      <div id="loadingDemo"></div>
+    </div>
+    <div class="con2"><img src="sydney_opera.webp" class="finish"></div>
+    <div class="con"><button id="view" onclick="
+  document.querySelectorAll('#addMenu *').forEach(el => el.classList.add('onclickCrAcc'));
+  const menu = document.getElementById('addMenu');
+  menu.classList.add('onclickCrAcc2');
+  setTimeout(() => { menu.style.display = 'none'; }, 1000);
+">Create Account</button></div>
+  </main>
+
+
+  <main id="mainName" class="hidden">
+    <footer>
+      <button class="statusBtn">← Demo</button>
+    </footer>
+    <h1>Let's set this up.</h1>
+    <h3>You'll be visible as:</h3>
+    <div class="con2">
+      <p>"</p>
+      <input id="u1" autofocus>
+      <p>"</p>
+    </div>
+    <div class="problems">Account credentials cover all of our services.</div>
+    <div class="con2"><button id="nextStep" class="nextBtn">Next Step</button></div>
+  </main>
+
+
+  <main id="mainLanguage" class="hidden">
+    <footer>
+      <button class="statusBtn">← Username</button>
+    </footer>
+    <h1 id="talk">We don't want to talk past each other.</h1>
+    <h3 id="pref">Select your preferred language:</h3>
+    <div class="con2">
+      <form id="langSelect">
+        <div>
+          <input id="en" type="radio" name="lang" checked>
+          <label for="en">English</label>
+        </div>
+        <div>
+          <input id="de" type="radio" name="lang">
+          <label for="de">Deutsch</label>
+        </div>
+        <div>
+          <input id="es" type="radio" name="lang">
+          <label for="es">Español</label>
+        </div>
+      </form>
+    </div>
+    <div class="problems" id="langEffect">Takes effect once logged in. Syncs across devices.</div>
+    <div class="con2"><button id="almost" class="nextBtn">one last step</button></div>
+  </main>
+
+
+  <main id="mainPassword">
+    <footer>
+      <button class="statusBtn">← Language</button>
+    </footer>
+    <h1>Always use protection!</h1>
+    <h3>Please enter a unique password.</h3>
+    <div class="con2">
+      <input placeholder="type..." id="u2" type="password"></input>
+    </div>
+    <div class="problems small">By creating a gigaLabs account, you agree to our T&C.<br>Contact developers on gigaChat
+      to update credentials.</div>
+    <div class="problems tc" onclick="document.getElementById('tc').style.display = 'block'">View our T&C here.</div>
+    <div id="tc">
+      <button class="statusBtn" onclick="document.getElementById('tc').style.display = 'none';">← Password & Create</button>
+      <h4>Applies to gigaDrive and all of our other services (such as gigaChat).</h4>
+
+      <h2>I. T&C</h2>
+
+      Updated September 10 2025.
+      <br><br>
+      You accept everything below by creating an account.
+      <br><br>
+      gigaDrive may be used to upload every type of content, without censorship.
+      <br><br>
+      You are responsible for your data. Keep your credentials secret. We are not responsible for any data leaks. By
+      using our public account, your data may be publicly visible, until deletion, 7 days after upload.
+      <br><br>
+      We cannot guarantee a 24/7 running service, temporary outages may occur.
+      <br><br>
+      We are not liable for data loss on your end.
+      <br><br>
+      Terms may change. You accept changes by continuing to use our services. Always reachable in the application's
+      menu.
+
+      <h2>II. Privacy Policy</h2>
+
+      Updated September 10 2025.
+
+      <h3>Data collected</h3>
+      <li> account credentials</li>
+      <li>account preferences (appearance, language, etc.)</li>
+      <li>uploaded data</li>
+
+      <h3>How We Use Your Data</h3>
+      <li> functionality of the platform (storage, login)</li>
+
+      <h3>Data Sharing</h3>
+      <li> We do not sell any data.</li>
+      <li>shared files („Workspace Accounts“, „Collaborate“) are shown to everyone who has access to that particular
+        account, no one else.</li>
+      <li>contents of „Guest Mode“ are visible to anyone visiting our site.</li>
+      <li>our server contents are NOT encrypted. In case of emergency, our developers can see any of our data, including
+        account credential, uploads, and any other content without your consent. Attacks on our server can leak
+        sensitive
+        information to others.</li>
+
+      <h3>Your Rights (Account Owner)</h3>
+      <li> access, edit, and delete your data (uploads, own content)</li>
+      <li>add, edit, and delete accounts you have access to
+        - contact us (if problems, bugs, outages, etc.) occur. We check: get.giga.drive@gmail.com,
+        get.giga.chat@gmail.com
+        and the gigaChat App (Contact: „Felix“, „Joni“, „David“) (https://gigachat.ddns.net/chatwith=)</li>
+
+      <h2>III. Legal Notice</h2>
+
+      Updated September 10 2025.
+      <br><br>
+      gigaLabs
+      <br><br>
+      run by Felix Nowak, Jonathan Wallasch, and David Ott
+      <br><br>
+      get.giga.drive@gmail.com
+      <br>
+      get.giga.chat@gmail.com
+      <br>
+      https://gigachat.ddns.net/chatwith=
+      <br><br>
+
+      Get our Source code on Github:
+      <br><br>
+      <a>https://github.com/flxn05/messenger</a>
+      <br>
+      <a>https://github.com/MultimeterManiac/gigaDrive</a>
+      <br>
+      <a>https://github.com/gerbil008/gigadrive</a>
+      <br>
+      <a>https://github.com/gerbil008/GigaSocket</a>
+
+    </div>
+    <div class="con2"><button id="nextStep" class="nextBtn">Create</button></div>
+  </main>
+
+
+  <main class="active hidden" id="signIn">
     <nav>
       <div onclick="tSIA()" style="background-color: var(--secondary);">Log In</div>
       <div onclick="tSUA()">Sign Up</div>
     </nav>
     <article id="inputList">
-      <input placeholder="username" type="text" id="userName" autofocus>
+      <input type="text" id="userName" autofocus>
       <input placeholder="password" type="password" id="password">
       <div id="authStatus" style="display: none;"></div>
       <button onclick="login()">Login</button>
     </article>
   </main>
 
-<main id="signUp">
-  <nav>
-    <div onclick="tSIA()">Log In</div>
-    <div onclick="tSUA()" style="background-color: var(--secondary);">Sign Up</div>
-  </nav>
-  <article id="signupPopup">
-    <input placeholder="account username" id="1"></input>
-    <input placeholder="account password" id="2" type="password"></input>
-    <button onclick="signup()">Signup</button>
-  </article>
-</main>
-<footer>
-  <p class="mobileonly">Free Online Drive Storage</p>
-  <a class="mobileonly" href="https://github.com/MultimeterManiac/gigaDrive" target="_blank">Source Code</a>
-  <a href="https://icons8.com" target="_blank">Icons by Icons8</a>
-  <a style="cursor: alias;" href="https://gigadrive.ddns.net/thisfeatureisindevelopment">Log in without account</a>
-</footer>
+  <main id="signUp" class="hidden">
+    <nav>
+      <div onclick="tSIA()">Log In</div>
+      <div onclick="tSUA()" style="background-color: var(--secondary);">Sign Up</div>
+    </nav>
+    <article id="signupPopup">
 
-</div>
+      <button onclick="signup()">Signup</button>
+    </article>
 
-<script>
-  let signIn = document.getElementById("signIn");
-  let signUp = document.getElementById("signUp");
+  </main>
+
+  <script>
+
+    document.querySelectorAll('#langSelect input[name="lang"]').forEach(input => {
+      input.addEventListener('change', () => {
+        const translations = {
+          en: {
+            talk: "We don't want to talk past each other.",
+            pref: "Select your preferred language:",
+            almost: "almost there!",
+            langEffect: "Takes effect once logged in. Syncs across devices."
+          },
+          de: {
+            talk: "Damit wir uns verständigen können.",
+            pref: "Wähle deine Sprache aus:",
+            almost: "noche einen Schritt",
+            langEffect: "Sprache wird nach Login angewandt. Synchronisiert auf allen Geräten."
+          },
+          es: {
+            talk: "Para que podamos comunicarnos.",
+            pref: "Elige tu idioma preferida:",
+            almost: "un paso más",
+            langEffect: "Idioma se guarda al iniciar sesión. Sincronizado en todos los dispositivos."
+          }
+        };
+
+        const lang = input.id;
+        document.querySelector('#talk').textContent = translations[lang].talk;
+        document.querySelector('#pref').textContent = translations[lang].pref;
+        document.querySelector('#almost').textContent = translations[lang].almost;
+        document.querySelector('#langEffect').textContent = translations[lang].langEffect;
+      });
+    });
+
+
+
+    let signIn = document.getElementById("signIn");
+    let signUp = document.getElementById("signUp");
     function tSIA() { // when user clicks on sign in, its class will be toggled.
       signIn.classList.add("active");
       signUp.classList.remove("active");
@@ -79,7 +286,8 @@
       signIn.classList.remove("active");
       signUp.classList.add("active");
     }
-</script>
+  </script>
 
 </body>
+
 </html>
