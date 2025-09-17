@@ -1,4 +1,4 @@
-const encrypt = (text) => {
+ const encrypt = (text) => {
     return CryptoJS.enc.Base64.stringify(CryptoJS.enc.Utf8.parse(text));
   };
   
