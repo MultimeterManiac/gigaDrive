@@ -7,8 +7,8 @@
   <title>Login | gigaDrive</title>
   <script src="https://cdn.jsdelivr.net/npm/appwrite@16.0.2"></script>
   <script type="text/javascript" src="login.js"></script>
-  <link id="stylesheet" rel="stylesheet" href="styles.css">
-  <script>
+  <link id="stylesheet" rel="stylesheet" href="mobile.css">
+  <!--<script>
     function updateStylesheet() {
       const stylesheet = document.getElementById("stylesheet");
       if (window.innerWidth <= 768) {
@@ -23,7 +23,7 @@
 
     // Update on window resize
     window.addEventListener("resize", updateStylesheet);
-  </script>
+  </script>-->
 
 </head>
 
@@ -135,7 +135,8 @@
       to update credentials.</div>
     <div class="problems tc" onclick="document.getElementById('tc').style.display = 'block'">View our T&C here.</div>
     <div id="tc">
-      <button class="statusBtn" onclick="document.getElementById('tc').style.display = 'none';">← Password & Create</button>
+      <button class="statusBtn" onclick="document.getElementById('tc').style.display = 'none';">← Password &
+        Create</button>
       <h4>Applies to gigaDrive and all of our other services (such as gigaChat).</h4>
 
       <h2>I. T&C</h2>
@@ -211,10 +212,10 @@
       <a>https://github.com/gerbil008/GigaSocket</a>
 
     </div>
-    <div class="con2"><button id="nextStep" class="nextBtn">Create</button></div>
+    <div class="con2"><button id="nextStep" class="nextBtn" onclick="signup()">Create</button></div>
   </main>
 
-    <main id="mainCanLog">
+  <main id="mainCanLog" class="hidden">
     <footer>
       <button class="statusBtn">Cancel</button>
     </footer>
@@ -222,30 +223,27 @@
     <div class="con2"><button id="almost" class="nextBtn">Yes, log in</button></div>
   </main>
 
-  <main class="active hidden" id="signIn">
-    <nav>
-      <div onclick="tSIA()" style="background-color: var(--secondary);">Log In</div>
-      <div onclick="tSUA()">Sign Up</div>
-    </nav>
+  <main id="signIn">
+    <h1>Long time no see!</h1>
+    <h3>Verify here:</h3>
     <article id="inputList">
-      <input type="text" id="userName" autofocus>
-      <input placeholder="password" type="password" id="password">
-      <div id="authStatus" style="display: none;"></div>
-      <button onclick="login()">Login</button>
+      <div>
+        <label for="userName">Name:</label>
+        <input type="text" id="userName" autofocus>
+        <label for="password">Authentication:</label>
+        <input type="password" id="password">
+      </div>
+      <div id="authStatus"></div>
+      <div class="con2"><button onclick="login()" class="nextBtn">Confirm</button></div>
+      <footer>
+        <div class="problems"><a href="/chatwith">Problems? <u>Contact us!</u></a></div>
+        <button class="statusBtn">← Landing Page</button>
+      </footer>
     </article>
   </main>
 
-  <main id="signUp" class="hidden">
-    <nav>
-      <div onclick="tSIA()">Log In</div>
-      <div onclick="tSUA()" style="background-color: var(--secondary);">Sign Up</div>
-    </nav>
-    <article id="signupPopup">
-
-      <button onclick="signup()">Signup</button>
-    </article>
-
-  </main>
+  <div id="one"></div>
+  <div id="two"></div>
 
   <script>
 
@@ -280,19 +278,6 @@
       });
     });
 
-
-
-    let signIn = document.getElementById("signIn");
-    let signUp = document.getElementById("signUp");
-    function tSIA() { // when user clicks on sign in, its class will be toggled.
-      signIn.classList.add("active");
-      signUp.classList.remove("active");
-    }
-
-    function tSUA() { // when user clicks on sign up, its class will be toggled.
-      signIn.classList.remove("active");
-      signUp.classList.add("active");
-    }
   </script>
 
 </body>

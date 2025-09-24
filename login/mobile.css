@@ -85,20 +85,11 @@ h3 {
   background-color: transparent;
 }
 
-.problems {
-  position: fixed;
-  bottom: 24px;
-  left: 0;
-  right: 0;
-  display: flex;
-  justify-content: center;
-  text-align: center;
-  color: var(--blue);
-}
 .small {
   font-size: .85rem;
   line-height: 1.5rem;
 }
+
 .tc {
   bottom: 5rem;
   text-decoration: underline;
@@ -216,22 +207,6 @@ aside span {
   }
 }
 
-.con {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: fixed;
-  bottom: 33vh;
-  left: 0;
-  right: 0;
-}
-
-.con2 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 #view {
   border: 1px solid var(--accent);
   background-color: transparent;
@@ -333,7 +308,8 @@ aside span {
   }
 }
 
-#u1, #u2 {
+#u1,
+#u2 {
   background-color: transparent;
   border: none;
   font-size: 1.5rem;
@@ -352,6 +328,7 @@ aside span {
   border-radius: 20px;
   animation: view2 8s both;
 }
+
 @keyframes view2 {
   0% {
     background-color: transparent;
@@ -371,6 +348,7 @@ aside span {
   justify-content: space-between;
   width: 100vw;
 }
+
 #langSelect div {
   padding: 12px;
   background-color: var(--secondary);
@@ -380,6 +358,7 @@ aside span {
 input[type='radio'] {
   accent-color: var(--accent);
 }
+
 #tc {
   display: none;
   position: fixed;
@@ -395,6 +374,7 @@ input[type='radio'] {
   font-weight: normal;
   user-select: all;
 }
+
 #tc h2 {
   font-size: 2rem;
   font-weight: bold;
@@ -402,12 +382,104 @@ input[type='radio'] {
   color: grey;
   margin-top: 10vh;
 }
+
 #tc h3 {
   font-size: 1.2rem;
   font-weight: bold;
   text-decoration: underline;
   margin-top: 7.5vh;
 }
+
 #tc li {
   margin-block: 8px;
+}
+
+/*login*/
+
+#signIn input {
+  background-color: var(--fileFocus);
+  border: 1px solid rgba(255, 255, 255, .2);
+  border-radius: 12px;
+  padding-block: 4px;
+  padding-inline: 4px;
+}
+
+#signIn div {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  row-gap: 12px;
+  padding-inline: 12px;
+}
+#authStatus {
+  display: block !important;
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 36px;
+  color: var(--blue);
+}
+
+.con {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 33vh;
+  left: 0;
+  right: 0;
+}
+
+.con2 {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+
+.problems {
+  position: fixed;
+  bottom: 24px;
+  left: 0;
+  right: 0;
+  display: flex !important;
+  justify-content: center;
+  text-align: center;
+  color: var(--blue);
+}
+
+#one,
+#two {
+  position: fixed;
+  top: calc(50vh - 22px);
+  left: calc(50vw - 22px);
+  background-color: var(--accent);
+  animation: load 4s infinite ease both;
+  border-radius: 50%;
+  background-color: var(--accent);
+  width: 44px;
+  height: 44px;
+  box-shadow: 0 0 12px black;
+  display: none;
+}
+
+@keyframes load {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+
+  10% {
+    opacity: .9;
+  }
+
+  100% {
+    transform: scale(5);
+    opacity: 0;
+  }
+}
+
+#two {
+  animation-delay: 2s;
+}
+#authStatus {
+  text-align: center;
 }

@@ -197,14 +197,8 @@ if ("serviceWorker" in navigator) {
 	});
 }
 
-// sigma. kp ob des funktioniert.
-function showUsername() {
-	document.getElementById('logoutLink').textContent = username;
-	document.getElementById('popupSettingsUsername').textContent = username;
-}
-
 document.getElementById('addFile').addEventListener('change', function (e) {
-	document.getElementById("fffi").innerHTML = e.target.files.length + " files selected";
+	document.getElementById("itemsToUpload").innerHTML = "Upload " + e.target.files.length + " item(s) to:";
 	//console.log(e.target.files.length);
 });
 let filterActive = false;
